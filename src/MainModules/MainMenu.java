@@ -1,12 +1,12 @@
 package MainModules;
 
-import DataPackage.VariableChooses;
+import DataPackage.Variable;
 import MainModules.Calculator;
 import MainModules.StringProcessing;
 import java.time.LocalDateTime;
 import java.util.Date;
 
-public class MainMenu extends VariableChooses {
+public class MainMenu extends Variable {
     Date date = new Date();
     StringProcessing sp = new StringProcessing();
     private String nameProperty = System.getProperty("user.name");
@@ -18,11 +18,11 @@ public class MainMenu extends VariableChooses {
         System.out.println("Welcome " + nameProperty + " to the program!\n" +
                 "Current time: " + date + "\n" +
                 "Choose your command: ");
-        chooseAction = scanner.nextLine();
+        setChooseAction(scanner.nextLine());
         if (chooseAction.contains("string")) {
             System.out.println("Available methods for string:\n " +
                     "Substring");
-            chooseAction = scanner.next();
+            setChooseAction(scanner.nextLine());
             if (chooseAction.contains("Substring")) {
                 sp.substringString();
             }
@@ -30,8 +30,13 @@ public class MainMenu extends VariableChooses {
         if (chooseAction.contains("calc")) {
             calc.calculator();
         }
-        if(chooseAction.contains("weather")) {
-
+        if(chooseAction.contains("info")) {
+            System.out.println("Available methods for string:\n " +
+                    "System");
+            setChooseAction(scanner.nextLine());
+            if (chooseAction.contains("System")) {
+                sp.substringString();
+            }
         }
     }
 }
