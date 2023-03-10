@@ -19,25 +19,25 @@ public class MainMenu extends Variable {
                 "Current time: " + date + "\n" +
                 "Choose your command: ");
         setChooseAction(scanner.nextLine());
-        if (chooseAction.contains("string")) {
+        if (chooseAction.contains("string") || chooseAction.contains("String")) {
             System.out.println("Available methods for string:\n " +
                     "Substring");
             setChooseAction(scanner.nextLine());
-            if (chooseAction.contains("Substring")) {
+            if (chooseAction.contains("Substring") || chooseAction.contains("substring")) {
                 sp.substringString();
-            } else if (chooseAction.contains("Contains")) {
+            } else if (chooseAction.contains("Contains") || chooseAction.contains("contains")) {
                 sp.containsStringCheck();
             }
         }
-        if (chooseAction.contains("calc")) {
+        if (chooseAction.contains("calc") || chooseAction.contains("Calc")) {
             calc.calculator();
         }
-        if(chooseAction.contains("info")) {
+        if(chooseAction.contains("info") || chooseAction.contains("Info")) {
             System.out.println("Available methods for string:\n " +
                     "System");
             setChooseAction(scanner.nextLine());
-            if (chooseAction.contains("System")) {
-                sp.substringString();
+            if (chooseAction.contains("System") || chooseAction.contains("system")) {
+                si.getSystemInfo();
             }
         }
     }
