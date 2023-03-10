@@ -1,4 +1,6 @@
-import java.awt.*;
+package MainModules;
+
+import DataPackage.VariableChooses;
 import java.util.Scanner;
 
 public class Calculator extends VariableChooses {
@@ -31,8 +33,6 @@ public class Calculator extends VariableChooses {
     public void setResult(double result) {
         this.result = result;
     }
-
-    Scanner scanner = new Scanner(System.in);
 
     public void calculator() {
 
