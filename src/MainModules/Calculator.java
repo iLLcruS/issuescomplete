@@ -1,38 +1,9 @@
 package MainModules;
 
-import DataPackage.VariableChooses;
+import AbstractClasses.CalculateAbs;
 import java.util.Scanner;
 
-public class Calculator extends VariableChooses {
-    private double firstNumber;
-
-    public double getFirstNumber() {
-        return firstNumber;
-    }
-
-    public void setFirstNumber(double firstNumber) {
-        this.firstNumber = firstNumber;
-    }
-
-    private double secondNumber;
-
-    public double getSecondNumber() {
-        return secondNumber;
-    }
-
-    public void setSecondNumber(double secondNumber) {
-        this.secondNumber = secondNumber;
-    }
-
-    double result;
-
-    public double getResult() {
-        return result;
-    }
-
-    public void setResult(double result) {
-        this.result = result;
-    }
+public class Calculator extends CalculateAbs {
 
     public void calculator() {
 
@@ -59,15 +30,19 @@ public class Calculator extends VariableChooses {
                 switch (operator) {
                     case '+':
                         result = firstNumber + secondNumber;
+                        setResult(result);
                         break;
                     case '-':
                         result = firstNumber - secondNumber;
+                        setResult(result);
                         break;
                     case '*':
                         result = firstNumber * secondNumber;
+                        setResult(result);
                         break;
                     case '/':
                         result = firstNumber / secondNumber;
+                        setResult(result);
                         break;
                     default:
                         System.out.println("Invalid operator.");
