@@ -1,3 +1,7 @@
+package MainModules;
+
+import DataPackage.VariableChooses;
+
 import java.util.Scanner;
 
 public class StringProcessing extends VariableChooses {
@@ -23,7 +27,7 @@ public class StringProcessing extends VariableChooses {
 
         if (enterChooseNumber == 1) {
             mm.Menu();
-        } else if (enterChooseNumber == 2) {
+        } else if (VariableChooses.enterChooseNumber == 2) {
             substringString();
         }
     }

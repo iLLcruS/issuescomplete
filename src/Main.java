@@ -1,3 +1,5 @@
+import DataPackage.VariableChooses;
+
 import java.util.Scanner;
 
 public class Main extends VariableChooses {
