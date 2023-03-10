@@ -2,13 +2,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class MainMenu {
-    private String chooseAction = "";
+public class MainMenu extends VariableChooses {
+
     StringProcessing sp = new StringProcessing();
     Calculator calc = new Calculator();
     Scanner input = new Scanner(System.in);
-
-    static MainMenu mm = new MainMenu();
 
     public void Menu() {
         System.out.println("Welcome to the program!\n " +

@@ -1,10 +1,10 @@
 import java.util.Scanner;
 
-public class Main {
+public class Main extends VariableChooses {
+
     private String choose = "";
     private static String password = "123";
     private static String enterPassword = "";
-    static MainMenu mm = new MainMenu();
 
     public static void main(String[] args) {
         System.out.println("Hello! Its a Issue Program\n " +
@@ -12,8 +12,7 @@ public class Main {
         Scanner in = new Scanner(System.in);
         enterPassword = in.nextLine();
         if (enterPassword.contains(password)) {
-            mm.Menu();
-
+            VariableChooses.mm.Menu();
         } else if (!enterPassword.contains(password)) {
             System.out.println("Wrong password, try again!");
         }

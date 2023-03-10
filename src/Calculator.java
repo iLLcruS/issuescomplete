@@ -1,10 +1,7 @@
 import java.awt.*;
 import java.util.Scanner;
 
-public class Calculator {
-
-    private int chooseOptionCalc;
-    static MainMenu mmc = new MainMenu();
+public class Calculator extends VariableChooses {
     private double firstNumber;
 
     public double getFirstNumber() {
@@ -34,6 +31,7 @@ public class Calculator {
     public void setResult(double result) {
         this.result = result;
     }
+
     Scanner scanner = new Scanner(System.in);
 
     public void calculator() {
@@ -78,11 +76,11 @@ public class Calculator {
                 System.out.println("Result: " + result);
             }
         }
-        System.out.println("Do you want to back Main Menu?(1 - yes; 2 - no");
-        chooseOptionCalc = scanner.nextInt();
-        if (chooseOptionCalc == 1) {
-            mmc.Menu();
-        } else if (chooseOptionCalc == 2) {
+        System.out.println("Do you want to back Main Menu?(1 - yes; 2 - no)");
+        enterChooseNumber = scanner.nextInt();
+        if (enterChooseNumber == 1) {
+            mm.Menu();
+        } else if (enterChooseNumber == 2) {
             calculator();
         }
     }
