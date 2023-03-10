@@ -25,6 +25,8 @@ public class MainMenu extends Variable {
             setChooseAction(scanner.nextLine());
             if (chooseAction.contains("Substring")) {
                 sp.substringString();
+            } else if (chooseAction.contains("Contains")) {
+                sp.containsStringCheck();
             }
         }
         if (chooseAction.contains("calc")) {
