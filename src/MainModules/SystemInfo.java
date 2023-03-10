@@ -1,8 +1,7 @@
 package MainModules;
 
-import DataPackage.VariableChooses;
-
-public class SystemInfo extends VariableChooses {
+import DataPackage.Variable;
+public class SystemInfo extends Variable {
     private static void getSystemVersion() {
         if (isWindows()) {
             System.out.println("This is Windows");
