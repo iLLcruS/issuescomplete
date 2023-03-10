@@ -71,13 +71,14 @@ public class Calculator extends VariableChooses {
                         break;
                     default:
                         System.out.println("Invalid operator.");
+                        mm.Menu();
                         return;
                 }
                 System.out.println("Result: " + result);
             }
         }
         System.out.println("Do you want to back Main Menu?(1 - yes; 2 - no)");
-        enterChooseNumber = scanner.nextInt();
+        setEnterChooseNumber(scanner.nextInt());
         if (enterChooseNumber == 1) {
             mm.Menu();
         } else if (enterChooseNumber == 2) {
