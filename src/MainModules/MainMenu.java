@@ -16,9 +16,11 @@ public class MainMenu extends Variable {
 
     public void Menu() {
         System.out.println("Welcome " + nameProperty + " to the program!\n" +
-                "Current time: " + date + "\n" +
                 "Choose your command: ");
         setChooseAction(scanner.nextLine());
+        if(chooseAction.contains("S") || chooseAction.contains("s")){
+
+        }
         if (chooseAction.contains("string") || chooseAction.contains("String")) {
             System.out.println("Available methods for string:\n " +
                     "Substring");
@@ -26,7 +28,7 @@ public class MainMenu extends Variable {
             if (chooseAction.contains("Substring") || chooseAction.contains("substring")) {
                 sp.substringString();
             } else if (chooseAction.contains("Contains") || chooseAction.contains("contains")) {
-                sp.containsStringCheck();
+               // sp.containsStringCheck();
             }
         }
         if (chooseAction.contains("calc") || chooseAction.contains("Calc")) {
@@ -40,6 +42,18 @@ public class MainMenu extends Variable {
                 si.getSystemInfo();
             }
         }
+        if(chooseAction.contains("Weather") || chooseAction.contains("Sql") || chooseAction.contains("SQL")){
+
+        }
+        if(chooseAction.contains("Time") || chooseAction.contains("time")){
+            System.out.println("Current time: " + date);
+            System.out.println("--------------------------------");
+            Menu();
+        }
+        if(chooseAction.contains("")){
+
+        }
+        //if(chooseAction.contains(""))
     }
 }
 
