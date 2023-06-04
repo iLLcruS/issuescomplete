@@ -1,21 +1,25 @@
 package MainModules;
 
 import DataPackage.Variable;
+
+import static java.lang.System.out;
+
+
 public class SystemInfo extends Variable {
     private static void getSystemVersion() {
         if (isWindows()) {
-            System.out.println("This is Windows");
-            System.out.println("It's version is: " + getOSVerion());
+            out.println("This is Windows");
+            out.println("It's version is: " + getOSVerion());
         } else if (isMac()) {
-            System.out.println("This is Macintosh");
-            System.out.println("It's version is: " + getOSVerion());
+            out.println("This is Macintosh");
+            out.println("It's version is: " + getOSVerion());
         } else if (isUnix()) {
-            System.out.println("This is Unix or Linux OS");
-            System.out.println("It's version is: " + getOSVerion());
+            out.println("This is Unix or Linux OS");
+            out.println("It's version is: " + getOSVerion());
         } else {
-            System.out.println("This is unknown OS");
+            out.println("This is unknown OS");
         }
-        System.out.println("Version: " + getOSVerion());
+        out.println("Version: " + getOSVerion());
     }
 
     private static boolean isWindows() {
