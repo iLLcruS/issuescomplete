@@ -3,6 +3,9 @@ package MainModules;
 import DataPackage.Variable;
 import MainModules.Calculator;
 import MainModules.StringProcessing;
+import Modules.Module;
+
+import java.net.UnknownHostException;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -55,8 +58,8 @@ public class MainMenu extends Variable {
             System.out.println("--------------------------------");
             Menu();
         }
-        if(chooseAction.contains("")){
-
+        if(chooseAction.contains("ip") || chooseAction.contains("Ip") || chooseAction.contains("IP")){
+                System.out.println("Your ip: "  + new Module().getIp());
         }
         //if(chooseAction.contains(""))
     }
