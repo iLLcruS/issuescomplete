@@ -30,8 +30,14 @@ public class Variable extends VariableChooses{
     public void setResult(double result) {
         this.result = result;
     }
+    protected String userSentenceAppend;
+    public String getUserSentenceAppend() {
+        return userSentenceAppend;
+    }
 
-
+    public void setUserSentenceAppend(String userSentenceAppend) {
+        this.userSentenceAppend = userSentenceAppend;
+    }
 
     protected String userSentence;
     public String getUserSentence() {

@@ -3,28 +3,62 @@ package MainModules;
 import AbstractClasses.StringProcessingAbs;
 import DataPackage.VariableChooses;
 
+import java.lang.System;
+
 import java.util.Scanner;
+
+import static java.lang.System.out;
+
 public class StringProcessing extends StringProcessingAbs {
-    public void substringString(){
-        System.out.println("Input your sentence: ");
+    StringBuilder str = new StringBuilder();
+
+    public void substringString() {
+        out.println("Input your sentence: ");
         setUserSentence(scanner.next());
 
-        System.out.println("Input the first number: ");
+        out.println("Input the first number: ");
         setNumberOneForSubstring(scanner.nextInt());
 
-        System.out.println("Input the second number: ");
+        out.println("Input the second number: ");
         setNumberTwoForSubstring(scanner.nextInt());
 
-        System.out.println("Your final sentence is: ");
-        System.out.println(userSentence.substring(numberOneForSubstring, numberTwoForSubstring));
+        out.println("Your final sentence is: ");
+        out.println(userSentence.substring(numberOneForSubstring, numberTwoForSubstring));
 
-        System.out.println("Do you want to back Main Menu?(1 - yes; 2 - no)");
+        out.println("Do you want to back Main Menu?(1 - yes; 2 - no)");
         setEnterChooseNumber(scanner.nextInt());
         if (enterChooseNumber == 1) {
             mm.Menu();
         } else if (VariableChooses.enterChooseNumber == 2) {
             substringString();
         }
+    }
+
+    public void appendString() {
+
+
+        out.println("Enter Your Start Sentence: ");
+        setUserSentence(scanner.next());
+
+        out.println(getUserSentence() + "- it is your sentence.");
+        str.append(getUserSentence() + " ");
+        out.println("Enter Your Sentence which you want to add: ");
+
+        setUserSentenceAppend(scanner.next());
+
+        str.append(getUserSentenceAppend());
+
+        out.println(str + "- it is your new sentence.");
+
+        out.println("Do you want to back Main Menu?(1 - yes; 2 - no)");
+
+        setEnterChooseNumber(scanner.nextInt());
+        if (enterChooseNumber == 1) {
+            mm.Menu();
+        } else if (VariableChooses.enterChooseNumber == 2) {
+            appendString();
+        }
+
     }
 
 }

@@ -23,12 +23,17 @@ public class MainMenu extends Variable {
         }
         if (chooseAction.contains("string") || chooseAction.contains("String")) {
             System.out.println("Available methods for string:\n " +
-                    "Substring");
+                    "Substring\n " +
+                    "Append");
             setChooseAction(scanner.nextLine());
             if (chooseAction.contains("Substring") || chooseAction.contains("substring")) {
                 sp.substringString();
-            } else if (chooseAction.contains("Contains") || chooseAction.contains("contains")) {
-               // sp.containsStringCheck();
+            if (chooseAction.contains("Contains") || chooseAction.contains("contains")) {
+
+            }
+            }
+            if(chooseAction.contains("Append") || chooseAction.contains("append")){
+                sp.appendString();
             }
         }
         if (chooseAction.contains("calc") || chooseAction.contains("Calc")) {
