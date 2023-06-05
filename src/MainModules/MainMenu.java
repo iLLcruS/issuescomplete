@@ -25,7 +25,8 @@ public class MainMenu extends Variable {
             out.println("Available methods for string:\n " +
                     "Substring\n " +
                     "Append\n" +
-                    " toLowerCase");
+                    " toLowerCase"+
+                    "\n toUpperCase");
             out.print("Enter method: ");
             setChooseAction(scanner.nextLine().toLowerCase());
             new Logger().LogSubMethod(getChooseAction());
@@ -42,6 +43,9 @@ public class MainMenu extends Variable {
             }
             if(chooseAction.contains("tolowercase")){
                new StringProcessing().toLowerCaseString();
+            }
+            if(chooseAction.contains("touppercase")){
+               new StringProcessing().toUpperCaseString();
             }
         }
         if(chooseAction.contains("calc")) {
