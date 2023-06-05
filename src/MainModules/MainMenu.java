@@ -12,7 +12,7 @@ public class MainMenu extends Variable {
 
     public void Menu() {
         System.out.println("Welcome " + nameProperty + " to the program!\n" +
-                "Choose your command: ");
+                "Input your command: ");
         setChooseAction(scanner.nextLine());
         if (chooseAction.contains("string") || chooseAction.contains("String")) {
             System.out.println("Available methods for string:\n " +
