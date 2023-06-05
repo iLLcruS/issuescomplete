@@ -18,7 +18,7 @@ public class MainMenu extends Variable {
         out.println("Welcome " + nameProperty + " to the program!\n" +
                 "Input your command: ");
         setChooseAction(scanner.nextLine());
-        if (chooseAction.contains("string") || chooseAction.contains("String")) {
+        if(chooseAction.contains("string") || chooseAction.contains("String")) {
             out.println("Available methods for string:\n " +
                     "Substring\n " +
                     "Append");
