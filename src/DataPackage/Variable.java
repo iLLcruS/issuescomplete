@@ -47,7 +47,7 @@ public class Variable extends VariableChooses{
         this.numberTwoForSubstring = numberTwoForSubstring;
     }
 
-    public void charOne(char charOne)
+    public void setCharOne(char charOne)
     {
         this.charOne = charOne;
     }
@@ -55,7 +55,7 @@ public class Variable extends VariableChooses{
     {
         return charOne;
     }
-    public void charTwo(char charTwo)
+    public void setCharTwo(char charTwo)
     {
         this.charTwo = charTwo;
     }
