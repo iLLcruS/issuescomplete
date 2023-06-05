@@ -1,4 +1,6 @@
 import DataPackage.VariableChooses;
+import Modules.CheckFilesAndDirectory;
+import Modules.CheckSession;
 
 import java.util.Scanner;
 
@@ -9,6 +11,7 @@ public class Main extends VariableChooses {
     private static String enterPassword = "";
 
     public static void main(String[] args) {
+        new CheckFilesAndDirectory().allCheck();
         System.out.println("Hello! Its a Issue Program\n " +
                 "Enter your password: ");
         Scanner in = new Scanner(System.in);

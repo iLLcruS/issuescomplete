@@ -3,6 +3,7 @@ package MainModules;
 import DataPackage.Variable;
 import MainModules.Calculator;
 import MainModules.StringProcessing;
+import Modules.JsonSession;
 import Modules.Module;
 
 import java.net.UnknownHostException;
@@ -12,7 +13,7 @@ import java.util.Date;
 public class MainMenu extends Variable {
     Date date = new Date();
     StringProcessing sp = new StringProcessing();
-    private String nameProperty = System.getProperty("user.name");
+    public String nameProperty = System.getProperty("user.name");
     Calculator calc = new Calculator();
 
     SystemInfo si = new SystemInfo();
