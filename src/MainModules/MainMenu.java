@@ -19,11 +19,13 @@ public class MainMenu extends Variable {
         out.print("Welcome " + nameProperty + " to the program!\n" +
                 "Input your command: ");
         setChooseAction(scanner.nextLine());
+
         new Logger().commandLoggerWriter(getChooseAction());
         if(chooseAction.contains("string") || chooseAction.contains("String")) {
             out.println("Available methods for string:\n " +
                     "Substring\n " +
-                    "Append");
+                    "Append\n" +
+                    " toLowerCase");
             out.print("Enter method: ");
             setChooseAction(scanner.nextLine().toLowerCase());
             new Logger().LogSubMethod(getChooseAction());
@@ -37,6 +39,9 @@ public class MainMenu extends Variable {
 
             if(chooseAction.contains("append")){
                new StringProcessing().appendString();
+            }
+            if(chooseAction.contains("tolowercase")){
+               new StringProcessing().toLowerCaseString();
             }
         }
         if(chooseAction.contains("calc")) {

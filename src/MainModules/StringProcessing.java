@@ -62,4 +62,21 @@ public class StringProcessing extends StringProcessingAbs {
 
     }
 
+    public void toLowerCaseString()
+    {
+        out.println("Enter your sentence: ");
+        setUserSentence(scanner.next());
+        out.println("---------------------------------------");
+        out.println("You're sentence: \n" + getUserSentence() + "\nResult: \n" + getUserSentence().toLowerCase());
+        out.println("---------------------------------------");
+        out.println("Do you want to back Main Menu?(1 - yes; 2 - no)");
+
+        setEnterChooseNumber(scanner.nextInt());
+        if (enterChooseNumber == 1) {
+            mm.Menu();
+        } else if (VariableChooses.enterChooseNumber == 2) {
+            toLowerCaseString();
+        }
+    }
+
 }

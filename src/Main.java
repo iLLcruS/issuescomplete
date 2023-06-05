@@ -8,7 +8,7 @@ public class Main{
         new Logger().logWriter();
         new CheckFilesAndDirectory().allCheck();
         new Visual().printMsgWithProgressBar("Loading", 25, 60);
-        System.out.println("\nHello! Its a Issue Program\n ");
+        out.println("\nHello! Its a Issue Program\n ");
 
         new Checks().checkPassword();
 
