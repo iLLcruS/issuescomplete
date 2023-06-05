@@ -2,6 +2,7 @@ package MainModules;
 
 import AbstractClasses.StringProcessingAbs;
 import DataPackage.VariableChooses;
+import Modules.Logger;
 
 import java.lang.System;
 

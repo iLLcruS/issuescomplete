@@ -13,6 +13,7 @@ public class CheckFilesAndDirectory {
     private final String pathLogFile = "./logs/log.txt";
     private final String pathSessionDir = "./session";
     private final String pathLogDir = "./logs";
+    private final String pathCommandsLogFile = "./logs/commandsLog.txt";
 
     private void checkSessionFile(){
         File sessionFile = new File(pathSessionFile);
@@ -20,6 +21,21 @@ public class CheckFilesAndDirectory {
             out.println("File with session not exists!");
             try {
                 FileWriter file = new FileWriter(pathSessionFile);
+                file.write(" ");
+                file.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            out.println("File created!");
+        }
+    }
+    private void checkCommandsFile()
+    {
+        File sessionFile = new File(pathCommandsLogFile);
+        if(!sessionFile.exists()){
+            out.println("File with session not exists!");
+            try {
+                FileWriter file = new FileWriter(pathCommandsLogFile);
                 file.write(" ");
                 file.close();
             } catch (IOException e) {
@@ -61,5 +77,6 @@ public class CheckFilesAndDirectory {
         checkLogsFile();
         checkSessionFile();
         checkDirectorySession();
+        checkCommandsFile();
     }
 }
