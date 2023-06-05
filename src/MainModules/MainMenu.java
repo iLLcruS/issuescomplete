@@ -3,6 +3,7 @@ package MainModules;
 import DataPackage.Variable;
 import Modules.CheckFilesAndDirectory;
 import Modules.GetIp;
+import Modules.Logger;
 import com.sun.tools.javac.Main;
 
 import java.util.Date;
@@ -15,45 +16,51 @@ public class MainMenu extends Variable {
 
 
     public void Menu() {
-        out.println("Welcome " + nameProperty + " to the program!\n" +
+        out.print("Welcome " + nameProperty + " to the program!\n" +
                 "Input your command: ");
         setChooseAction(scanner.nextLine());
+        new Logger().commandLoggerWriter(getChooseAction());
         if(chooseAction.contains("string") || chooseAction.contains("String")) {
             out.println("Available methods for string:\n " +
                     "Substring\n " +
                     "Append");
-            setChooseAction(scanner.nextLine());
-            if (chooseAction.contains("Substring") || chooseAction.contains("substring")) {
+            out.print("Enter method: ");
+            setChooseAction(scanner.nextLine().toLowerCase());
+            new Logger().LogSubMethod(getChooseAction());
+            if (chooseAction.contains("substring")) {
                 new StringProcessing().substringString();
+
             }
-            if (chooseAction.contains("Contains") || chooseAction.contains("contains")) {
+            if (chooseAction.contains("contains")) {
 
             }
 
-            if(chooseAction.contains("Append") || chooseAction.contains("append")){
+            if(chooseAction.contains("append")){
                new StringProcessing().appendString();
             }
         }
-        if(chooseAction.contains("calc") || chooseAction.contains("Calc")) {
+        if(chooseAction.contains("calc")) {
             new Calculator().calculator();
         }
-        if(chooseAction.contains("info") || chooseAction.contains("Info")) {
+        if(chooseAction.contains("info")) {
             out.println("Available methods for info:\n " +
                     "System");
-            setChooseAction(scanner.nextLine());
-            if (chooseAction.contains("System") || chooseAction.contains("system")) {
+            setChooseAction(scanner.nextLine().toLowerCase());
+            new Logger().LogSubMethod(getChooseAction());
+            if (chooseAction.contains("system")) {
                new SystemInfo().getSystemInfo();
             }
         }
-        if(chooseAction.contains("Time") || chooseAction.contains("time")){
-            out.println("Current time: " + new Date().getDate());
+        if(chooseAction.contains("time")){
+            Date date = new Date();
+            out.println("Current time: " + date);
             out.println("--------------------------------");
             Menu();
         }
-        if(chooseAction.contains("ip") || chooseAction.contains("Ip") || chooseAction.contains("IP")){
+        if(chooseAction.contains("ip")){
                 out.println("Your ip: "  + new GetIp().getIp());
         }
-        if(chooseAction.contains("Check") || chooseAction.contains("check")){
+        if(chooseAction.contains("check")){
             new CheckFilesAndDirectory().allCheck();
             out.println("Check complete.");
             new MainMenu().Menu();
