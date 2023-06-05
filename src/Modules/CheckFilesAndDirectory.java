@@ -9,10 +9,10 @@ import java.io.IOException;
 import static java.lang.System.out;
 
 public class CheckFilesAndDirectory {
-    private String pathSessionFile = "./session/session.json";
-    private String pathLogFile = "./logs/log.txt";
-    private String pathSessionDir = "./session";
-    private String pathLogDir = "./logs";
+    private final String pathSessionFile = "./session/session.json";
+    private final String pathLogFile = "./logs/log.txt";
+    private final String pathSessionDir = "./session";
+    private final String pathLogDir = "./logs";
 
     private void checkSessionFile(){
         File sessionFile = new File(pathSessionFile);

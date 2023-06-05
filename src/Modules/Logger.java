@@ -9,7 +9,7 @@ import java.util.Date;
 
 public class Logger {
 
-    private String pathLogFile = "./logs/log.txt";
+    private final String pathLogFile = "./logs/log.txt";
 
    public String logLogin(){
        Date date = new Date();
