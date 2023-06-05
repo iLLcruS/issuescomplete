@@ -94,5 +94,18 @@ public class StringProcessing extends StringProcessingAbs {
             toLowerCaseString();
         }
     }
+    public void replaceString()
+    {
+        out.print("Enter your sentence: ");
+        setUserSentence(scanner.next());
+        out.print("Letter to replace: ");
+        setCharOne(scanner.next().charAt(0));
+        out.print("Letter for replace: ");
+        setCharTwo(scanner.next().charAt(0));
+        out.println("---------------------------------------");
+        out.println("You're sentence: \n" + getUserSentence() + "\nResult: \n" + getUserSentence().replace(getCharOne(),getCharTwo()));
+        out.println("---------------------------------------");
+        out.println("Do you want to back Main Menu?(1 - yes; 2 - no)");
 
+    }
 }

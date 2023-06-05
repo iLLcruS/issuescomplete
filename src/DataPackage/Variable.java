@@ -9,6 +9,8 @@ public class Variable extends VariableChooses{
         this.firstNumber = firstNumber;
     }
     protected double secondNumber;
+    protected char charOne, charTwo;
+
     public double getSecondNumber() {
         return secondNumber;
     }
@@ -43,6 +45,23 @@ public class Variable extends VariableChooses{
     protected int numberTwoForSubstring;
     public void setNumberTwoForSubstring(int numberTwoForSubstring) {
         this.numberTwoForSubstring = numberTwoForSubstring;
+    }
+
+    public void setCharOne(char charOne)
+    {
+        this.charOne = charOne;
+    }
+    public char getCharOne()
+    {
+        return charOne;
+    }
+    public void setCharTwo(char charTwo)
+    {
+        this.charTwo = charTwo;
+    }
+    public char getCharTwo()
+    {
+        return charTwo;
     }
     public String nameProperty = System.getProperty("user.name");
 }
