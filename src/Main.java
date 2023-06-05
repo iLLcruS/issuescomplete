@@ -1,25 +1,17 @@
 import DataPackage.VariableChooses;
 import Modules.CheckFilesAndDirectory;
-import Modules.CheckSession;
-
-import java.util.Scanner;
+import Modules.Checks;
+import Modules.Visual;
 
 public class Main extends VariableChooses {
 
-    private String choose = "";
-    private static String password = "123";
-    private static String enterPassword = "";
-
     public static void main(String[] args) {
+        new Visual().printMsgWithProgressBar("Loading", 25, 60);
+        System.out.println("\nHello! Its a Issue Program\n ");
         new CheckFilesAndDirectory().allCheck();
-        System.out.println("Hello! Its a Issue Program\n " +
-                "Enter your password: ");
-        Scanner in = new Scanner(System.in);
-        enterPassword = in.nextLine();
-        if (enterPassword.contains(password)) {
-            VariableChooses.mm.Menu();
-        } else if (!enterPassword.contains(password)) {
-            System.out.println("Wrong password, try again!");
-        }
+        new Checks().checkPassword();
+
     }
+
+
 }
