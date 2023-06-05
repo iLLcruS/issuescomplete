@@ -26,7 +26,7 @@ public class CheckFilesAndDirectory {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            out.println("Complete!");
+            out.println("File created!");
         }
     }
     private void checkLogsFile(){
@@ -38,7 +38,7 @@ public class CheckFilesAndDirectory {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-            out.println("Complete!");
+            out.println("File created!");
         }
     }
     private void checkDirectorySession(){
@@ -46,7 +46,7 @@ public class CheckFilesAndDirectory {
         if(!sessionDir.exists()){
             out.println("Session directory has been deleted. Create new...");
             sessionDir.mkdir();
-            out.println("Complete!");
+            out.println("File created!");
         }
     }
     private void checkDirectoryLog(){
@@ -54,7 +54,7 @@ public class CheckFilesAndDirectory {
         if(!logsDir.exists()){
             out.println("Logs directory has been deleted. Create new...");
             logsDir.mkdir();
-            out.println("Complete!");
+            out.println("File created!");
         }
     }
     public void allCheck(){
