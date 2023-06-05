@@ -46,5 +46,22 @@ public class Variable extends VariableChooses{
     public void setNumberTwoForSubstring(int numberTwoForSubstring) {
         this.numberTwoForSubstring = numberTwoForSubstring;
     }
+
+    public void charOne(char charOne)
+    {
+        this.charOne = charOne;
+    }
+    public char getCharOne()
+    {
+        return charOne;
+    }
+    public void charTwo(char charTwo)
+    {
+        this.charTwo = charTwo;
+    }
+    public char getCharTwo()
+    {
+        return charTwo;
+    }
     public String nameProperty = System.getProperty("user.name");
 }
