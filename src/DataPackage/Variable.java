@@ -9,6 +9,8 @@ public class Variable extends VariableChooses{
         this.firstNumber = firstNumber;
     }
     protected double secondNumber;
+    protected char charOne, charTwo;
+
     public double getSecondNumber() {
         return secondNumber;
     }
