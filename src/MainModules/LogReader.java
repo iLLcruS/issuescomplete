@@ -1,6 +1,6 @@
 package MainModules;
 
-import Modules.CheckFilesAndDirectory;
+import Modules.AllChecks.CheckFilesAndDirectory;
 
 import java.io.*;
 

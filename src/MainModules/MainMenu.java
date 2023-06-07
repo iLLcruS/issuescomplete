@@ -1,10 +1,9 @@
 package MainModules;
 
 import DataPackage.Variable;
-import Modules.CheckFilesAndDirectory;
+import Modules.AllChecks.CheckFilesAndDirectory;
 import Modules.GetIp;
 import Modules.Logger;
-import com.sun.tools.javac.Main;
 
 import java.io.IOException;
 import java.util.Date;

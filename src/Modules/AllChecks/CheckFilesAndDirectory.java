@@ -1,4 +1,4 @@
-package Modules;
+package Modules.AllChecks;
 
 import MainModules.MainMenu;
 

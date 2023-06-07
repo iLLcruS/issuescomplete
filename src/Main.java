@@ -1,10 +1,7 @@
-import MainModules.LogReader;
-import Modules.CheckFilesAndDirectory;
-import Modules.Checks;
+import Modules.AllChecks.CheckFilesAndDirectory;
+import Modules.AllChecks.Checks;
 import Modules.Logger;
 import Modules.Visual;
-
-import java.io.IOException;
 
 import static java.lang.System.out;
 

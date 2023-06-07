@@ -1,4 +1,4 @@
-package Modules;
+package Modules.AllChecks;
 
 import DataPackage.VariableChooses;
 import MainModules.MainMenu;
