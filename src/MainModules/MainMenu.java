@@ -81,7 +81,7 @@ public class MainMenu extends Variable {
         if(chooseAction.contains("log")){
             out.println("Available methods for log:\n " +
                     "Show\n" +
-                    "");
+                    "Clear");
             setChooseAction(scanner.nextLine().toLowerCase());
             new Logger().LogSubMethod(getChooseAction());
             if (chooseAction.contains("show")) {
@@ -111,6 +111,9 @@ public class MainMenu extends Variable {
                     }
 
                 }
+            }if(chooseAction.contains("clear"))
+            {
+                new LogsProccesing().logClear(new CheckFilesAndDirectory().getAllLogFile());
             }
         }
         if(chooseAction.contains("exit")){

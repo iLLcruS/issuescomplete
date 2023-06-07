@@ -19,6 +19,11 @@ public class CheckFilesAndDirectory {
     public String getPathCommandsLogFile() {
         return pathCommandsLogFile;
     }
+    public String[] getAllLogFile() {
+
+        String[] allPathes = {pathLogFile};
+                return allPathes;
+    }
 
     private final String pathCommandsLogFile = "./logs/commandsLog.txt";
 
