@@ -137,7 +137,18 @@ public class Calculator extends CalculateAbs {
        out.println("res: " + sin(getFirstNumber()));
        new MainMenu().Menu();
    }
+    public double cos(double x) {
+        return Math.cos(x);
+    }
+    public void cosComplete() {
+        Scanner scanner = new Scanner(System.in);
 
+        out.println("Enter your first number: ");
+        setFirstNumber(scanner.nextDouble());
+
+        out.println("res: " + cos(getFirstNumber()));
+        new MainMenu().Menu();
+    }
 }
 
 

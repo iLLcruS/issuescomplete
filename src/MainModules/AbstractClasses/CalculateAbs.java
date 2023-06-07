@@ -29,6 +29,9 @@ public abstract class CalculateAbs extends Variable {
    public abstract double sin(double x);
    public abstract void sinComplete();
 
+   public abstract double cos(double x);
+   public abstract void cosComplete();
+
 
 }
 
