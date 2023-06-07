@@ -12,7 +12,7 @@ public class LogReader {
         while ((line = fin.readLine()) != null) System.out.println(line);
     }
     public void logCommandReader() throws IOException{
-        File file = new File(new CheckFilesAndDirectory().getPathLogFile());
+        File file = new File(new CheckFilesAndDirectory().getPathCommandsLogFile());
         BufferedReader fin = new BufferedReader(new FileReader(file));
         String line;
         while ((line = fin.readLine()) != null) System.out.println(line);
