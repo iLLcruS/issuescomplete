@@ -57,7 +57,8 @@ public class MainMenu extends Variable {
                     "minus\n"+
             "multiplication\n"+
                     "division\n"+
-                    "interest");
+                    "interest\n"+
+                    "sqrt");
             setChooseAction(scanner.nextLine().toLowerCase());
             new Logger().LogSubMethod(getChooseAction());
             if (chooseAction.contains("sum")) {
@@ -74,6 +75,9 @@ public class MainMenu extends Variable {
             }
             if(chooseAction.contains("interest")) {
                 new Calculator().interestComplete();
+            }
+            if(chooseAction.contains("sqrt")) {
+                new Calculator().sqrtComplete();
             }
         }
         if(chooseAction.contains("info")) {

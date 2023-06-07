@@ -61,7 +61,7 @@ public  class Calculator extends CalculateAbs {
     }
 
     public double division(double x, double y) {
-        return x/y;
+        return x / y;
     }
 
     public void divisionComplete() {
@@ -78,22 +78,37 @@ public  class Calculator extends CalculateAbs {
     }
 
     public double interest(double x, double y) {
-        return x%y;
+        return x % y;
     }
 
-public void interestComplete(){
-    Scanner scanner = new Scanner(System.in);
+    public void interestComplete() {
+        Scanner scanner = new Scanner(System.in);
 
-    out.println("Enter your first number: ");
-    setFirstNumber(scanner.nextDouble());
+        out.println("Enter your first number: ");
+        setFirstNumber(scanner.nextDouble());
 
-    out.println("Enter your second number: ");
-    setSecondNumber(scanner.nextDouble());
+        out.println("Enter your second number: ");
+        setSecondNumber(scanner.nextDouble());
 
-    out.println("res: " + interest(getFirstNumber(), getSecondNumber()));
-    new MainMenu().Menu();
+        out.println("res: " + interest(getFirstNumber(), getSecondNumber()));
+        new MainMenu().Menu();
+    }
+
+    public double sqrt(double x) {
+        return Math.sqrt(x);
+    }
+
+    public void sqrtComplete() {
+        Scanner scanner = new Scanner(System.in);
+
+        out.println("Enter your first number: ");
+        setFirstNumber(scanner.nextDouble());
+
+        out.println("res: " + sqrt(getFirstNumber()));
+        new MainMenu().Menu();
+    }
 }
-}
+
 
 
 

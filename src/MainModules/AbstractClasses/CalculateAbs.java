@@ -21,6 +21,9 @@ public abstract class CalculateAbs extends Variable {
 
    public abstract void interestComplete();
 
+   public abstract double sqrt(double x);
+   public abstract void sqrtComplete();
+
 
 }
 
