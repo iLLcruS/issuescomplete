@@ -22,7 +22,7 @@ public class MainMenu extends Variable {
         setChooseAction(scanner.nextLine());
 
         new Logger().commandLoggerWriter(getChooseAction());
-        if(chooseAction.contains("string") || chooseAction.contains("String")) {
+        if(chooseAction.contains("string")) {
             out.println("Available methods for string:\n " +
                     "Substring\n " +
                     "Append\n" +

@@ -8,7 +8,6 @@ import java.net.URL;
 
 public class GetIp {
     public String getIp(){
-
         URL myIP = null;
         try {
            myIP = new URL("http://checkip.amazonaws.com");

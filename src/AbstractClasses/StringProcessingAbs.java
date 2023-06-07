@@ -8,5 +8,4 @@ public abstract class StringProcessingAbs extends Variable {
     public void toLowerCaseString(){}
     public void toUpperCaseString(){}
     public void replaceString(){}
-
 }
