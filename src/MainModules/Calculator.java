@@ -125,18 +125,21 @@ public class Calculator extends CalculateAbs {
         out.println("res: " + pow(getFirstNumber(), getSecondNumber()));
         new MainMenu().Menu();
     }
-   public double sin(double x) {
+
+    public double sin(double x) {
         return Math.sin(x);
-   }
-   public void sinComplete() {
-       Scanner scanner = new Scanner(System.in);
+    }
 
-       out.println("Enter your first number: ");
-       setFirstNumber(scanner.nextDouble());
+    public void sinComplete() {
+        Scanner scanner = new Scanner(System.in);
 
-       out.println("res: " + sin(getFirstNumber()));
-       new MainMenu().Menu();
-   }
+        out.println("Enter your first number: ");
+        setFirstNumber(scanner.nextDouble());
+
+        out.println("res: " + sin(getFirstNumber()));
+        new MainMenu().Menu();
+    }
+
     public double cos(double x) {
         return Math.cos(x);
     }

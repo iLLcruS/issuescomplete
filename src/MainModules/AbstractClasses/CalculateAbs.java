@@ -39,7 +39,6 @@ public abstract class CalculateAbs extends Variable {
 
    public abstract void cosComplete();
 
-
    public abstract double x2(double dis, double a, double b);
 
    public abstract double x(double b, double a);

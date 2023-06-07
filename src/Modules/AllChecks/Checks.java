@@ -6,6 +6,7 @@ import MainModules.MainMenu;
 import java.util.Scanner;
 
 public class Checks {
+
     private String choose = "";
     private static String password = "123";
     private static String enterPassword = "";

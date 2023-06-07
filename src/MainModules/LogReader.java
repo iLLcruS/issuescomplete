@@ -11,12 +11,14 @@ public class LogReader {
         String line;
         while ((line = fin.readLine()) != null) System.out.println(line);
     }
+
     public void logCommandReader() throws IOException{
         File file = new File(new CheckFilesAndDirectory().getPathCommandsLogFile());
         BufferedReader fin = new BufferedReader(new FileReader(file));
         String line;
         while ((line = fin.readLine()) != null) System.out.println(line);
     }
+
     public void allLogReader() throws IOException{
         logCommandReader();
         logSessionReader();

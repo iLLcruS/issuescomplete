@@ -3,6 +3,7 @@ package Modules;
 import java.util.stream.Stream;
 
 public class Visual {
+
     public void printMsgWithProgressBar(String message, int length, long timeInterval)
     {
         char incomplete = '░';

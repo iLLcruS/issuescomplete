@@ -36,6 +36,7 @@ public class CheckFilesAndDirectory {
             out.println("File created!");
         }
     }
+
     private void checkCommandsFile()
     {
         File sessionFile = new File(pathCommandsLogFile);
@@ -51,6 +52,7 @@ public class CheckFilesAndDirectory {
             out.println("File created!");
         }
     }
+
     private void checkLogsFile(){
         File logsFile = new File(pathLogFile);
         if(!logsFile.exists()){
@@ -63,6 +65,7 @@ public class CheckFilesAndDirectory {
             out.println("File created!");
         }
     }
+
     private void checkDirectorySession(){
         File sessionDir = new File(pathSessionDir);
         if(!sessionDir.exists()){
@@ -71,6 +74,7 @@ public class CheckFilesAndDirectory {
             out.println("File created!");
         }
     }
+
     private void checkDirectoryLog(){
         File logsDir = new File(pathLogDir);
         if(!logsDir.exists()){
@@ -79,6 +83,7 @@ public class CheckFilesAndDirectory {
             out.println("File created!");
         }
     }
+
     public void allCheck(){
         checkDirectoryLog();
         checkLogsFile();

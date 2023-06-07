@@ -11,12 +11,14 @@ import java.util.Date;
 public class Logger {
 
     private final String pathSessionLogFile = "./logs/log.txt";
+
     private final String pathCommandsLogFile = "./logs/commandsLog.txt";
 
    public String logLogin(){
        Date date = new Date();
         return "[Name: " + new MainMenu().nameProperty +"]" + "[IP: " + new GetIp().getIp() + "]" + "[Date: " + date + "]";
    }
+
    public String logCommand(String method){
        Date date = new Date();
         return "[Name: " + new MainMenu().nameProperty +"]" + "[Command: " + method + "]" + "[Date: " + date + "]";
