@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 import static java.lang.System.out;
 
-public  class Calculator extends CalculateAbs {
+public class Calculator extends CalculateAbs {
 
     public double sum(double x, double y) {
         return x + y;
@@ -125,7 +125,25 @@ public  class Calculator extends CalculateAbs {
         out.println("res: " + pow(getFirstNumber(), getSecondNumber()));
         new MainMenu().Menu();
     }
+   public double sin(double x) {
+        return Math.sin(x);
+   }
+   public void sinComplete() {
+       Scanner scanner = new Scanner(System.in);
+
+       out.println("Enter your first number: ");
+       setFirstNumber(scanner.nextDouble());
+
+       out.println("res: " + sin(getFirstNumber()));
+       new MainMenu().Menu();
+   }
+
 }
+
+
+
+
+
 
 
 

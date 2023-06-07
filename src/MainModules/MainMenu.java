@@ -58,7 +58,8 @@ public class MainMenu extends Variable {
                     "division\n" +
                     "interest\n" +
                     "sqrt\n" +
-                    "pow\n");
+                    "pow\n"+
+                    "sin");
             setChooseAction(scanner.nextLine().toLowerCase());
             new Logger().LogSubMethod(getChooseAction());
             if (chooseAction.contains("sum")) {
@@ -81,6 +82,9 @@ public class MainMenu extends Variable {
             }
             if (chooseAction.contains("pow")) {
                 new Calculator().powComplete();
+            }
+            if (chooseAction.contains("sin")) {
+                new Calculator().sinComplete();
             }
             if (chooseAction.contains("info")) {
                 out.println("Available methods for info:\n " +
