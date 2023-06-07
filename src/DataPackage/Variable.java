@@ -4,6 +4,24 @@ public class Variable extends VariableChooses{
 
     protected double firstNumber;
 
+    protected int numberOneForSubstring;
+
+    protected double secondNumber;
+
+    protected char charOne;
+
+    protected char charTwo;
+
+    protected double result;
+
+    protected String userSentenceAppend;
+
+    protected String userSentence;
+
+    protected int numberTwoForSubstring;
+
+    public String nameProperty = System.getProperty("user.name");
+
     public double getFirstNumber() {
         return firstNumber;
     }
@@ -12,9 +30,6 @@ public class Variable extends VariableChooses{
         this.firstNumber = firstNumber;
     }
 
-    protected double secondNumber;
-
-    protected char charOne, charTwo;
 
     public double getSecondNumber() {
         return secondNumber;
@@ -24,8 +39,6 @@ public class Variable extends VariableChooses{
         this.secondNumber = secondNumber;
     }
 
-    protected double result;
-
     public double getResult() {
         return result;
     }
@@ -33,8 +46,6 @@ public class Variable extends VariableChooses{
     public void setResult(double result) {
         this.result = result;
     }
-
-    protected String userSentenceAppend;
 
     public String getUserSentenceAppend() {
         return userSentenceAppend;
@@ -44,8 +55,6 @@ public class Variable extends VariableChooses{
         this.userSentenceAppend = userSentenceAppend;
     }
 
-    protected String userSentence;
-
     public String getUserSentence() {
         return userSentence;
     }
@@ -54,13 +63,9 @@ public class Variable extends VariableChooses{
         this.userSentence = userSentence;
     }
 
-    protected int numberOneForSubstring;
-
     public void setNumberOneForSubstring(int numberOneForSubstring) {
         this.numberOneForSubstring = numberOneForSubstring;
     }
-
-    protected int numberTwoForSubstring;
 
     public void setNumberTwoForSubstring(int numberTwoForSubstring) {
         this.numberTwoForSubstring = numberTwoForSubstring;
@@ -86,5 +91,4 @@ public class Variable extends VariableChooses{
         return charTwo;
     }
 
-    public String nameProperty = System.getProperty("user.name");
 }
