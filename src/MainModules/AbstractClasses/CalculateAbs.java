@@ -9,6 +9,10 @@ public abstract class CalculateAbs extends Variable {
    public abstract double minus(double x, double y);
    public abstract void minusComplete();
 
+   public abstract double multiplication(double x, double y);
+
+   public abstract void multiplicationComplete();
+
 
 }
 

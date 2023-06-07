@@ -39,6 +39,22 @@ public  class Calculator extends CalculateAbs {
         out.println("res: " + minus(getFirstNumber(), getSecondNumber()));
         new MainMenu().Menu();
     }
+    public double multiplication(double x, double y){
+        return x*y;
+    }
+    public void multiplicationComplete(){
+        Scanner scanner = new Scanner(System.in);
+
+        out.println("Enter your first number: ");
+        setFirstNumber(scanner.nextDouble());
+
+        out.println("Enter your second number: ");
+        setSecondNumber(scanner.nextDouble());
+
+        out.println("res: " + multiplication(getFirstNumber(), getSecondNumber()));
+        new MainMenu().Menu();
+    }
+
 
 }
 

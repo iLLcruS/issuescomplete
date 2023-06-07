@@ -54,7 +54,8 @@ public class MainMenu extends Variable {
         if(chooseAction.contains("calc")) {
             out.println("Available methods for calculator:\n " +
                     "Sum\n" +
-                    "minus");
+                    "minus\n"+
+            "multiplication");
             setChooseAction(scanner.nextLine().toLowerCase());
             new Logger().LogSubMethod(getChooseAction());
             if (chooseAction.contains("sum")) {
@@ -62,6 +63,9 @@ public class MainMenu extends Variable {
             }
             if(chooseAction.contains("minus")) {
                 new Calculator().minusComplete();
+            }
+            if(chooseAction.contains("multiplication")) {
+                new Calculator().multiplicationComplete();
             }
         }
         if(chooseAction.contains("info")) {
