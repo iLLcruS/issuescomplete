@@ -5,13 +5,13 @@ import Modules.CheckFilesAndDirectory;
 import java.io.*;
 
 public class LogReader {
-    private void logSessionReader() throws IOException {
+    public void logSessionReader() throws IOException {
         File f = new File(new CheckFilesAndDirectory().getPathLogFile());
         BufferedReader fin = new BufferedReader(new FileReader(f));
         String line;
         while ((line = fin.readLine()) != null) System.out.println(line);
     }
-    private void logCommandReader() throws IOException{
+    public void logCommandReader() throws IOException{
         File file = new File(new CheckFilesAndDirectory().getPathLogFile());
         BufferedReader fin = new BufferedReader(new FileReader(file));
         String line;
