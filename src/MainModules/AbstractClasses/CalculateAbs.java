@@ -23,6 +23,8 @@ public abstract class CalculateAbs extends Variable {
 
    public abstract double sqrt(double x);
    public abstract void sqrtComplete();
+   public abstract double pow(double x, double y);
+   public abstract void powComplete();
 
 
 }

@@ -107,6 +107,24 @@ public  class Calculator extends CalculateAbs {
         out.println("res: " + sqrt(getFirstNumber()));
         new MainMenu().Menu();
     }
+
+    public double pow(double x, double y) {
+        return Math.pow(x, y);
+
+    }
+
+    public void powComplete() {
+        Scanner scanner = new Scanner(System.in);
+
+        out.println("Enter your first number: ");
+        setFirstNumber(scanner.nextDouble());
+
+        out.println("Enter your second number: ");
+        setSecondNumber(scanner.nextDouble());
+
+        out.println("res: " + pow(getFirstNumber(), getSecondNumber()));
+        new MainMenu().Menu();
+    }
 }
 
 
