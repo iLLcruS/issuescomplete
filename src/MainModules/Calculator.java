@@ -21,9 +21,25 @@ public  class Calculator extends CalculateAbs {
         out.println("Enter your second number: ");
         setSecondNumber(scanner.nextDouble());
 
-        out.println("Sum: " + sum(getFirstNumber(), getSecondNumber()));
+        out.println("res: " + sum(getFirstNumber(), getSecondNumber()));
         new MainMenu().Menu();
     }
+    public double minus(double x, double y){
+        return x - y;
+    }
+    public void minusComplete(){
+        Scanner scanner = new Scanner(System.in);
+
+        out.println("Enter your first number: ");
+        setFirstNumber(scanner.nextDouble());
+
+        out.println("Enter your second number: ");
+        setSecondNumber(scanner.nextDouble());
+
+        out.println("res: " + minus(getFirstNumber(), getSecondNumber()));
+        new MainMenu().Menu();
+    }
+
 }
 
 
