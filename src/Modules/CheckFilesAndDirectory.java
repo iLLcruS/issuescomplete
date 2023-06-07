@@ -16,6 +16,10 @@ public class CheckFilesAndDirectory {
     }
     private final String pathSessionDir = "./session";
     private final String pathLogDir = "./logs";
+    public String getPathCommandsLogFile() {
+        return pathCommandsLogFile;
+    }
+
     private final String pathCommandsLogFile = "./logs/commandsLog.txt";
 
     private void checkSessionFile(){
