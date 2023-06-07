@@ -1,18 +1,14 @@
 package MainModules;
 
-import AbstractClasses.StringProcessingAbs;
+import MainModules.AbstractClasses.StringProcessingAbs;
 import DataPackage.VariableChooses;
-import Modules.Logger;
-
-import java.lang.System;
-
-import java.util.Scanner;
 
 import static java.lang.System.out;
 
 public class StringProcessing extends StringProcessingAbs {
     StringBuilder str = new StringBuilder();
 
+    @Override
     public void substringString() {
         out.println("Input your sentence: ");
         setUserSentence(scanner.next());
@@ -35,6 +31,7 @@ public class StringProcessing extends StringProcessingAbs {
         }
     }
 
+    @Override
     public void appendString() {
 
 
@@ -62,6 +59,7 @@ public class StringProcessing extends StringProcessingAbs {
 
     }
 
+    @Override
     public void toLowerCaseString()
     {
         out.println("Enter your sentence: ");
@@ -78,6 +76,7 @@ public class StringProcessing extends StringProcessingAbs {
             toLowerCaseString();
         }
     }
+    @Override
     public void toUpperCaseString()
     {
         out.println("Enter your sentence: ");
@@ -94,6 +93,8 @@ public class StringProcessing extends StringProcessingAbs {
             toLowerCaseString();
         }
     }
+
+    @Override
     public void replaceString()
     {
         out.print("Enter your sentence: ");
