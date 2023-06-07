@@ -13,6 +13,10 @@ public abstract class CalculateAbs extends Variable {
 
    public abstract void multiplicationComplete();
 
+   public abstract double division(double x, double y);
+
+   public abstract void divisionComplete();
+
 
 }
 

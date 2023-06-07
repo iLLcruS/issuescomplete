@@ -9,10 +9,11 @@ import static java.lang.System.out;
 
 public  class Calculator extends CalculateAbs {
 
-    public double sum(double x, double y){
+    public double sum(double x, double y) {
         return x + y;
     }
-    public void sumComplete(){
+
+    public void sumComplete() {
         Scanner scanner = new Scanner(System.in);
 
         out.println("Enter your first number: ");
@@ -24,10 +25,12 @@ public  class Calculator extends CalculateAbs {
         out.println("res: " + sum(getFirstNumber(), getSecondNumber()));
         new MainMenu().Menu();
     }
-    public double minus(double x, double y){
+
+    public double minus(double x, double y) {
         return x - y;
     }
-    public void minusComplete(){
+
+    public void minusComplete() {
         Scanner scanner = new Scanner(System.in);
 
         out.println("Enter your first number: ");
@@ -39,10 +42,12 @@ public  class Calculator extends CalculateAbs {
         out.println("res: " + minus(getFirstNumber(), getSecondNumber()));
         new MainMenu().Menu();
     }
-    public double multiplication(double x, double y){
-        return x*y;
+
+    public double multiplication(double x, double y) {
+        return x * y;
     }
-    public void multiplicationComplete(){
+
+    public void multiplicationComplete() {
         Scanner scanner = new Scanner(System.in);
 
         out.println("Enter your first number: ");
@@ -55,7 +60,22 @@ public  class Calculator extends CalculateAbs {
         new MainMenu().Menu();
     }
 
+    public double division(double x, double y) {
+        return x/y;
+    }
 
+    public void divisionComplete() {
+        Scanner scanner = new Scanner(System.in);
+
+        out.println("Enter your first number: ");
+        setFirstNumber(scanner.nextDouble());
+
+        out.println("Enter your second number: ");
+        setSecondNumber(scanner.nextDouble());
+
+        out.println("res: " + division(getFirstNumber(), getSecondNumber()));
+        new MainMenu().Menu();
+    }
 }
 
 
