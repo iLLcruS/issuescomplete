@@ -6,19 +6,17 @@ import java.util.Scanner;
 
 public class Checks {
 
-    private String choose = "";
-    private static String password = "123";
-    private static String enterPassword = "";
-
     public void checkPassword(){
-
         System.out.print("Enter your password: ");
         Scanner in = new Scanner(System.in);
-        enterPassword = in.nextLine();
+
+        String enterPassword = in.nextLine();
+        String password = "123";
+
         if (enterPassword.contains(password)) {
 
             new MainMenu().Menu();
-        } else if (!enterPassword.contains(password)) {
+        } else {
             System.out.println("Wrong password, try again!");
             checkPassword();
         }
