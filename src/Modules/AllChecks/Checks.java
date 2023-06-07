@@ -1,6 +1,5 @@
 package Modules.AllChecks;
 
-import DataPackage.VariableChooses;
 import MainModules.MainMenu;
 
 import java.util.Scanner;

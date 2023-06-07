@@ -11,8 +11,6 @@ import java.util.Date;
 import static java.lang.System.out;
 
 public class MainMenu extends Variable {
-    Date date = new Date();
-
 
     public void Menu() {
         out.print("Welcome " + nameProperty + " to the program!\n" +

@@ -1,11 +1,9 @@
 package Modules;
 
-import DataPackage.VariableChooses;
-import MainModules.MainMenu;
 
+import MainModules.MainMenu;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.Date;
 
 public class Logger {
