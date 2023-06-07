@@ -56,7 +56,8 @@ public class MainMenu extends Variable {
                     "Sum\n" +
                     "minus\n"+
             "multiplication\n"+
-                    "division");
+                    "division\n"+
+                    "interest");
             setChooseAction(scanner.nextLine().toLowerCase());
             new Logger().LogSubMethod(getChooseAction());
             if (chooseAction.contains("sum")) {
@@ -70,6 +71,9 @@ public class MainMenu extends Variable {
             }
             if(chooseAction.contains("division")) {
                 new Calculator().divisionComplete();
+            }
+            if(chooseAction.contains("interest")) {
+                new Calculator().interestComplete();
             }
         }
         if(chooseAction.contains("info")) {

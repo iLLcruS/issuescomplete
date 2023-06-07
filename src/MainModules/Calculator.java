@@ -76,7 +76,25 @@ public  class Calculator extends CalculateAbs {
         out.println("res: " + division(getFirstNumber(), getSecondNumber()));
         new MainMenu().Menu();
     }
+
+    public double interest(double x, double y) {
+        return x%y;
+    }
+
+public void interestComplete(){
+    Scanner scanner = new Scanner(System.in);
+
+    out.println("Enter your first number: ");
+    setFirstNumber(scanner.nextDouble());
+
+    out.println("Enter your second number: ");
+    setSecondNumber(scanner.nextDouble());
+
+    out.println("res: " + interest(getFirstNumber(), getSecondNumber()));
+    new MainMenu().Menu();
 }
+}
+
 
 
 

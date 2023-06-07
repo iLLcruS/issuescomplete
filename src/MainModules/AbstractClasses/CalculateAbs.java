@@ -17,6 +17,10 @@ public abstract class CalculateAbs extends Variable {
 
    public abstract void divisionComplete();
 
+   public abstract double interest(double x, double y);
+
+   public abstract void interestComplete();
+
 
 }
 
