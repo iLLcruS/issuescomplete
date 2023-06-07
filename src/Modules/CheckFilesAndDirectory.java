@@ -11,6 +11,9 @@ import static java.lang.System.out;
 public class CheckFilesAndDirectory {
     private final String pathSessionFile = "./session/session.json";
     private final String pathLogFile = "./logs/log.txt";
+    public String getPathLogFile() {
+        return pathLogFile;
+    }
     private final String pathSessionDir = "./session";
     private final String pathLogDir = "./logs";
     private final String pathCommandsLogFile = "./logs/commandsLog.txt";
