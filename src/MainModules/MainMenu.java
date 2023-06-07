@@ -52,7 +52,13 @@ public class MainMenu extends Variable {
             }
         }
         if(chooseAction.contains("calc")) {
-            new Calculator().calculator();
+            out.println("Available methods for info:\n " +
+                    "Sum");
+            setChooseAction(scanner.nextLine().toLowerCase());
+            new Logger().LogSubMethod(getChooseAction());
+            if (chooseAction.contains("sum")) {
+                new Calculator().sumComplete();
+            }
         }
         if(chooseAction.contains("info")) {
             out.println("Available methods for info:\n " +
