@@ -51,6 +51,9 @@ public abstract class CalculateAbs extends Variable {
 
    public abstract double tan(double x);
    public abstract void tanComplete();
+
+   public abstract double[] average();
+   public abstract void averageComplete();
 }
 
 

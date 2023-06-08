@@ -60,7 +60,8 @@ public class MainMenu extends Variable {
                     "sin\n" +
                     "cos\n" +
                     "dis[discernment]\n"+
-                    "tan\n");
+                    "tan\n"+
+            "average\n");
             setChooseAction(scanner.nextLine().toLowerCase());
             new Logger().LogSubMethod(getChooseAction());
             if (chooseAction.contains("sum")) {
@@ -95,6 +96,9 @@ public class MainMenu extends Variable {
             }
             if(chooseAction.contains("dis")){
                 new Calculator().disc();
+            }
+            if(chooseAction.contains("average")){
+                new Calculator().averageComplete();
             }
         }
         if (chooseAction.contains("info")) {

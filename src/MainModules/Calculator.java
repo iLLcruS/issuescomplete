@@ -220,6 +220,35 @@ public class Calculator extends CalculateAbs {
         out.println("res: " + tan(getFirstNumber()));
         new MainMenu().Menu();
     }
+    @Override
+    public double[] average(){
+        Scanner input = new Scanner(System.in); // Объявляем Scanner
+        System.out.println("Enter count of numbers: ");
+        int size = input.nextInt(); // Читаем с клавиатуры размер массива и записываем в size
+        double array[] = new double[size]; // Создаём массив int размером в size
+        System.out.println("Enter the number:");
+        /*Пройдёмся по всему массиву, заполняя его*/
+        for (int i = 0; i < size; i++) {
+            array[i] = input.nextDouble(); // Заполняем массив элементами, введёнными с клавиатуры
+        }
+        return array;
+    }
+    @Override
+    public void averageComplete() {
+
+        double [] numbers  = average();
+
+        double result = 0;
+        if (numbers.length > 0)
+        {
+            double sum = 0;
+            for (int j = 0; j < numbers.length; j++) {
+                sum += numbers[j];
+            }
+            result = sum / numbers.length;
+        }
+        out.println(result);
+    }
 }
 
 
