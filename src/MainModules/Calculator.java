@@ -8,11 +8,11 @@ import java.util.Scanner;
 import static java.lang.System.out;
 
 public class Calculator extends CalculateAbs {
-
+@Override
     public double sum(double x, double y) {
         return x + y;
     }
-
+@Override
     public void sumComplete() {
         Scanner scanner = new Scanner(System.in);
 
@@ -25,11 +25,11 @@ public class Calculator extends CalculateAbs {
         out.println("res: " + sum(getFirstNumber(), getSecondNumber()));
         new MainMenu().Menu();
     }
-
+@Override
     public double minus(double x, double y) {
         return x - y;
     }
-
+@Override
     public void minusComplete() {
         Scanner scanner = new Scanner(System.in);
 
@@ -42,11 +42,11 @@ public class Calculator extends CalculateAbs {
         out.println("res: " + minus(getFirstNumber(), getSecondNumber()));
         new MainMenu().Menu();
     }
-
+@Override
     public double multiplication(double x, double y) {
         return x * y;
     }
-
+@Override
     public void multiplicationComplete() {
         Scanner scanner = new Scanner(System.in);
 
@@ -59,11 +59,11 @@ public class Calculator extends CalculateAbs {
         out.println("res: " + multiplication(getFirstNumber(), getSecondNumber()));
         new MainMenu().Menu();
     }
-
+@Override
     public double division(double x, double y) {
         return x / y;
     }
-
+@Override
     public void divisionComplete() {
         Scanner scanner = new Scanner(System.in);
 
@@ -76,11 +76,11 @@ public class Calculator extends CalculateAbs {
         out.println("res: " + division(getFirstNumber(), getSecondNumber()));
         new MainMenu().Menu();
     }
-
+@Override
     public double interest(double x, double y) {
         return x % y;
     }
-
+@Override
     public void interestComplete() {
         Scanner scanner = new Scanner(System.in);
 
@@ -93,11 +93,11 @@ public class Calculator extends CalculateAbs {
         out.println("res: " + interest(getFirstNumber(), getSecondNumber()));
         new MainMenu().Menu();
     }
-
+@Override
     public double sqrt(double x) {
         return Math.sqrt(x);
     }
-
+@Override
     public void sqrtComplete() {
         Scanner scanner = new Scanner(System.in);
 
@@ -107,12 +107,12 @@ public class Calculator extends CalculateAbs {
         out.println("res: " + sqrt(getFirstNumber()));
         new MainMenu().Menu();
     }
-
+@Override
     public double pow(double x, double y) {
         return Math.pow(x, y);
 
     }
-
+@Override
     public void powComplete() {
         Scanner scanner = new Scanner(System.in);
 
@@ -125,11 +125,11 @@ public class Calculator extends CalculateAbs {
         out.println("res: " + pow(getFirstNumber(), getSecondNumber()));
         new MainMenu().Menu();
     }
-
+@Override
     public double sin(double x) {
         return Math.sin(x);
     }
-
+@Override
     public void sinComplete() {
         Scanner scanner = new Scanner(System.in);
 
@@ -139,11 +139,11 @@ public class Calculator extends CalculateAbs {
         out.println("res: " + sin(getFirstNumber()));
         new MainMenu().Menu();
     }
-
+@Override
     public double cos(double x) {
         return Math.cos(x);
     }
-
+@Override
     public void cosComplete() {
         Scanner scanner = new Scanner(System.in);
 
