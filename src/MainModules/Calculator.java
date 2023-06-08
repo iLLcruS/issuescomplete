@@ -8,11 +8,12 @@ import java.util.Scanner;
 import static java.lang.System.out;
 
 public class Calculator extends CalculateAbs {
-@Override
+    @Override
     public double sum(double x, double y) {
         return x + y;
     }
-@Override
+
+    @Override
     public void sumComplete() {
         Scanner scanner = new Scanner(System.in);
 
@@ -25,11 +26,13 @@ public class Calculator extends CalculateAbs {
         out.println("res: " + sum(getFirstNumber(), getSecondNumber()));
         new MainMenu().Menu();
     }
-@Override
+
+    @Override
     public double minus(double x, double y) {
         return x - y;
     }
-@Override
+
+    @Override
     public void minusComplete() {
         Scanner scanner = new Scanner(System.in);
 
@@ -42,11 +45,13 @@ public class Calculator extends CalculateAbs {
         out.println("res: " + minus(getFirstNumber(), getSecondNumber()));
         new MainMenu().Menu();
     }
-@Override
+
+    @Override
     public double multiplication(double x, double y) {
         return x * y;
     }
-@Override
+
+    @Override
     public void multiplicationComplete() {
         Scanner scanner = new Scanner(System.in);
 
@@ -59,11 +64,13 @@ public class Calculator extends CalculateAbs {
         out.println("res: " + multiplication(getFirstNumber(), getSecondNumber()));
         new MainMenu().Menu();
     }
-@Override
+
+    @Override
     public double division(double x, double y) {
         return x / y;
     }
-@Override
+
+    @Override
     public void divisionComplete() {
         Scanner scanner = new Scanner(System.in);
 
@@ -76,11 +83,13 @@ public class Calculator extends CalculateAbs {
         out.println("res: " + division(getFirstNumber(), getSecondNumber()));
         new MainMenu().Menu();
     }
-@Override
+
+    @Override
     public double interest(double x, double y) {
         return x % y;
     }
-@Override
+
+    @Override
     public void interestComplete() {
         Scanner scanner = new Scanner(System.in);
 
@@ -93,11 +102,13 @@ public class Calculator extends CalculateAbs {
         out.println("res: " + interest(getFirstNumber(), getSecondNumber()));
         new MainMenu().Menu();
     }
-@Override
+
+    @Override
     public double sqrt(double x) {
         return Math.sqrt(x);
     }
-@Override
+
+    @Override
     public void sqrtComplete() {
         Scanner scanner = new Scanner(System.in);
 
@@ -107,12 +118,14 @@ public class Calculator extends CalculateAbs {
         out.println("res: " + sqrt(getFirstNumber()));
         new MainMenu().Menu();
     }
-@Override
+
+    @Override
     public double pow(double x, double y) {
         return Math.pow(x, y);
 
     }
-@Override
+
+    @Override
     public void powComplete() {
         Scanner scanner = new Scanner(System.in);
 
@@ -125,11 +138,13 @@ public class Calculator extends CalculateAbs {
         out.println("res: " + pow(getFirstNumber(), getSecondNumber()));
         new MainMenu().Menu();
     }
-@Override
+
+    @Override
     public double sin(double x) {
         return Math.sin(x);
     }
-@Override
+
+    @Override
     public void sinComplete() {
         Scanner scanner = new Scanner(System.in);
 
@@ -139,11 +154,13 @@ public class Calculator extends CalculateAbs {
         out.println("res: " + sin(getFirstNumber()));
         new MainMenu().Menu();
     }
-@Override
+
+    @Override
     public double cos(double x) {
         return Math.cos(x);
     }
-@Override
+
+    @Override
     public void cosComplete() {
         Scanner scanner = new Scanner(System.in);
 
@@ -206,10 +223,12 @@ public class Calculator extends CalculateAbs {
             new MainMenu().Menu();
         }
     }
+
     @Override
-    public double tan(double x){
+    public double tan(double x) {
         return Math.tan(x);
     }
+
     @Override
     public void tanComplete() {
         Scanner scanner = new Scanner(System.in);
@@ -220,8 +239,9 @@ public class Calculator extends CalculateAbs {
         out.println("res: " + tan(getFirstNumber()));
         new MainMenu().Menu();
     }
+
     @Override
-    public double[] average(){
+    public double[] average() {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter count of numbers: ");
         int size = input.nextInt();
@@ -233,14 +253,14 @@ public class Calculator extends CalculateAbs {
         }
         return array;
     }
+
     @Override
     public void averageComplete() {
 
-        double [] numbers  = average();
+        double[] numbers = average();
 
         double result = 0;
-        if (numbers.length > 0)
-        {
+        if (numbers.length > 0) {
             double sum = 0;
             for (int j = 0; j < numbers.length; j++) {
                 sum += numbers[j];
