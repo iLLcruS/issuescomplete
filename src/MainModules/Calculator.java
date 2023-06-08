@@ -269,7 +269,20 @@ public class Calculator extends CalculateAbs {
         }
         out.println(result);
     }
- }
+    public double asin(double x) {
+        return Math.asin(x);
+    }
+    public void asinComplete() {
+        Scanner scanner = new Scanner(System.in);
+
+        out.println("Enter your first number: ");
+        setFirstNumber(scanner.nextDouble());
+
+        out.println("res: " + asin(getFirstNumber()));
+        new MainMenu().Menu();
+    }
+    }
+
 
 
 

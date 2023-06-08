@@ -54,6 +54,10 @@ public abstract class CalculateAbs extends Variable {
 
    public abstract double[] average();
    public abstract void averageComplete();
+
+   public abstract double asin(double x);
+
+   public abstract void asinComplete();
 }
 
 
