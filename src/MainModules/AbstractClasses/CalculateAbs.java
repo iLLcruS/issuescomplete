@@ -87,6 +87,10 @@ public abstract class CalculateAbs extends Variable {
 
    public abstract void coshComplete();
 
+   public abstract double tanh(double x);
+
+   public abstract void tanhComplete();
+
 }
 
 

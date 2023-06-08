@@ -379,6 +379,7 @@ public class Calculator extends CalculateAbs {
         out.println("res: " + sinh(getFirstNumber()));
         new MainMenu().Menu();
     }
+
     public double cosh(double x) {
         return Math.cosh(x);
     }
@@ -389,6 +390,18 @@ public class Calculator extends CalculateAbs {
         setFirstNumber(scanner.nextDouble());
 
         out.println("res: " + cosh(getFirstNumber()));
+        new MainMenu().Menu();
+    }
+    public double tanh(double x) {
+        return Math.tanh(x);
+    }
+    public void tanhComplete() {
+        Scanner scanner = new Scanner(System.in);
+
+        out.println("Enter your first number: ");
+        setFirstNumber(scanner.nextDouble());
+
+        out.println("res: " + tanh(getFirstNumber()));
         new MainMenu().Menu();
     }
 }
