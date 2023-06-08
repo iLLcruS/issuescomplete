@@ -56,6 +56,7 @@ public class MainMenu extends Variable {
                     "division\n" +
                     "interest\n" +
                     "sqrt\n" +
+                    "cbrt\n"+
                     "pow\n" +
                     "sin\n" +
                     "cos\n" +
@@ -85,6 +86,9 @@ public class MainMenu extends Variable {
             }
             if (chooseAction.contains("sqrt")) {
                 new Calculator().sqrtComplete();
+            }
+            if (chooseAction.contains("cbrt")) {
+                new Calculator().cbrtComplete();
             }
             if (chooseAction.contains("pow")) {
                 new Calculator().powComplete();

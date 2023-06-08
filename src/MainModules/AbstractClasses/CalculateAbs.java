@@ -66,6 +66,10 @@ public abstract class CalculateAbs extends Variable {
    public abstract double atan(double x);
 
    public abstract void atanComplete();
+
+   public abstract double cbrt(double x);
+
+   public abstract void cbrtComplete();
 }
 
 

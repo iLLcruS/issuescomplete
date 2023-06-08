@@ -108,6 +108,7 @@ public class Calculator extends CalculateAbs {
         return Math.sqrt(x);
     }
 
+
     @Override
     public void sqrtComplete() {
         Scanner scanner = new Scanner(System.in);
@@ -118,6 +119,22 @@ public class Calculator extends CalculateAbs {
         out.println("res: " + sqrt(getFirstNumber()));
         new MainMenu().Menu();
     }
+
+    public double cbrt(double x) {
+        return Math.cbrt(x);
+    }
+
+    @Override
+    public void cbrtComplete() {
+        Scanner scanner = new Scanner(System.in);
+
+        out.println("Enter your first number: ");
+        setFirstNumber(scanner.nextDouble());
+
+        out.println("res: " + cbrt(getFirstNumber()));
+        new MainMenu().Menu();
+    }
+
 
     @Override
     public double pow(double x, double y) {
