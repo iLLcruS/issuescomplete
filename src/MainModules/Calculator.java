@@ -269,22 +269,9 @@ public class Calculator extends CalculateAbs {
         }
         out.println(result);
     }
-    public double max(double x, double y) {
-    return Math.max(x, y);
-    }
-    public void maxComplete() {
-        Scanner scanner = new Scanner(System.in);
+ }
 
-        out.println("Enter your first number: ");
-        setFirstNumber(scanner.nextDouble());
 
-        out.println("Enter your second number: ");
-        setSecondNumber(scanner.nextDouble());
-
-        out.println("res: " + max(getFirstNumber(), getSecondNumber()));
-        new MainMenu().Menu();
-    }
-}
 
 
 

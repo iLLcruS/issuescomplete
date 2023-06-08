@@ -54,10 +54,6 @@ public abstract class CalculateAbs extends Variable {
 
    public abstract double[] average();
    public abstract void averageComplete();
-
-   public abstract double max(double x, double y);
-
-   public abstract void maxComplete();
 }
 
 
