@@ -83,6 +83,10 @@ public abstract class CalculateAbs extends Variable {
 
    public abstract void sinhComplete();
 
+   public abstract double cosh(double x);
+
+   public abstract void coshComplete();
+
 }
 
 

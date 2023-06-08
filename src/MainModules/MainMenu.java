@@ -68,7 +68,8 @@ public class MainMenu extends Variable {
                     "atan\n" +
                     "log\n" +
                     "log10\n"+
-                    "sinh\n"
+                    "sinh\n"+
+                    "cosh\n"
             );
             setChooseAction(scanner.nextLine().toLowerCase());
             new Logger().LogSubMethod(getChooseAction());
@@ -128,6 +129,9 @@ public class MainMenu extends Variable {
             }
             if (chooseAction.contains("sinh")) {
                 new Calculator().sinhComplete();
+            }
+            if (chooseAction.contains("cosh")) {
+                new Calculator().coshComplete();
             }
 
             }
