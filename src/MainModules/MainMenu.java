@@ -61,7 +61,8 @@ public class MainMenu extends Variable {
                     "cos\n" +
                     "dis[discernment]\n"+
                     "tan\n"+
-            "average\n");
+            "average\n"+
+                    "max\n");
             setChooseAction(scanner.nextLine().toLowerCase());
             new Logger().LogSubMethod(getChooseAction());
             if (chooseAction.contains("sum")) {
@@ -99,6 +100,9 @@ public class MainMenu extends Variable {
             }
             if(chooseAction.contains("average")){
                 new Calculator().averageComplete();
+            }
+            if(chooseAction.contains("max")){
+                new Calculator().maxComplete();
             }
         }
         if (chooseAction.contains("info")) {
