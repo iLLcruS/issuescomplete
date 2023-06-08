@@ -206,6 +206,20 @@ public class Calculator extends CalculateAbs {
             new MainMenu().Menu();
         }
     }
+    @Override
+    public double tan(double x){
+        return Math.tan(x);
+    }
+    @Override
+    public void tanComplete() {
+        Scanner scanner = new Scanner(System.in);
+
+        out.println("Enter your first number: ");
+        setFirstNumber(scanner.nextDouble());
+
+        out.println("res: " + tan(getFirstNumber()));
+        new MainMenu().Menu();
+    }
 }
 
 

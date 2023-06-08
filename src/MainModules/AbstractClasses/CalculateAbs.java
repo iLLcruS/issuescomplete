@@ -48,6 +48,9 @@ public abstract class CalculateAbs extends Variable {
    public abstract double discriminant(double b, double a, double c);
 
    public abstract double x1(double dis, double a, double b);
+
+   public abstract double tan(double x);
+   public abstract void tanComplete();
 }
 
 

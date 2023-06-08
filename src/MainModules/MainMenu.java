@@ -59,7 +59,8 @@ public class MainMenu extends Variable {
                     "pow\n" +
                     "sin\n" +
                     "cos\n" +
-                    "dis[discernment]");
+                    "dis[discernment]\n"+
+                    "tan\n");
             setChooseAction(scanner.nextLine().toLowerCase());
             new Logger().LogSubMethod(getChooseAction());
             if (chooseAction.contains("sum")) {
@@ -88,6 +89,9 @@ public class MainMenu extends Variable {
             }
             if (chooseAction.contains("cos")) {
                 new Calculator().cosComplete();
+            }
+            if (chooseAction.contains("tan")) {
+                new Calculator().tanComplete();
             }
             if(chooseAction.contains("dis")){
                 new Calculator().disc();
