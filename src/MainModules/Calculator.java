@@ -370,6 +370,7 @@ public class Calculator extends CalculateAbs {
     public double sinh(double x) {
         return Math.sinh(x);
     }
+    @Override
     public void sinhComplete() {
         Scanner scanner = new Scanner(System.in);
 
@@ -379,10 +380,11 @@ public class Calculator extends CalculateAbs {
         out.println("res: " + sinh(getFirstNumber()));
         new MainMenu().Menu();
     }
-
+    @Override
     public double cosh(double x) {
         return Math.cosh(x);
     }
+    @Override
     public void coshComplete() {
         Scanner scanner = new Scanner(System.in);
 
@@ -392,9 +394,11 @@ public class Calculator extends CalculateAbs {
         out.println("res: " + cosh(getFirstNumber()));
         new MainMenu().Menu();
     }
+    @Override
     public double tanh(double x) {
         return Math.tanh(x);
     }
+    @Override
     public void tanhComplete() {
         Scanner scanner = new Scanner(System.in);
 
