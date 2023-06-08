@@ -63,7 +63,8 @@ public class MainMenu extends Variable {
                     "tan\n"+
             "average\n"+
                     "asin\n"+
-                    "acos\n"
+                    "acos\n"+
+                    "atan\n"
                     );
             setChooseAction(scanner.nextLine().toLowerCase());
             new Logger().LogSubMethod(getChooseAction());
@@ -107,6 +108,9 @@ public class MainMenu extends Variable {
                 new Calculator().asinComplete();
             }
             if (chooseAction.contains("acos")) {
+                new Calculator().acosComplete();
+            }
+            if (chooseAction.contains("atan")) {
                 new Calculator().acosComplete();
             }
 

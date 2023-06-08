@@ -293,6 +293,18 @@ public class Calculator extends CalculateAbs {
         out.println("res: " + acos(getFirstNumber()));
         new MainMenu().Menu();
     }
+    public double atan(double x) {
+        return Math.atan(x);
+    }
+    public void atanComplete() {
+        Scanner scanner = new Scanner(System.in);
+
+        out.println("Enter your first number: ");
+        setFirstNumber(scanner.nextDouble());
+
+        out.println("res: " + atan(getFirstNumber()));
+        new MainMenu().Menu();
+    }
     }
 
 
