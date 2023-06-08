@@ -222,14 +222,14 @@ public class Calculator extends CalculateAbs {
     }
     @Override
     public double[] average(){
-        Scanner input = new Scanner(System.in); // Объявляем Scanner
+        Scanner input = new Scanner(System.in);
         System.out.println("Enter count of numbers: ");
-        int size = input.nextInt(); // Читаем с клавиатуры размер массива и записываем в size
-        double array[] = new double[size]; // Создаём массив int размером в size
+        int size = input.nextInt();
+        double array[] = new double[size];
         System.out.println("Enter the number:");
-        /*Пройдёмся по всему массиву, заполняя его*/
+
         for (int i = 0; i < size; i++) {
-            array[i] = input.nextDouble(); // Заполняем массив элементами, введёнными с клавиатуры
+            array[i] = input.nextDouble();
         }
         return array;
     }
