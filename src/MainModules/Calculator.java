@@ -286,9 +286,11 @@ public class Calculator extends CalculateAbs {
         }
         out.println(result);
     }
+    @Override
     public double asin(double x) {
         return Math.asin(x);
     }
+    @Override
     public void asinComplete() {
         Scanner scanner = new Scanner(System.in);
 
@@ -298,9 +300,11 @@ public class Calculator extends CalculateAbs {
         out.println("res: " + asin(getFirstNumber()));
         new MainMenu().Menu();
     }
+    @Override
     public double acos(double x) {
         return Math.acos(x);
     }
+    @Override
     public void acosComplete() {
         Scanner scanner = new Scanner(System.in);
 
@@ -310,9 +314,11 @@ public class Calculator extends CalculateAbs {
         out.println("res: " + acos(getFirstNumber()));
         new MainMenu().Menu();
     }
+    @Override
     public double atan(double x) {
         return Math.atan(x);
     }
+    @Override
     public void atanComplete() {
         Scanner scanner = new Scanner(System.in);
 
