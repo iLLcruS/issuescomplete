@@ -322,6 +322,20 @@ public class Calculator extends CalculateAbs {
         out.println("res: " + atan(getFirstNumber()));
         new MainMenu().Menu();
     }
+    @Override
+    public double log(double x) {
+        return Math.log(x);
+    }
+    @Override
+    public void logComplete() {
+        Scanner scanner = new Scanner(System.in);
+
+        out.println("Enter your first number: ");
+        setFirstNumber(scanner.nextDouble());
+
+        out.println("res: " + log(getFirstNumber()));
+        new MainMenu().Menu();
+    }
     }
 
 

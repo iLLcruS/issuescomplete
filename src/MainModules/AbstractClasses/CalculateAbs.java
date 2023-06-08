@@ -70,6 +70,10 @@ public abstract class CalculateAbs extends Variable {
    public abstract double cbrt(double x);
 
    public abstract void cbrtComplete();
+
+   public abstract double log(double x);
+
+   public abstract void logComplete();
 }
 
 
