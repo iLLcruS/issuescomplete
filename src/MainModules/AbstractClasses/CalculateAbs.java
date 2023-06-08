@@ -58,6 +58,10 @@ public abstract class CalculateAbs extends Variable {
    public abstract double asin(double x);
 
    public abstract void asinComplete();
+
+   public abstract double acos(double x);
+
+   public abstract void acosComplete();
 }
 
 

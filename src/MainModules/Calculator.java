@@ -281,6 +281,18 @@ public class Calculator extends CalculateAbs {
         out.println("res: " + asin(getFirstNumber()));
         new MainMenu().Menu();
     }
+    public double acos(double x) {
+        return Math.acos(x);
+    }
+    public void acosComplete() {
+        Scanner scanner = new Scanner(System.in);
+
+        out.println("Enter your first number: ");
+        setFirstNumber(scanner.nextDouble());
+
+        out.println("res: " + acos(getFirstNumber()));
+        new MainMenu().Menu();
+    }
     }
 
 
