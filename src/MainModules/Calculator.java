@@ -286,10 +286,12 @@ public class Calculator extends CalculateAbs {
         }
         out.println(result);
     }
+
     @Override
     public double asin(double x) {
         return Math.asin(x);
     }
+
     @Override
     public void asinComplete() {
         Scanner scanner = new Scanner(System.in);
@@ -300,10 +302,12 @@ public class Calculator extends CalculateAbs {
         out.println("res: " + asin(getFirstNumber()));
         new MainMenu().Menu();
     }
+
     @Override
     public double acos(double x) {
         return Math.acos(x);
     }
+
     @Override
     public void acosComplete() {
         Scanner scanner = new Scanner(System.in);
@@ -314,10 +318,12 @@ public class Calculator extends CalculateAbs {
         out.println("res: " + acos(getFirstNumber()));
         new MainMenu().Menu();
     }
+
     @Override
     public double atan(double x) {
         return Math.atan(x);
     }
+
     @Override
     public void atanComplete() {
         Scanner scanner = new Scanner(System.in);
@@ -328,10 +334,12 @@ public class Calculator extends CalculateAbs {
         out.println("res: " + atan(getFirstNumber()));
         new MainMenu().Menu();
     }
+
     @Override
     public double log(double x) {
         return Math.log(x);
     }
+
     @Override
     public void logComplete() {
         Scanner scanner = new Scanner(System.in);
@@ -342,7 +350,39 @@ public class Calculator extends CalculateAbs {
         out.println("res: " + log(getFirstNumber()));
         new MainMenu().Menu();
     }
+
+    @Override
+    public double log10(double x) {
+        return Math.log10(x);
     }
+
+    @Override
+    public void log10Complete() {
+        Scanner scanner = new Scanner(System.in);
+
+        out.println("Enter your first number: ");
+        setFirstNumber(scanner.nextDouble());
+
+        out.println("res: " + log10(getFirstNumber()));
+        new MainMenu().Menu();
+    }
+    @Override
+    public double sinh(double x) {
+        return Math.sinh(x);
+    }
+    public void sinhComplete() {
+        Scanner scanner = new Scanner(System.in);
+
+        out.println("Enter your first number: ");
+        setFirstNumber(scanner.nextDouble());
+
+        out.println("res: " + sinh(getFirstNumber()));
+        new MainMenu().Menu();
+    }
+}
+
+
+
 
 
 

@@ -56,18 +56,20 @@ public class MainMenu extends Variable {
                     "division\n" +
                     "interest\n" +
                     "sqrt\n" +
-                    "cbrt\n"+
+                    "cbrt\n" +
                     "pow\n" +
                     "sin\n" +
                     "cos\n" +
-                    "dis[discernment]\n"+
-                    "tan\n"+
-            "average\n"+
-                    "asin\n"+
-                    "acos\n"+
-                    "atan\n"+
-                    "log\n"
-                    );
+                    "dis[discernment]\n" +
+                    "tan\n" +
+                    "average\n" +
+                    "asin\n" +
+                    "acos\n" +
+                    "atan\n" +
+                    "log\n" +
+                    "log10\n"+
+                    "sinh\n"
+            );
             setChooseAction(scanner.nextLine().toLowerCase());
             new Logger().LogSubMethod(getChooseAction());
             if (chooseAction.contains("sum")) {
@@ -103,10 +105,10 @@ public class MainMenu extends Variable {
             if (chooseAction.contains("tan")) {
                 new Calculator().tanComplete();
             }
-            if(chooseAction.contains("dis")){
+            if (chooseAction.contains("dis")) {
                 new Calculator().disc();
             }
-            if(chooseAction.contains("average")){
+            if (chooseAction.contains("average")) {
                 new Calculator().averageComplete();
             }
             if (chooseAction.contains("asin")) {
@@ -121,72 +123,80 @@ public class MainMenu extends Variable {
             if (chooseAction.contains("log")) {
                 new Calculator().logComplete();
             }
-
-        }
-        if (chooseAction.contains("info")) {
-            out.println("Available methods for info:\n " +
-                    "System");
-            setChooseAction(scanner.nextLine().toLowerCase());
-            new Logger().LogSubMethod(getChooseAction());
-            if (chooseAction.contains("system")) {
-                new SystemInfo().getSystemInfo();
+            if (chooseAction.contains("log10")) {
+                new Calculator().log10Complete();
             }
-        }
-        if (chooseAction.contains("time")) {
-            Date date = new Date();
-            out.println("Current time: " + date);
-            out.println("--------------------------------");
-            Menu();
-        }
-        if (chooseAction.contains("ip")) {
-            out.println("Your ip: " + new GetIp().getIp());
-        }
-        if (chooseAction.contains("check")) {
-            new CheckFilesAndDirectory().allCheck();
-            out.println("Check complete.");
-            new MainMenu().Menu();
+            if (chooseAction.contains("sinh")) {
+                new Calculator().sinhComplete();
+            }
 
-        }
-        if (chooseAction.contains("log")) {
-            out.println("Available methods for log:\n " +
-                    "Show\n" +
-                    "Clear");
-            setChooseAction(scanner.nextLine().toLowerCase());
-            new Logger().LogSubMethod(getChooseAction());
-            if (chooseAction.contains("show")) {
-                out.println("1 - All logs   2 - Commands log  3 - Session logs");
-                setEnterChooseNumber(scanner.nextInt());
-                int chooseNumber = getEnterChooseNumber();
-                if (chooseNumber == 1) {
-                    try {
-                        new LogReader().allLogReader();
-                        mm.Menu();
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
-                } else if (chooseNumber == 2) {
-                    try {
-                        new LogReader().logCommandReader();
-                        mm.Menu();
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
-                } else if (chooseNumber == 3) {
-                    try {
-                        new LogReader().logSessionReader();
-                        mm.Menu();
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
-
+            }
+            if (chooseAction.contains("info")) {
+                out.println("Available methods for info:\n " +
+                        "System");
+                setChooseAction(scanner.nextLine().toLowerCase());
+                new Logger().LogSubMethod(getChooseAction());
+                if (chooseAction.contains("system")) {
+                    new SystemInfo().getSystemInfo();
                 }
             }
-            if (chooseAction.contains("exit")) {
-                out.println("Bye bye!");
-                System.exit(0);
+            if (chooseAction.contains("time")) {
+                Date date = new Date();
+                out.println("Current time: " + date);
+                out.println("--------------------------------");
+                Menu();
+            }
+            if (chooseAction.contains("ip")) {
+                out.println("Your ip: " + new GetIp().getIp());
+            }
+            if (chooseAction.contains("check")) {
+                new CheckFilesAndDirectory().allCheck();
+                out.println("Check complete.");
+                new MainMenu().Menu();
+
+            }
+            if (chooseAction.contains("log")) {
+                out.println("Available methods for log:\n " +
+                        "Show\n" +
+                        "Clear");
+                setChooseAction(scanner.nextLine().toLowerCase());
+                new Logger().LogSubMethod(getChooseAction());
+                if (chooseAction.contains("show")) {
+                    out.println("1 - All logs   2 - Commands log  3 - Session logs");
+                    setEnterChooseNumber(scanner.nextInt());
+                    int chooseNumber = getEnterChooseNumber();
+                    if (chooseNumber == 1) {
+                        try {
+                            new LogReader().allLogReader();
+                            mm.Menu();
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    } else if (chooseNumber == 2) {
+                        try {
+                            new LogReader().logCommandReader();
+                            mm.Menu();
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    } else if (chooseNumber == 3) {
+                        try {
+                            new LogReader().logSessionReader();
+                            mm.Menu();
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+
+                    }
+                }
+                if (chooseAction.contains("exit")) {
+                    out.println("Bye bye!");
+                    System.exit(0);
+                }
             }
         }
     }
-}
+
+
 
 

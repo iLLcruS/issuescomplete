@@ -74,6 +74,15 @@ public abstract class CalculateAbs extends Variable {
    public abstract double log(double x);
 
    public abstract void logComplete();
+
+   public abstract double log10(double x);
+
+   public abstract void log10Complete();
+
+   public abstract double sinh(double x);
+
+   public abstract void sinhComplete();
+
 }
 
 
