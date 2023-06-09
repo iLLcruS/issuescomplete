@@ -14,13 +14,16 @@ public class CheckFilesAndDirectory {
     }
     private final String pathSessionDir = "./session";
     private final String pathLogDir = "./logs";
+    private final String pathCommandDir = "./command";
+    private final String pathCommandFile = "./command/availableCommand.txt";
     public String getPathCommandsLogFile() {
         return pathCommandsLogFile;
     }
 
     private final String pathCommandsLogFile = "./logs/commandsLog.txt";
 
-    private void checkSessionFile(){
+    private void checkSessionFile()
+    {
         File sessionFile = new File(pathSessionFile);
         if(!sessionFile.exists()){
             out.println("File with session not exists!");
@@ -34,11 +37,10 @@ public class CheckFilesAndDirectory {
             out.println("File created!");
         }
     }
-
-    private void checkCommandsFile()
+    private void checkCommandLogFile()
     {
-        File sessionFile = new File(pathCommandsLogFile);
-        if(!sessionFile.exists()){
+        File commandsFile = new File(pathCommandsLogFile);
+        if(!commandsFile.exists()){
             out.println("File with session not exists!");
             try {
                 FileWriter file = new FileWriter(pathCommandsLogFile);
@@ -58,7 +60,7 @@ public class CheckFilesAndDirectory {
             try {
                 logsFile.createNewFile();
             } catch (IOException e) {
-                throw new RuntimeException(e);
+               out.println("Creating file...");
             }
             out.println("File created!");
         }
@@ -74,10 +76,32 @@ public class CheckFilesAndDirectory {
     }
 
     private void checkDirectoryLog(){
-        File logsDir = new File(pathLogDir);
+        File logsDir = new File(pathCommandDir);
         if(!logsDir.exists()){
             out.println("Logs directory has been deleted. Create new...");
             logsDir.mkdir();
+            out.println("File created!");
+        }
+    }
+
+    private void checkDirectoryCommand(){
+        File commandDir = new File(pathLogDir);
+        if(!commandDir.exists()){
+            out.println("Directory with Command has been deleted. Create new...");
+            commandDir.mkdir();
+            out.println("File created!");
+        }
+    }
+
+    private void checkCommandFile(){
+        File commandFile = new File(pathCommandFile);
+        if(!commandFile.exists()){
+            out.println("Command file has been deleted. Create new...");
+            try {
+                commandFile.createNewFile();
+            } catch (IOException e) {
+                out.println("Creating file...");
+            }
             out.println("File created!");
         }
     }
@@ -87,6 +111,9 @@ public class CheckFilesAndDirectory {
         checkLogsFile();
         checkSessionFile();
         checkDirectorySession();
-        checkCommandsFile();
+        checkDirectoryCommand();
+        checkCommandFile();
+        checkCommandLogFile();
+
     }
 }
