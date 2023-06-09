@@ -15,7 +15,7 @@ public class GetIp {
             throw new RuntimeException(e);
         }
 
-        BufferedReader in = null;
+        BufferedReader in;
         try {
             in = new BufferedReader(new InputStreamReader(
                     myIP.openStream()));
@@ -23,7 +23,7 @@ public class GetIp {
             throw new RuntimeException(e);
         }
 
-        String ip = null;
+        String ip;
         try {
             ip = in.readLine();
         } catch (IOException e) {
