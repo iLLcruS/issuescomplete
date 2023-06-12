@@ -7,6 +7,8 @@ import Modules.Logger;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static java.lang.System.out;
 
@@ -17,7 +19,145 @@ public class MainMenu extends Variable {
                 "Input your command: ");
         setChooseAction(scanner.nextLine());
 
-        new Logger().commandLoggerWriter(getChooseAction());
+        Pattern pattern = Pattern.compile("string|calc|info|system|time|ip|check|log");
+        Matcher matcher = pattern.matcher(getChooseAction());
+
+        if (matcher.find()) {
+            switch (matcher.group()) {
+                case "string" -> {
+                    new Logger().commandLoggerWriter(getChooseAction());
+                    pattern = Pattern.compile("substring|contains|append|tolowercase|touppercase|replace");
+                    matcher = pattern.matcher(getChooseAction());
+                    switch (matcher.group()) {
+                        case "substring" -> {
+                            new StringProcessing().substringString();
+                            new Logger().LogSubMethod(getChooseAction());
+                        }
+                        case "contains" -> {}
+                        case "append" -> {
+                            new StringProcessing().appendString();
+                            new Logger().LogSubMethod(getChooseAction());
+                        }
+                        case "tolowercase" -> {
+                            new StringProcessing().toLowerCaseString();
+                            new Logger().LogSubMethod(getChooseAction());
+                        }
+                        case "touppercase" -> {
+                            new StringProcessing().toUpperCaseString();
+                            new Logger().LogSubMethod(getChooseAction());
+                        }
+                        case "replace" -> {
+                            new StringProcessing().replaceString();
+                            new Logger().LogSubMethod(getChooseAction());
+                        }
+                    }
+                }
+                case "calc" -> {
+                    pattern = Pattern.compile("sum|minus|multiplication|division|interest|sqrt|cbrt|pow|sin|cos|tan|dis|average|asin|acos|atan|log|log10|sinh|cosh|tanh");
+                    matcher = pattern.matcher(getChooseAction());
+
+                    switch (matcher.group()) {
+                        case "sum" -> {
+                            new Calculator().sumComplete();
+                            new Logger().LogSubMethod(getChooseAction());
+                        }
+                        case "minus" -> new Calculator().minusComplete();
+                        case "multiplication" -> new Calculator().multiplicationComplete();
+                        case "division" -> new Calculator().divisionComplete();
+                        case "interest" -> new Calculator().interestComplete();
+                        case "sqrt" -> new Calculator().sqrtComplete();
+                        case "cbrt" -> new Calculator().cbrtComplete();
+                        case "pow" -> new Calculator().powComplete();
+                        case "sin" -> new Calculator().sinComplete();
+                        case "cos" -> new Calculator().cosComplete();
+                        case "tan" -> new Calculator().tanComplete();
+                        case "dis" -> new Calculator().disc();
+                        case "average" -> new Calculator().averageComplete();
+                        case "asin" -> new Calculator().asinComplete();
+                        case "acos" -> new Calculator().acosComplete();
+                        case "atan" -> new Calculator().atanComplete();
+                        case "log" -> new Calculator().logComplete();
+                        case "log10" -> new Calculator().log10Complete();
+                        case "sinh" -> new Calculator().sinhComplete();
+                        case "cosh" -> new Calculator().coshComplete();
+                        case "tanh" -> new Calculator().tanhComplete();
+                    }
+                }
+                case "info" -> {
+                    out.println("Available methods for info:\n " +
+                            "System");
+                    setChooseAction(scanner.nextLine().toLowerCase());
+                    new Logger().commandLoggerWriter(getChooseAction());
+                    if (chooseAction.contains("system")) {
+                        new Logger().LogSubMethod(getChooseAction());
+                        new SystemInfo().getSystemInfo();
+                    }
+                }
+                case "system" -> {}
+                case "time" -> {
+                    new Logger().commandLoggerWriter(getChooseAction());
+                    Date date = new Date();
+                    out.println("Current time: " + date);
+                    out.println("--------------------------------");
+                    Menu();
+                }
+                case "ip" -> {
+                    new Logger().commandLoggerWriter(getChooseAction());
+                    out.println("Your ip: " + new GetIp().getIp());
+                }
+                case "check" -> {
+                    new Logger().commandLoggerWriter(getChooseAction());
+                    new CheckFilesAndDirectory().allCheck();
+                    out.println("Check complete.");
+                    new MainMenu().Menu();
+                }
+                case "log" -> {
+                    out.println("Available methods for log:\n " +
+                            "Show\n" +
+                            "Clear");
+                    setChooseAction(scanner.nextLine().toLowerCase());
+                    new Logger().commandLoggerWriter(getChooseAction());
+                    if (chooseAction.contains("show")) {
+                        new Logger().LogSubMethod(getChooseAction());
+                        out.println("1 - All logs   2 - Commands log  3 - Session logs");
+                        setEnterChooseNumber(scanner.nextInt());
+                        int chooseNumber = getEnterChooseNumber();
+                        if (chooseNumber == 1) {
+                            try {
+                                new LogReader().allLogReader();
+                                mm.Menu();
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
+                            }
+                        } else if (chooseNumber == 2) {
+                            try {
+                                new LogReader().logCommandReader();
+                                mm.Menu();
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
+                            }
+                        } else if (chooseNumber == 3) {
+                            try {
+                                new LogReader().logSessionReader();
+                                mm.Menu();
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
+                            }
+
+                        }
+                    }
+                    if (chooseAction.contains("exit")) {
+                        new Logger().commandLoggerWriter(getChooseAction());
+                        out.println("Bye bye!");
+                        System.exit(0);
+                    }
+                }
+            }
+        }
+    }
+}
+
+      /*  new Logger().commandLoggerWriter(getChooseAction());
         if (chooseAction.contains("string")) {
             out.println("Available methods for string:\n " +
                     "Substring\n " +
@@ -67,9 +207,9 @@ public class MainMenu extends Variable {
                     "acos\n" +
                     "atan\n" +
                     "log\n" +
-                    "log10\n"+
-                    "sinh\n"+
-                    "cosh\n"+
+                    "log10\n" +
+                    "sinh\n" +
+                    "cosh\n" +
                     "tanh\n"
             );
             setChooseAction(scanner.nextLine().toLowerCase());
@@ -138,72 +278,70 @@ public class MainMenu extends Variable {
                 new Calculator().tanhComplete();
             }
 
-            }
-            if (chooseAction.contains("info")) {
-                out.println("Available methods for info:\n " +
-                        "System");
-                setChooseAction(scanner.nextLine().toLowerCase());
-                new Logger().LogSubMethod(getChooseAction());
-                if (chooseAction.contains("system")) {
-                    new SystemInfo().getSystemInfo();
-                }
-            }
-            if (chooseAction.contains("time")) {
-                Date date = new Date();
-                out.println("Current time: " + date);
-                out.println("--------------------------------");
-                Menu();
-            }
-            if (chooseAction.contains("ip")) {
-                out.println("Your ip: " + new GetIp().getIp());
-            }
-            if (chooseAction.contains("check")) {
-                new CheckFilesAndDirectory().allCheck();
-                out.println("Check complete.");
-                new MainMenu().Menu();
-
-            }
-            if (chooseAction.contains("log")) {
-                out.println("Available methods for log:\n " +
-                        "Show\n" +
-                        "Clear");
-                setChooseAction(scanner.nextLine().toLowerCase());
-                new Logger().LogSubMethod(getChooseAction());
-                if (chooseAction.contains("show")) {
-                    out.println("1 - All logs   2 - Commands log  3 - Session logs");
-                    setEnterChooseNumber(scanner.nextInt());
-                    int chooseNumber = getEnterChooseNumber();
-                    if (chooseNumber == 1) {
-                        try {
-                            new LogReader().allLogReader();
-                            mm.Menu();
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
-                        }
-                    } else if (chooseNumber == 2) {
-                        try {
-                            new LogReader().logCommandReader();
-                            mm.Menu();
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
-                        }
-                    } else if (chooseNumber == 3) {
-                        try {
-                            new LogReader().logSessionReader();
-                            mm.Menu();
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
-                        }
-
-                    }
-                }
-                if (chooseAction.contains("exit")) {
-                    out.println("Bye bye!");
-                    System.exit(0);
-                }
+        }
+        if (chooseAction.contains("info")) {
+            out.println("Available methods for info:\n " +
+                    "System");
+            setChooseAction(scanner.nextLine().toLowerCase());
+            new Logger().LogSubMethod(getChooseAction());
+            if (chooseAction.contains("system")) {
+                new SystemInfo().getSystemInfo();
             }
         }
-    }
+        if (chooseAction.contains("time")) {
+            Date date = new Date();
+            out.println("Current time: " + date);
+            out.println("--------------------------------");
+            Menu();
+        }
+        if (chooseAction.contains("ip")) {
+            out.println("Your ip: " + new GetIp().getIp());
+        }
+        if (chooseAction.contains("check")) {
+            new CheckFilesAndDirectory().allCheck();
+            out.println("Check complete.");
+            new MainMenu().Menu();
+
+        }
+        if (chooseAction.contains("log")) {
+            out.println("Available methods for log:\n " +
+                    "Show\n" +
+                    "Clear");
+            setChooseAction(scanner.nextLine().toLowerCase());
+            new Logger().LogSubMethod(getChooseAction());
+            if (chooseAction.contains("show")) {
+                out.println("1 - All logs   2 - Commands log  3 - Session logs");
+                setEnterChooseNumber(scanner.nextInt());
+                int chooseNumber = getEnterChooseNumber();
+                if (chooseNumber == 1) {
+                    try {
+                        new LogReader().allLogReader();
+                        mm.Menu();
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                } else if (chooseNumber == 2) {
+                    try {
+                        new LogReader().logCommandReader();
+                        mm.Menu();
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                } else if (chooseNumber == 3) {
+                    try {
+                        new LogReader().logSessionReader();
+                        mm.Menu();
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+
+                }
+            }
+            if (chooseAction.contains("exit")) {
+                out.println("Bye bye!");
+                System.exit(0);
+            }
+        }*/
 
 
 
