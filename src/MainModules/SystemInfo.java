@@ -1,6 +1,7 @@
 package MainModules;
 
 import DataPackage.Variable;
+import org.json.simple.parser.ParseException;
 
 import static java.lang.System.out;
 
@@ -41,7 +42,7 @@ public class SystemInfo extends Variable {
         String os = System.getProperty("os.version");
         return os;
     }
-    public void getSystemInfo() {
+    public void getSystemInfo() throws ParseException {
         getSystemVersion();
         mm.Menu();
     }
