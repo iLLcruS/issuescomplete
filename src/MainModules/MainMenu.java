@@ -155,6 +155,7 @@ public class MainMenu extends Variable {
                 }
                 case "location" ->
                 {
+                    new Logger().commandLoggerWriter(getChooseAction());
                     out.println("-------------------------------------");
                     out.println("Available functions for 'location'\n-> City");
                     out.println("-------------------------------------");
@@ -163,11 +164,13 @@ public class MainMenu extends Variable {
                     switch (chooseAction)
                     {
                         case "city" -> {
+                            new Logger().LogSubMethod(chooseAction);
                             out.print("Your city is => ");
                             out.print(new LocationProccesing().getCity() + "\n");
                             mm.Menu();
                         }
                         default -> {
+                            new Logger().LogSubMethod(chooseAction);
                             mm.Menu();
                         }
                     }
