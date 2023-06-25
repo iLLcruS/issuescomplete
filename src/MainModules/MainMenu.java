@@ -20,7 +20,7 @@ public class MainMenu extends Variable {
                 "Input your command: ");
         setChooseAction(scanner.nextLine());
 
-        Pattern pattern = Pattern.compile("string|calc|info|system|time|ip|check|log|location");
+        Pattern pattern = Pattern.compile("string|calc|info|system|time|ip|check|log|location|wheather");
         Matcher matcher = pattern.matcher(getChooseAction());
 
         if (matcher.find()) {
@@ -171,6 +171,31 @@ public class MainMenu extends Variable {
                             mm.Menu();
                         }
                     }
+                }
+                case "wheather" ->
+                {
+                    new Logger().commandLoggerWriter(getChooseAction());
+                    out.println("=====================================");
+                    out.println("Available functions for 'wheather':\n" +
+                            "=> temperature");
+                    out.println("=====================================");
+                    out.print("Enter function: ");
+                    setChooseAction(scanner.nextLine().toLowerCase());
+                    switch (chooseAction)
+                    {
+                        case "temperature" ->
+                        {
+                            new Logger().LogSubMethod(chooseAction);
+                            out.print("Your current temperature: ");
+                            out.print(new GetWeather().GetTemperature() + "°" + "\n");
+                            out.print("Your current temperature feels like: ");
+                            out.print(new GetWeather().GetAllWheater().get("feelslike_c") + "°" + "\n");
+                        }
+
+                    }
+
+                    mm.Menu();
+
                 }
             }
         }
