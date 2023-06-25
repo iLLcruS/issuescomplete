@@ -5,8 +5,9 @@ import Modules.AllChecks.CheckFilesAndDirectory;
 import Modules.GetIp;
 import Modules.Logger;
 
-import java.io.IOException;
+import java.io.*;
 import java.util.Date;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -15,11 +16,18 @@ import static java.lang.System.out;
 public class MainMenu extends Variable {
 
     public void Menu() {
-        out.print("Welcome " + nameProperty + " to the program!\n" +
-                "Input your command: ");
+        try {
+            out.print("Welcome " + new NameProcessing().getCurrentName() + " to the program!\n" +
+                    "Input your command: ");
+        } catch (FileNotFoundException e) {
+            out.println("Error with file passed.");
+            out.print("Welcome " + nameProperty + " to the program!\n" +
+                    "Input your command: ");
+        }
+
         setChooseAction(scanner.nextLine());
 
-        Pattern pattern = Pattern.compile("string|calc|info|system|time|ip|check|log");
+        Pattern pattern = Pattern.compile("string|calc|info|system|time|ip|check|log|name");
         Matcher matcher = pattern.matcher(getChooseAction());
 
         if (matcher.find()) {
@@ -33,7 +41,8 @@ public class MainMenu extends Variable {
                             new StringProcessing().substringString();
                             new Logger().LogSubMethod(getChooseAction());
                         }
-                        case "contains" -> {}
+                        case "contains" -> {
+                        }
                         case "append" -> {
                             new StringProcessing().appendString();
                             new Logger().LogSubMethod(getChooseAction());
@@ -93,7 +102,8 @@ public class MainMenu extends Variable {
                         new SystemInfo().getSystemInfo();
                     }
                 }
-                case "system" -> {}
+                case "system" -> {
+                }
                 case "time" -> {
                     new Logger().commandLoggerWriter(getChooseAction());
                     Date date = new Date();
@@ -152,10 +162,27 @@ public class MainMenu extends Variable {
                         System.exit(0);
                     }
                 }
+                case "name" -> {
+                    new Logger().logCommand(getChooseAction());
+                    try {
+
+                        out.println("Your previous name is: " + new NameProcessing().getCurrentName());
+                        out.print("Enter new name: ");
+                        new NameProcessing().SetNewName();
+                        out.print("\n");
+
+                    } catch (FileNotFoundException e) {
+                        throw new RuntimeException(e);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+
             }
         }
     }
 }
+
 
       /*  new Logger().commandLoggerWriter(getChooseAction());
         if (chooseAction.contains("string")) {
