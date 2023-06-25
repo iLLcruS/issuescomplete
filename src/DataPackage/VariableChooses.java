@@ -6,7 +6,7 @@ import MainModules.MainMenu;
 public class VariableChooses{
     protected Scanner scanner = new Scanner(System.in);
 
-    protected static MainMenu mm = new MainMenu();
+    public static MainMenu mm = new MainMenu();
 
     protected static int enterChooseNumber;
 

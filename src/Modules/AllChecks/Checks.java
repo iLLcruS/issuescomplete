@@ -1,12 +1,13 @@
 package Modules.AllChecks;
 
 import MainModules.MainMenu;
+import org.json.simple.parser.ParseException;
 
 import java.util.Scanner;
 
 public class Checks {
 
-    public void checkPassword(){
+    public void checkPassword() throws ParseException {
         System.out.print("Enter your password: ");
         Scanner in = new Scanner(System.in);
 

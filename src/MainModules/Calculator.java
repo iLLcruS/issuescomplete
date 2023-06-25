@@ -2,6 +2,7 @@ package MainModules;
 
 
 import MainModules.AbstractClasses.CalculateAbs;
+import org.json.simple.parser.ParseException;
 
 import java.util.Scanner;
 
@@ -14,7 +15,7 @@ public class Calculator extends CalculateAbs {
     }
 
     @Override
-    public void sumComplete() {
+    public void sumComplete() throws ParseException {
         Scanner scanner = new Scanner(System.in);
 
         out.println("Enter your first number: ");
@@ -33,7 +34,7 @@ public class Calculator extends CalculateAbs {
     }
 
     @Override
-    public void minusComplete() {
+    public void minusComplete() throws ParseException {
         Scanner scanner = new Scanner(System.in);
 
         out.println("Enter your first number: ");
@@ -52,7 +53,7 @@ public class Calculator extends CalculateAbs {
     }
 
     @Override
-    public void multiplicationComplete() {
+    public void multiplicationComplete() throws ParseException {
         Scanner scanner = new Scanner(System.in);
 
         out.println("Enter your first number: ");
@@ -71,7 +72,7 @@ public class Calculator extends CalculateAbs {
     }
 
     @Override
-    public void divisionComplete() {
+    public void divisionComplete() throws ParseException {
         Scanner scanner = new Scanner(System.in);
 
         out.println("Enter your first number: ");
@@ -90,7 +91,7 @@ public class Calculator extends CalculateAbs {
     }
 
     @Override
-    public void interestComplete() {
+    public void interestComplete() throws ParseException {
         Scanner scanner = new Scanner(System.in);
 
         out.println("Enter your first number: ");
@@ -110,7 +111,7 @@ public class Calculator extends CalculateAbs {
 
 
     @Override
-    public void sqrtComplete() {
+    public void sqrtComplete() throws ParseException {
         Scanner scanner = new Scanner(System.in);
 
         out.println("Enter your first number: ");
@@ -125,7 +126,7 @@ public class Calculator extends CalculateAbs {
     }
 
     @Override
-    public void cbrtComplete() {
+    public void cbrtComplete() throws ParseException {
         Scanner scanner = new Scanner(System.in);
 
         out.println("Enter your first number: ");
@@ -143,7 +144,7 @@ public class Calculator extends CalculateAbs {
     }
 
     @Override
-    public void powComplete() {
+    public void powComplete() throws ParseException {
         Scanner scanner = new Scanner(System.in);
 
         out.println("Enter your first number: ");
@@ -162,7 +163,7 @@ public class Calculator extends CalculateAbs {
     }
 
     @Override
-    public void sinComplete() {
+    public void sinComplete() throws ParseException {
         Scanner scanner = new Scanner(System.in);
 
         out.println("Enter your first number: ");
@@ -178,7 +179,7 @@ public class Calculator extends CalculateAbs {
     }
 
     @Override
-    public void cosComplete() {
+    public void cosComplete() throws ParseException {
         Scanner scanner = new Scanner(System.in);
 
         out.println("Enter your first number: ");
@@ -209,7 +210,7 @@ public class Calculator extends CalculateAbs {
     }
 
     @Override
-    public void disc() {
+    public void disc() throws ParseException {
 
         out.println("Enter a value: ");
         double a = scanner.nextDouble();
@@ -247,7 +248,7 @@ public class Calculator extends CalculateAbs {
     }
 
     @Override
-    public void tanComplete() {
+    public void tanComplete() throws ParseException {
         Scanner scanner = new Scanner(System.in);
 
         out.println("Enter your first number: ");
@@ -293,7 +294,7 @@ public class Calculator extends CalculateAbs {
     }
 
     @Override
-    public void asinComplete() {
+    public void asinComplete() throws ParseException {
         Scanner scanner = new Scanner(System.in);
 
         out.println("Enter your first number: ");
@@ -309,7 +310,7 @@ public class Calculator extends CalculateAbs {
     }
 
     @Override
-    public void acosComplete() {
+    public void acosComplete() throws ParseException {
         Scanner scanner = new Scanner(System.in);
 
         out.println("Enter your first number: ");
@@ -325,7 +326,7 @@ public class Calculator extends CalculateAbs {
     }
 
     @Override
-    public void atanComplete() {
+    public void atanComplete() throws ParseException {
         Scanner scanner = new Scanner(System.in);
 
         out.println("Enter your first number: ");
@@ -341,7 +342,7 @@ public class Calculator extends CalculateAbs {
     }
 
     @Override
-    public void logComplete() {
+    public void logComplete() throws ParseException {
         Scanner scanner = new Scanner(System.in);
 
         out.println("Enter your first number: ");
@@ -357,7 +358,7 @@ public class Calculator extends CalculateAbs {
     }
 
     @Override
-    public void log10Complete() {
+    public void log10Complete() throws ParseException {
         Scanner scanner = new Scanner(System.in);
 
         out.println("Enter your first number: ");
@@ -371,7 +372,7 @@ public class Calculator extends CalculateAbs {
         return Math.sinh(x);
     }
     @Override
-    public void sinhComplete() {
+    public void sinhComplete() throws ParseException {
         Scanner scanner = new Scanner(System.in);
 
         out.println("Enter your first number: ");
@@ -385,7 +386,7 @@ public class Calculator extends CalculateAbs {
         return Math.cosh(x);
     }
     @Override
-    public void coshComplete() {
+    public void coshComplete() throws ParseException {
         Scanner scanner = new Scanner(System.in);
 
         out.println("Enter your first number: ");
@@ -399,7 +400,7 @@ public class Calculator extends CalculateAbs {
         return Math.tanh(x);
     }
     @Override
-    public void tanhComplete() {
+    public void tanhComplete() throws ParseException {
         Scanner scanner = new Scanner(System.in);
 
         out.println("Enter your first number: ");

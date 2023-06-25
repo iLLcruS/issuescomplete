@@ -4,6 +4,7 @@ import DataPackage.Variable;
 import Modules.AllChecks.CheckFilesAndDirectory;
 import Modules.GetIp;
 import Modules.Logger;
+import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
 import java.util.Date;
@@ -14,12 +15,12 @@ import static java.lang.System.out;
 
 public class MainMenu extends Variable {
 
-    public void Menu() {
+    public void Menu() throws ParseException {
         out.print("Welcome " + nameProperty + " to the program!\n" +
                 "Input your command: ");
         setChooseAction(scanner.nextLine());
 
-        Pattern pattern = Pattern.compile("string|calc|info|system|time|ip|check|log");
+        Pattern pattern = Pattern.compile("string|calc|info|system|time|ip|check|log|location");
         Matcher matcher = pattern.matcher(getChooseAction());
 
         if (matcher.find()) {
@@ -150,6 +151,28 @@ public class MainMenu extends Variable {
                         new Logger().commandLoggerWriter(getChooseAction());
                         out.println("Bye bye!");
                         System.exit(0);
+                    }
+                }
+                case "location" ->
+                {
+                    new Logger().commandLoggerWriter(getChooseAction());
+                    out.println("-------------------------------------");
+                    out.println("Available functions for 'location'\n-> City");
+                    out.println("-------------------------------------");
+                    out.print("Enter a function: ");
+                    setChooseAction(scanner.nextLine().toLowerCase());
+                    switch (chooseAction)
+                    {
+                        case "city" -> {
+                            new Logger().LogSubMethod(chooseAction);
+                            out.print("Your city is => ");
+                            out.print(new LocationProccesing().getCity() + "\n");
+                            mm.Menu();
+                        }
+                        default -> {
+                            new Logger().LogSubMethod(chooseAction);
+                            mm.Menu();
+                        }
                     }
                 }
             }
