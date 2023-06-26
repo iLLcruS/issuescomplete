@@ -165,11 +165,36 @@ public class MainMenu extends Variable {
                 case "name" -> {
                     new Logger().logCommand(getChooseAction());
                     try {
+                        out.print("============================");
+                        out.println("What are you want?\n" +
+                                "See previous name => see\n" +
+                                "Set a new name => set");
+                        out.print("============================");
+                        out.print("Enter a command:");
+                        setChooseAction(scanner.nextLine().toLowerCase());
+                        new Logger().LogSubMethod(getChooseAction());
+                        switch (chooseAction)
+                        {
+                            case "see" ->
+                            {
+                                out.print("============================================");
+                                out.println("Your previous name is: " + new NameProcessing().getCurrentName());
+                                out.print("============================================");
+                                mm.Menu();
+                            }
+                            case "set" ->
+                            {
 
-                        out.println("Your previous name is: " + new NameProcessing().getCurrentName());
-                        out.print("Enter new name: ");
-                        new NameProcessing().SetNewName();
-                        out.print("\n");
+                                out.print("Enter new name: ");
+                                new NameProcessing().SetNewName();
+                                out.print("\n");
+                                mm.Menu();
+                            }
+                            default -> {
+                                mm.Menu();
+                            }
+                        }
+
 
                     } catch (FileNotFoundException e) {
                         throw new RuntimeException(e);

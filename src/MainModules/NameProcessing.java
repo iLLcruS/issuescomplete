@@ -20,6 +20,7 @@ public class NameProcessing {
     }
     public void SetNewName() throws IOException {
         FileWriter fileName = new FileWriter(getFileWithName(), false);
+
         Scanner scan = new Scanner(System.in);
         fileName.write(scan.nextLine());
         fileName.close();
