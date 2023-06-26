@@ -1,6 +1,7 @@
 package Modules.AllChecks;
 
 import MainModules.MainMenu;
+import Modules.JsonSession;
 
 import java.util.Scanner;
 
@@ -14,7 +15,7 @@ public class Checks {
         String password = "123";
 
         if (enterPassword.contains(password)) {
-
+            new JsonSession().createJsonObject();
             new MainMenu().Menu();
         } else {
             System.out.println("Wrong password, try again!");
