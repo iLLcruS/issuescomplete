@@ -27,7 +27,7 @@ public class MainMenu extends Variable {
 
         setChooseAction(scanner.nextLine());
         
-        Pattern pattern = Pattern.compile("string|calc|info|system|time|ip|check|log|location|weather|name");
+        Pattern pattern = Pattern.compile("string|calc|info|system|time|ip|check|log|location|weather|name|file");
         Matcher matcher = pattern.matcher(getChooseAction());
 
         if (matcher.find()) {
@@ -248,6 +248,45 @@ public class MainMenu extends Variable {
                         throw new RuntimeException(e);
                     } catch (IOException e) {
                         throw new RuntimeException(e);
+                    }
+                }
+                case "file" ->
+                {
+                    out.println("Available fucnctions for 'file'\n" +
+                            "=> Rename\n" +
+                            "=> mkFile\n" +
+                            "=> mkDir");
+                    out.print("Enter a function: ");
+                    out.print("\n");
+                    setChooseAction(scanner.nextLine().toLowerCase());
+                    switch (chooseAction)
+                    {
+                        case "rename" ->{
+                            FileProccesing f = new FileProccesing();
+                            out.println("Path format './user/data/password/passwords.txt'");
+                            out.print("Enter path to file:");
+                            f.setPath();
+                            f.renameFile();
+                            mm.Menu();
+                        }
+                        case "mkfile" ->
+                        {
+                            FileProccesing f = new FileProccesing();
+                            out.println("Path format './user/data/password/passwords.txt'");
+                            out.print("Enter path to file:");
+                            f.setPath();
+                            f.makeNewFile();
+                            mm.Menu();
+                        }
+                        case "mkdir" ->
+                        {
+                            FileProccesing f = new FileProccesing();
+                            out.println("Path format './user/data/password/passwords.txt'");
+                            out.print("Enter path to file:");
+                            f.setPath();
+                            f.makeNewDirectory();
+                            mm.Menu();
+                        }
                     }
                 }
             }
