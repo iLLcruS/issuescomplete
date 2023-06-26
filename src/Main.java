@@ -6,7 +6,7 @@ import Modules.Visual;
 import static java.lang.System.out;
 
 public class Main{
-    public static void main(String[] args) {
+    public static void main(String[] args){
         new CheckFilesAndDirectory().allCheck();
         new Logger().logWriter();
         new Visual().printMsgWithProgressBar("Loading", 25, 60);

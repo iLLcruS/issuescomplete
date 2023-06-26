@@ -60,8 +60,7 @@ public class StringProcessing extends StringProcessingAbs {
     }
 
     @Override
-    public void toLowerCaseString()
-    {
+    public void toLowerCaseString() {
         out.println("Enter your sentence: ");
         setUserSentence(scanner.next());
         out.println("---------------------------------------");
@@ -77,8 +76,7 @@ public class StringProcessing extends StringProcessingAbs {
         }
     }
     @Override
-    public void toUpperCaseString()
-    {
+    public void toUpperCaseString() {
         out.println("Enter your sentence: ");
         setUserSentence(scanner.next());
         out.println("---------------------------------------");
