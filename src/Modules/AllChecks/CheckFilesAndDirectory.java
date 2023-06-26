@@ -7,6 +7,10 @@ import java.io.IOException;
 import static java.lang.System.out;
 
 public class CheckFilesAndDirectory {
+    public String getPathSessionFile() {
+        return pathSessionFile;
+    }
+
     private final String pathSessionFile = "./session/session.json";
     private final String pathLogFile = "./logs/log.txt";
     public String getPathLogFile() {
@@ -30,7 +34,7 @@ public class CheckFilesAndDirectory {
             out.println("File with session not exists!");
             try {
                 FileWriter file = new FileWriter(pathSessionFile);
-                file.write(" ");
+                file.write("");
                 file.close();
             } catch (IOException e) {
                 e.printStackTrace();
