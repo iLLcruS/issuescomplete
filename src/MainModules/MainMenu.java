@@ -18,7 +18,7 @@ public class MainMenu extends Variable {
         out.print("Welcome " + nameProperty + " to the program!\n" +
                 "Input your command: ");
         setChooseAction(scanner.nextLine());
-        Pattern pattern = Pattern.compile("string|calc|info|system|time|ip|check|log|location|weather");
+        Pattern pattern = Pattern.compile("string|calc|info|system|time|ip|check|log|location|weather|fun");
         Matcher matcher = pattern.matcher(getChooseAction());
 
         if (matcher.find()) {
@@ -258,6 +258,12 @@ public class MainMenu extends Variable {
                     }
 
 
+
+                }
+                case "fun" -> {
+                    new Logger().commandLoggerWriter(getChooseAction());
+                    new Anekdoter().sendAnecdot();
+                    new MainMenu().Menu();
 
                 }
             }
