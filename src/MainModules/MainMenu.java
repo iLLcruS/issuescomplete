@@ -255,7 +255,8 @@ public class MainMenu extends Variable {
                     out.println("Available fucnctions for 'file'\n" +
                             "=> Rename\n" +
                             "=> mkFile\n" +
-                            "=> mkDir");
+                            "=> mkDir\n" +
+                            "=> Open");
                     out.print("Enter a function: ");
                     out.print("\n");
                     setChooseAction(scanner.nextLine().toLowerCase());
@@ -285,6 +286,19 @@ public class MainMenu extends Variable {
                             out.print("Enter path to file:");
                             f.setPath();
                             f.makeNewDirectory();
+                            mm.Menu();
+                        }
+                        case "open" ->
+                        {
+                            FileProccesing f = new FileProccesing();
+                            out.println("Path format './user/data/password/passwords.txt'");
+                            out.print("Enter path to file:");
+                            f.setPath();
+                            f.openFile();
+                            mm.Menu();
+                        }
+                        default ->
+                        {
                             mm.Menu();
                         }
                     }

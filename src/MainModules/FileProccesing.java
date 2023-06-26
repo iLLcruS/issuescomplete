@@ -1,5 +1,6 @@
 package MainModules;
 
+import java.awt.*;
 import java.io.*;
 import java.util.Scanner;
 
@@ -52,6 +53,7 @@ public class FileProccesing {
             }
         }
     }
+
     public void makeNewDirectory() {
         File file;
         Scanner scan;
@@ -65,6 +67,24 @@ public class FileProccesing {
             file = new File(pathToThisFile, scan.nextLine());
             file.mkdir();
             System.out.print("Successfully created!\n");
+        }
+    }
+
+    public void openFile() {
+        File file;
+        Scanner scan;
+        file = new File(pathToThisFile);
+        scan = new Scanner(System.in);
+        if (!file.exists()) {
+            System.out.println("Invalid path!");
+
+        } else {
+            Desktop desk = Desktop.getDesktop();
+            try {
+               desk.open(file);
+            } catch (IOException e) {
+                System.out.println("Error opening file!");
+            }
         }
     }
 }
