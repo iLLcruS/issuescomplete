@@ -27,7 +27,7 @@ public class MainMenu extends Variable {
 
         setChooseAction(scanner.nextLine());
         
-        Pattern pattern = Pattern.compile("string|calc|info|system|time|ip|check|log|location|weather|name|file");
+        Pattern pattern = Pattern.compile("string|calc|info|system|time|ip|check|log|location|weather|name|file|fun");
         Matcher matcher = pattern.matcher(getChooseAction());
 
         if (matcher.find()) {
@@ -70,26 +70,87 @@ public class MainMenu extends Variable {
                             new Calculator().sumComplete();
                             new Logger().LogSubMethod(getChooseAction());
                         }
-                        case "minus" -> new Calculator().minusComplete();
-                        case "multiplication" -> new Calculator().multiplicationComplete();
-                        case "division" -> new Calculator().divisionComplete();
-                        case "interest" -> new Calculator().interestComplete();
-                        case "sqrt" -> new Calculator().sqrtComplete();
-                        case "cbrt" -> new Calculator().cbrtComplete();
-                        case "pow" -> new Calculator().powComplete();
-                        case "sin" -> new Calculator().sinComplete();
-                        case "cos" -> new Calculator().cosComplete();
-                        case "tan" -> new Calculator().tanComplete();
-                        case "dis" -> new Calculator().disc();
-                        case "average" -> new Calculator().averageComplete();
-                        case "asin" -> new Calculator().asinComplete();
-                        case "acos" -> new Calculator().acosComplete();
-                        case "atan" -> new Calculator().atanComplete();
-                        case "log" -> new Calculator().logComplete();
-                        case "log10" -> new Calculator().log10Complete();
-                        case "sinh" -> new Calculator().sinhComplete();
-                        case "cosh" -> new Calculator().coshComplete();
-                        case "tanh" -> new Calculator().tanhComplete();
+
+                        case "minus" -> {
+                            new Calculator().minusComplete();
+                            new Logger().LogSubMethod(getChooseAction());
+                        }
+                        case "multiplication" -> {
+                            new Calculator().multiplicationComplete();
+                            new Logger().LogSubMethod(getChooseAction());
+                        }
+                        case "division" -> {
+                            new Calculator().divisionComplete();
+                            new Logger().LogSubMethod(getChooseAction());
+                        }
+                        case "interest" -> {
+                            new Calculator().interestComplete();
+                            new Logger().LogSubMethod(getChooseAction());
+                        }
+                        case "sqrt" -> {
+                            new Calculator().sqrtComplete();
+                            new Logger().LogSubMethod(getChooseAction());
+                        }
+                        case "cbrt" -> {
+                            new Calculator().cbrtComplete();
+                            new Logger().LogSubMethod(getChooseAction());
+                        }
+                        case "pow" -> {
+                            new Calculator().powComplete();
+                            new Logger().LogSubMethod(getChooseAction());
+                        }
+                        case "sin" -> {
+                            new Calculator().sinComplete();
+                            new Logger().LogSubMethod(getChooseAction());
+                        }
+                        case "cos" -> {
+                            new Calculator().cosComplete();
+                            new Logger().LogSubMethod(getChooseAction());
+                        }
+                        case "tan" -> {
+                            new Calculator().tanComplete();
+                            new Logger().LogSubMethod(getChooseAction());
+                        }
+                        case "dis" -> {
+                            new Calculator().disc();
+                            new Logger().LogSubMethod(getChooseAction());
+                        }
+                        case "average" -> {
+                            new Calculator().averageComplete();
+                            new Logger().LogSubMethod(getChooseAction());
+                        }
+                        case "asin" -> {
+                            new Calculator().asinComplete();
+                            new Logger().LogSubMethod(getChooseAction());
+                        }
+                        case "acos" -> {
+                            new Calculator().acosComplete();
+                            new Logger().LogSubMethod(getChooseAction());
+                        }
+                        case "atan" -> {
+                            new Calculator().atanComplete();
+                            new Logger().LogSubMethod(getChooseAction());
+                        }
+                        case "log" -> {
+                            new Calculator().logComplete();
+                            new Logger().LogSubMethod(getChooseAction());
+                        }
+                        case "log10" -> {
+                            new Calculator().log10Complete();
+                            new Logger().LogSubMethod(getChooseAction());
+                        }
+                        case "sinh" -> {
+                            new Calculator().sinhComplete();
+                            new Logger().LogSubMethod(getChooseAction());
+                        }
+                        case "cosh" -> {
+                            new Calculator().coshComplete();
+                            new Logger().LogSubMethod(getChooseAction());
+                        }
+                        case "tanh" -> {
+                            new Calculator().tanhComplete();
+                            new Logger().LogSubMethod(getChooseAction());
+                        }
                     }
                 }
                 case "info" -> {
@@ -302,6 +363,10 @@ public class MainMenu extends Variable {
                             mm.Menu();
                         }
                     }
+                case "fun" -> {
+                    new Logger().commandLoggerWriter(getChooseAction());
+                    new Anekdoter().sendAnecdot();
+                    new MainMenu().Menu();
                 }
             }
         }
