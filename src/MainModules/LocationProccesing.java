@@ -38,8 +38,14 @@ public class LocationProccesing {
         return Location;
     }
 
-    public String getCity() throws ParseException {
-        Object obj = new JSONParser().parse(getAllLocation());
+    public String getCity() {
+        Object obj;
+        try{
+            obj = new JSONParser().parse(getAllLocation());
+        }catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+
         JSONObject LocationJson = (JSONObject) obj;
         return (String) LocationJson.get("city");
 

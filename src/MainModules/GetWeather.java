@@ -13,9 +13,15 @@ import java.net.URL;
 
 public class GetWeather
 {
-    public JSONObject GetAllWheater() throws ParseException {
+    public JSONObject GetAllWheater() {
+        Object obj;
+        try
+        {
+            obj = new JSONParser().parse(new LocationProccesing().getAllLocation());
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
 
-        Object obj = new JSONParser().parse(new LocationProccesing().getAllLocation());
         JSONObject JsonInfo = (JSONObject) obj;
         String API_KEY = "53db67f2c4434a14b47103300232506";
 
@@ -40,14 +46,21 @@ public class GetWeather
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        Object objToReady = new JSONParser().parse(ip);
+        Object objToReady;
+        try
+        {
+            objToReady = new JSONParser().parse(ip);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+
         JSONObject Data = (JSONObject) objToReady;
         Object parse1 =  Data.get("current");
         JSONObject Data1 = (JSONObject) parse1;
         return Data1;
 
     }
-    public Double GetTemperature() throws ParseException {
+    public Double GetTemperature(){
         return (Double) GetAllWheater().get("temp_c");
     }
 }

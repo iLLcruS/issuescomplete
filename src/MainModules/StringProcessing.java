@@ -2,7 +2,6 @@ package MainModules;
 
 import MainModules.AbstractClasses.StringProcessingAbs;
 import DataPackage.VariableChooses;
-import org.json.simple.parser.ParseException;
 
 import static java.lang.System.out;
 
@@ -10,7 +9,7 @@ public class StringProcessing extends StringProcessingAbs {
     StringBuilder str = new StringBuilder();
 
     @Override
-    public void substringString() throws ParseException {
+    public void substringString() {
         out.println("Input your sentence: ");
         setUserSentence(scanner.next());
 
@@ -33,7 +32,7 @@ public class StringProcessing extends StringProcessingAbs {
     }
 
     @Override
-    public void appendString() throws ParseException {
+    public void appendString() {
 
 
         out.println("Enter Your Start Sentence: ");
@@ -61,7 +60,7 @@ public class StringProcessing extends StringProcessingAbs {
     }
 
     @Override
-    public void toLowerCaseString() throws ParseException {
+    public void toLowerCaseString() {
         out.println("Enter your sentence: ");
         setUserSentence(scanner.next());
         out.println("---------------------------------------");
@@ -77,7 +76,7 @@ public class StringProcessing extends StringProcessingAbs {
         }
     }
     @Override
-    public void toUpperCaseString() throws ParseException {
+    public void toUpperCaseString() {
         out.println("Enter your sentence: ");
         setUserSentence(scanner.next());
         out.println("---------------------------------------");

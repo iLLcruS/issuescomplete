@@ -4,7 +4,6 @@ import DataPackage.Variable;
 import Modules.AllChecks.CheckFilesAndDirectory;
 import Modules.GetIp;
 import Modules.Logger;
-import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
 import java.util.Date;
@@ -15,12 +14,12 @@ import static java.lang.System.out;
 
 public class MainMenu extends Variable {
 
-    public void Menu() throws ParseException {
+    public void Menu() {
         out.print("Welcome " + nameProperty + " to the program!\n" +
                 "Input your command: ");
         setChooseAction(scanner.nextLine());
 
-        Pattern pattern = Pattern.compile("string|calc|info|system|time|ip|check|log|location|wheather");
+        Pattern pattern = Pattern.compile("string|calc|info|system|time|ip|check|log|location|weather");
         Matcher matcher = pattern.matcher(getChooseAction());
 
         if (matcher.find()) {
@@ -172,7 +171,7 @@ public class MainMenu extends Variable {
                         }
                     }
                 }
-                case "wheather" ->
+                case "weather" ->
                 {
                     new Logger().commandLoggerWriter(getChooseAction());
                     out.println("=====================================");
@@ -191,10 +190,14 @@ public class MainMenu extends Variable {
                             out.print("Your current temperature feels like: ");
                             out.print(new GetWeather().GetAllWheater().get("feelslike_c") + "°" + "\n");
                         }
+                        default ->
+                        {
+                            mm.Menu();
+                        }
 
                     }
 
-                    mm.Menu();
+
 
                 }
             }
