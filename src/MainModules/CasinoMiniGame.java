@@ -20,7 +20,7 @@ public class CasinoMiniGame
     {
         System.out.println("Your current balance: " + balance +"$");
         float bet = this.getBet();
-        if (bet < balance) {
+        if (bet > balance) {
             System.out.print("Sorry your bet is incorrect! Try again!" );
             return;
         }
@@ -31,7 +31,7 @@ public class CasinoMiniGame
         }
         if (this.startMakingOrLosingMoney(bet,coefficient))
         {
-            float win = balance - bet;
+            float win = balance - bet * 2;
             System.out.println("Congratulations you win " + win + "$");
         }
         else{
@@ -81,7 +81,7 @@ public class CasinoMiniGame
         } else {
 
             float loss = -bet;
-            balance -= loss;
+            balance += loss;
             return false;
         }
     }

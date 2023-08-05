@@ -346,23 +346,26 @@ public class MainMenu extends Variable {
                         default -> {
                             mm.Menu();
                         }
-
-                        case "fun" -> {
-                            new Logger().commandLoggerWriter(getChooseAction());
-                            new Anekdoter().sendAnecdot();
-                            new MainMenu().Menu();
-                        }
-                        case "game" ->{
-                            new Logger()
-                                    .commandLoggerWriter(getChooseAction());
-                            new CasinoMiniGame().main();
-                            new MainMenu().Menu();}
                     }
+                }
+
+                case "fun" -> {
+                    new Logger().commandLoggerWriter(getChooseAction());
+                    new Anekdoter().sendAnecdot();
+                    new MainMenu().Menu();
+                }
+                case "game" -> {
+                    new Logger()
+                            .commandLoggerWriter(getChooseAction());
+                    new CasinoMiniGame().main();
+                    new MainMenu().Menu();
                 }
             }
         }
     }
 }
+
+
 
 
       /*  new Logger().commandLoggerWriter(getChooseAction());
