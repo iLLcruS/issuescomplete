@@ -26,8 +26,8 @@ public class MainMenu extends Variable {
         }
 
         setChooseAction(scanner.nextLine());
-        
-        Pattern pattern = Pattern.compile("string|calc|info|system|time|ip|check|log|location|weather|name|file|fun");
+
+        Pattern pattern = Pattern.compile("string|calc|info|system|time|ip|check|log|location|weather|name|file|fun|game");
         Matcher matcher = pattern.matcher(getChooseAction());
 
         if (matcher.find()) {
@@ -223,15 +223,13 @@ public class MainMenu extends Variable {
                         System.exit(0);
                     }
                 }
-                case "location" ->
-                {
+                case "location" -> {
                     out.println("-------------------------------------");
                     out.println("Available functions for 'location'\n-> City");
                     out.println("-------------------------------------");
                     out.print("Enter a function: ");
                     setChooseAction(scanner.nextLine().toLowerCase());
-                    switch (chooseAction)
-                    {
+                    switch (chooseAction) {
                         case "city" -> {
                             out.print("Your city is => ");
                             out.print(new LocationProccesing().getCity() + "\n");
@@ -242,8 +240,7 @@ public class MainMenu extends Variable {
                         }
                     }
                 }
-                case "weather" ->
-                {
+                case "weather" -> {
                     new Logger().commandLoggerWriter(getChooseAction());
                     out.println("=====================================");
                     out.println("Available functions for 'wheather':\n" +
@@ -251,23 +248,19 @@ public class MainMenu extends Variable {
                     out.println("=====================================");
                     out.print("Enter function: ");
                     setChooseAction(scanner.nextLine().toLowerCase());
-                    switch (chooseAction)
-                    {
-                        case "temperature" ->
-                        {
+                    switch (chooseAction) {
+                        case "temperature" -> {
                             new Logger().LogSubMethod(chooseAction);
                             out.print("Your current temperature: ");
                             out.print(new GetWeather().GetTemperature() + "°" + "\n");
                             out.print("Your current temperature feels like: ");
                             out.print(new GetWeather().GetAllWheater().get("feelslike_c") + "°" + "\n");
                         }
-                        default ->
-                        {
+                        default -> {
                             mm.Menu();
                         }
 
                     }
-
 
 
                 }
@@ -282,17 +275,14 @@ public class MainMenu extends Variable {
                         out.print("Enter a command:");
                         setChooseAction(scanner.nextLine().toLowerCase());
                         new Logger().LogSubMethod(getChooseAction());
-                        switch (chooseAction)
-                        {
-                            case "see" ->
-                            {
+                        switch (chooseAction) {
+                            case "see" -> {
                                 out.print("============================================");
                                 out.println("Your previous name is: " + new NameProcessing().getCurrentName());
                                 out.print("============================================");
                                 mm.Menu();
                             }
-                            case "set" ->
-                            {
+                            case "set" -> {
 
                                 out.print("Enter new name: ");
                                 new NameProcessing().SetNewName();
@@ -311,8 +301,7 @@ public class MainMenu extends Variable {
                         throw new RuntimeException(e);
                     }
                 }
-                case "file" ->
-                {
+                case "file" -> {
                     out.println("Available fucnctions for 'file'\n" +
                             "=> Rename\n" +
                             "=> mkFile\n" +
@@ -321,9 +310,8 @@ public class MainMenu extends Variable {
                     out.print("Enter a function: ");
                     out.print("\n");
                     setChooseAction(scanner.nextLine().toLowerCase());
-                    switch (chooseAction)
-                    {
-                        case "rename" ->{
+                    switch (chooseAction) {
+                        case "rename" -> {
                             FileProccesing f = new FileProccesing();
                             out.println("Path format './user/data/password/passwords.txt'");
                             out.print("Enter path to file:");
@@ -331,8 +319,7 @@ public class MainMenu extends Variable {
                             f.renameFile();
                             mm.Menu();
                         }
-                        case "mkfile" ->
-                        {
+                        case "mkfile" -> {
                             FileProccesing f = new FileProccesing();
                             out.println("Path format './user/data/password/passwords.txt'");
                             out.print("Enter path to file:");
@@ -340,8 +327,7 @@ public class MainMenu extends Variable {
                             f.makeNewFile();
                             mm.Menu();
                         }
-                        case "mkdir" ->
-                        {
+                        case "mkdir" -> {
                             FileProccesing f = new FileProccesing();
                             out.println("Path format './user/data/password/passwords.txt'");
                             out.print("Enter path to file:");
@@ -349,8 +335,7 @@ public class MainMenu extends Variable {
                             f.makeNewDirectory();
                             mm.Menu();
                         }
-                        case "open" ->
-                        {
+                        case "open" -> {
                             FileProccesing f = new FileProccesing();
                             out.println("Path format './user/data/password/passwords.txt'");
                             out.print("Enter path to file:");
@@ -358,15 +343,21 @@ public class MainMenu extends Variable {
                             f.openFile();
                             mm.Menu();
                         }
-                        default ->
-                        {
+                        default -> {
                             mm.Menu();
                         }
+
+                        case "fun" -> {
+                            new Logger().commandLoggerWriter(getChooseAction());
+                            new Anekdoter().sendAnecdot();
+                            new MainMenu().Menu();
+                        }
+                        case "game" ->{
+                            new Logger()
+                                    .commandLoggerWriter(getChooseAction());
+                            new CasinoMiniGame().main();
+                            new MainMenu().Menu();}
                     }
-                case "fun" -> {
-                    new Logger().commandLoggerWriter(getChooseAction());
-                    new Anekdoter().sendAnecdot();
-                    new MainMenu().Menu();
                 }
             }
         }
