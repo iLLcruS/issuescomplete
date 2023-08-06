@@ -1,12 +1,47 @@
 package MainModules;
 
+import Modules.AllChecks.CheckFilesAndDirectory;
+import Modules.AllChecks.Checks;
 import com.sun.source.tree.WhileLoopTree;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Reader;
 import java.util.Scanner;
 
 public class CasinoMiniGame
 {
-    float balance = 1000;
+    {
+
+
+        JSONParser parser = new JSONParser();
+        Reader reader = null;
+        try {
+            reader = new FileReader(new CheckFilesAndDirectory().getGameConfigPath());
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        Object jsonObj = null;
+        try {
+            jsonObj = parser.parse(reader);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+
+        JSONObject jsonObject = (JSONObject) jsonObj;
+
+        this.balance = (double) jsonObject.get("balance");
+
+
+    }
+    double balance;
     boolean game = true;
     public void main()
     {
@@ -18,7 +53,7 @@ public class CasinoMiniGame
     }
     public void play()
     {
-        System.out.println("Your current balance: " + balance +"$");
+        System.out.println("\nYour current balance: " + balance +"$");
         float bet = this.getBet();
         if (bet > balance) {
             System.out.print("Sorry your bet is incorrect! Try again!" );
@@ -31,7 +66,7 @@ public class CasinoMiniGame
         }
         if (this.startMakingOrLosingMoney(bet,coefficient))
         {
-            float win = balance - bet * 2;
+            double win = balance - bet * 2;
             System.out.println("Congratulations you win " + win + "$");
         }
         else{
