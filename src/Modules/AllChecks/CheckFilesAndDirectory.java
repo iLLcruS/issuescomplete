@@ -1,5 +1,7 @@
 package Modules.AllChecks;
 
+import org.json.simple.JSONObject;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -13,6 +15,8 @@ public class CheckFilesAndDirectory {
 
     private final String pathSessionFile = "./session/session.json";
     private final String pathLogFile = "./logs/log.txt";
+    private final String pathConfigDir = "./configs";
+    private final String pathGameConfigFile = "./configs/casino.json";
     public String getPathLogFile() {
         return pathLogFile;
     }
@@ -103,6 +107,56 @@ public class CheckFilesAndDirectory {
             out.println("File created!");
         }
     }
+    private void checkDirectory(String path)
+    {
+        File dir = new File(path);
+        if(!dir.exists()){
+            out.println("Directory has been deleted. Create new...");
+            dir.mkdir();
+            out.println("Created!");
+        }
+    }
+    private void checkFile(String path)
+    {
+        File file = new File(path);
+        if(!file.exists()){
+            out.println("File has been deleted. Create new...");
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            out.println("Created!");
+        }
+    }
+    private void checkCasinoConfigFile()
+    {
+        File file = new File(pathGameConfigFile);
+        if(!file.exists()){
+            out.println("File has been deleted. Create new...");
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            JSONObject object = new JSONObject();
+            object.put("balance",1000.0);
+
+            try {
+
+                FileWriter fileToWrite = new FileWriter(file);
+                fileToWrite.write(object.toJSONString());
+                fileToWrite.flush();
+                fileToWrite.close();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+            out.println("Created!");
+        }
+    }
 
     private void checkDirectoryCommand(){
         File commandDir = new File(pathLogDir);
@@ -125,6 +179,10 @@ public class CheckFilesAndDirectory {
             out.println("File created!");
         }
     }
+    public String getGameConfigPath()
+    {
+        return pathGameConfigFile;
+    }
 
     public void allCheck(){
         checkDirectoryLog();
@@ -135,6 +193,8 @@ public class CheckFilesAndDirectory {
         checkCommandFile();
         checkCommandLogFile();
         checkNameFile();
+        checkDirectory(pathConfigDir);
+        checkCasinoConfigFile();
 
     }
 }
