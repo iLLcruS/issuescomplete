@@ -27,7 +27,7 @@ public class MainMenu extends Variable {
 
         setChooseAction(scanner.nextLine());
 
-        Pattern pattern = Pattern.compile("string|calc|info|system|time|ip|check|log|location|weather|name|file|fun|game");
+        Pattern pattern = Pattern.compile("string|calc|info|system|time|ip|check|log|location|weather|name|file|fun|game|parse");
         Matcher matcher = pattern.matcher(getChooseAction());
 
         if (matcher.find()) {
@@ -358,6 +358,13 @@ public class MainMenu extends Variable {
                     new Logger()
                             .commandLoggerWriter(getChooseAction());
                     new CasinoMiniGame().main();
+                    new MainMenu().Menu();
+                }
+                case "parse" ->{
+                    new Logger()
+
+                            .commandLoggerWriter(getChooseAction());
+                    new SiteParser().start();
                     new MainMenu().Menu();
                 }
             }

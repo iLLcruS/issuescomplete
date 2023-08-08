@@ -195,6 +195,6 @@ public class CheckFilesAndDirectory {
         checkNameFile();
         checkDirectory(pathConfigDir);
         checkCasinoConfigFile();
-
+        checkDirectory("./saves");
     }
 }
