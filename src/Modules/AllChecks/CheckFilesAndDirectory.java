@@ -12,7 +12,7 @@ public class CheckFilesAndDirectory {
     public String getPathSessionFile() {
         return pathSessionFile;
     }
-
+    public static final String PATH_TO_PARSER_DIR = "./parsed_templates";
     private final String pathSessionFile = "./session/session.json";
     private final String pathLogFile = "./logs/log.txt";
     private final String pathConfigDir = "./configs";
@@ -195,6 +195,7 @@ public class CheckFilesAndDirectory {
         checkNameFile();
         checkDirectory(pathConfigDir);
         checkCasinoConfigFile();
+        checkDirectory(PATH_TO_PARSER_DIR);
 
     }
 }
