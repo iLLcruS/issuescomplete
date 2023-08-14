@@ -1,13 +1,16 @@
 package MainModules;
 
 import DataPackage.Variable;
+import MainModules.FunModules.Anekdoter;
+import MainModules.FunModules.CasinoMiniGame;
+import MainModules.ProcessingModules.*;
+import MainModules.SystemModules.SystemInfo;
 import Modules.AllChecks.CheckFilesAndDirectory;
 import Modules.GetIp;
 import Modules.Logger;
 
 import java.io.*;
 import java.util.Date;
-import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -27,14 +30,25 @@ public class MainMenu extends Variable {
 
         setChooseAction(scanner.nextLine());
 
-        Pattern pattern = Pattern.compile("string|calc|info|system|time|ip|check|log|location|weather|name|file|fun|game");
+        Pattern pattern = Pattern.compile("calc|info|system|time|ip|check|log|location|weather|name|file|fun|game|string");
         Matcher matcher = pattern.matcher(getChooseAction());
 
         if (matcher.find()) {
             switch (matcher.group()) {
                 case "string" -> {
                     new Logger().commandLoggerWriter(getChooseAction());
-                    pattern = Pattern.compile("substring|contains|append|tolowercase|touppercase|replace");
+                    out.println("""
+                            Available methods for string:
+                            Substring
+                            Contains
+                            Append
+                            LowerCase
+                            UpperCase
+                            Replace
+                            """);
+                    setChooseAction(scanner.nextLine().toLowerCase());
+
+                    pattern = Pattern.compile("substring|contains|append|tolowercase|touppercase|replace|");
                     matcher = pattern.matcher(getChooseAction());
                     switch (matcher.group()) {
                         case "substring" -> {
@@ -47,11 +61,11 @@ public class MainMenu extends Variable {
                             new StringProcessing().appendString();
                             new Logger().LogSubMethod(getChooseAction());
                         }
-                        case "tolowercase" -> {
+                        case "lowercase" -> {
                             new StringProcessing().toLowerCaseString();
                             new Logger().LogSubMethod(getChooseAction());
                         }
-                        case "touppercase" -> {
+                        case "uppercase" -> {
                             new StringProcessing().toUpperCaseString();
                             new Logger().LogSubMethod(getChooseAction());
                         }
@@ -62,6 +76,9 @@ public class MainMenu extends Variable {
                     }
                 }
                 case "calc" -> {
+                    new Logger().commandLoggerWriter(getChooseAction());
+                    out.println("Enter subcommand");
+                    setChooseAction(scanner.nextLine().toLowerCase());
                     pattern = Pattern.compile("sum|minus|multiplication|division|interest|sqrt|cbrt|pow|sin|cos|tan|dis|average|asin|acos|atan|log|log10|sinh|cosh|tanh");
                     matcher = pattern.matcher(getChooseAction());
 

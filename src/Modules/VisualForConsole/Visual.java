@@ -1,4 +1,4 @@
-package Modules;
+package Modules.VisualForConsole;
 
 import java.util.stream.Stream;
 

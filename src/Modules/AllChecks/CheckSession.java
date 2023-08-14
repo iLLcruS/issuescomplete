@@ -5,6 +5,7 @@ import java.util.Iterator;
 
 import MainModules.MainMenu;
 import Modules.JsonSession;
+import Modules.VisualForConsole.ChangeConsoleColor;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -24,14 +25,18 @@ public class CheckSession {
         String line;
         while (true) {
             try {
-                if (!((line = fin.readLine()) != null)) {
+                if ((line = fin.readLine()) == null) {
                     if (line == null) {
+                        new ChangeConsoleColor().setCeruleanColor();
                         out.println("Session not founded. Re-entering the password.");
+                        new ChangeConsoleColor().setGreenColor();
                         new Checks().checkPassword();
                     }
                     break;
                 } else {
+                    new ChangeConsoleColor().setCeruleanColor();
                     out.println("Session founded, your session: \n" + line + "\n");
+                    new ChangeConsoleColor().setGreenColor();
                     new MainMenu().Menu();
                 }
             } catch (IOException e) {

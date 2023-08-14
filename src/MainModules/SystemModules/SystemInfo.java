@@ -1,4 +1,4 @@
-package MainModules;
+package MainModules.SystemModules;
 
 import DataPackage.Variable;
 
@@ -9,37 +9,36 @@ public class SystemInfo extends Variable {
     private static void getSystemVersion() {
         if (isWindows()) {
             out.println("This is Windows");
-            out.println("It's version is: " + getOSVerion());
+            out.println("It's version is: " + getOSVersion());
         } else if (isMac()) {
             out.println("This is Macintosh");
-            out.println("It's version is: " + getOSVerion());
+            out.println("It's version is: " + getOSVersion());
         } else if (isUnix()) {
             out.println("This is Unix or Linux OS");
-            out.println("It's version is: " + getOSVerion());
+            out.println("It's version is: " + getOSVersion());
         } else {
             out.println("This is unknown OS");
         }
-        out.println("Version: " + getOSVerion());
+        out.println("Version: " + getOSVersion());
     }
 
     private static boolean isWindows() {
         String os = System.getProperty("os.name").toLowerCase();
-        return (os.indexOf("win") >= 0);
+        return (os.contains("win"));
     }
 
     private static boolean isMac() {
         String os = System.getProperty("os.name").toLowerCase();
-        return (os.indexOf("mac") >= 0);
+        return (os.contains("mac"));
     }
 
     private static boolean isUnix() {
         String os = System.getProperty("os.name").toLowerCase();
-        return (os.indexOf("nix") >= 0 || os.indexOf("nux") >= 0);
+        return (os.contains("nix") || os.contains("nux"));
     }
 
-    private static String getOSVerion() {
-        String os = System.getProperty("os.version");
-        return os;
+    private static String getOSVersion() {
+        return System.getProperty("os.version");
     }
     public void getSystemInfo() {
         getSystemVersion();
