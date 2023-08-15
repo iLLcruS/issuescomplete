@@ -1,4 +1,4 @@
-package MainModules;
+package MainModules.ProcessingModules;
 
 import MainModules.AbstractClasses.StringProcessingAbs;
 import DataPackage.VariableChooses;
@@ -33,7 +33,6 @@ public class StringProcessing extends StringProcessingAbs {
 
     @Override
     public void appendString() {
-
 
         out.println("Enter Your Start Sentence: ");
         setUserSentence(scanner.next());

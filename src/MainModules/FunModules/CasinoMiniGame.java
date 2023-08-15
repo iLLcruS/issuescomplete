@@ -1,4 +1,4 @@
-package MainModules;
+package MainModules.FunModules;
 
 import Modules.AllChecks.CheckFilesAndDirectory;
 import Modules.AllChecks.Checks;

@@ -14,7 +14,6 @@ public class GetIp {
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
-
         BufferedReader in;
         try {
             in = new BufferedReader(new InputStreamReader(

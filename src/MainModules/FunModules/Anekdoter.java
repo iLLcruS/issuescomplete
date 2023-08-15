@@ -1,4 +1,4 @@
-package MainModules;
+package MainModules.FunModules;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
