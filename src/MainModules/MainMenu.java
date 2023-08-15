@@ -34,9 +34,9 @@ public class MainMenu extends Variable {
                     "Input your command: ");
         }
 
-        setChooseAction(scanner.nextLine());
 
-        Pattern pattern = Pattern.compile("calc|info|system|time|ip|check|log|location|weather|name|file|fun|game|string|web|generate");
+
+        Pattern pattern = Pattern.compile("calc|info|system|time|ip|check|log|location|weather|name|file|fun|game|string|web|generate|kill");
         Matcher matcher = pattern.matcher(getChooseAction());
 
         if (matcher.find()) {
@@ -406,7 +406,12 @@ public class MainMenu extends Variable {
                     new PlainCodeGenerator().start();
                     new MainMenu().Menu();
                 }
-
+                case "kill" -> {
+                    new Logger()
+                            .commandLoggerWriter(getChooseAction());
+                    new TaskKiller().start();
+                    new MainMenu().Menu();
+                }
             }
         }
     }

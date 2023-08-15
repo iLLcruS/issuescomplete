@@ -1,6 +1,9 @@
 import MainModules.SystemModules.AllProcessInfo;
 import Modules.AllChecks.CheckFilesAndDirectory;
 import Modules.AllChecks.CheckSession;
+import Modules.AllChecks.Checks;
+import Modules.AllChecks.Session;
+import Modules.JsonSession;
 import Modules.Logger;
 import Modules.VisualForConsole.ChangeConsoleColor;
 import Modules.VisualForConsole.Visual;
@@ -15,7 +18,7 @@ public class Main{
         new Visual().printMsgWithProgressBar("Loading", 25, 60);
         new ChangeConsoleColor().setGreenColor();
         out.println("\nHello! Its a Issue Program\n ");
-        new CheckSession().checkSession();
+        new Session().start();
     }
 
 }
