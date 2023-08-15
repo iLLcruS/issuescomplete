@@ -15,11 +15,12 @@ public class PlainCodeGenerator {
         FileWriter fileWriter = new FileWriter(file);
 
         String generatedText =
-                "public class Main{\n" +
-                "    public static void main(String[] args){\n" +
-                "        System.out.println(\"Hello world!\");\n" +
-                "    }\n" +
-                "}";
+                """
+                public class Main{
+                    public static void main(String[] args){
+                        System.out.println("Hello world!");
+              }
+          }""";
 
         fileWriter.write(generatedText);
         fileWriter.flush();
