@@ -4,10 +4,15 @@ import DataPackage.Variable;
 import MainModules.FunModules.Anekdoter;
 import MainModules.FunModules.CasinoMiniGame;
 import MainModules.ProcessingModules.*;
+import MainModules.SystemModules.AllProcessInfo;
 import MainModules.SystemModules.SystemInfo;
+import MainModules.WebModules.GetWeather;
+import MainModules.WebModules.OpenSite;
 import Modules.AllChecks.CheckFilesAndDirectory;
 import Modules.GetIp;
 import Modules.Logger;
+import Modules.VisualForConsole.ChangeConsoleColor;
+import Modules.VisualForConsole.Visual;
 
 import java.io.*;
 import java.net.URISyntaxException;
@@ -171,17 +176,27 @@ public class MainMenu extends Variable {
                         }
                     }
                 }
-                case "info" -> {
-                    out.println("Available methods for info:\n " +
-                            "System");
+                case "system" -> {
+                    new Visual().printMsgWithSeparator(25, 25);
+                    new ChangeConsoleColor().setCeruleanColor();
+                    out.println("""
+                            Available methods for info:
+                            Info
+                            ap(all process)""");
+                    new ChangeConsoleColor().setGreenColor();
+                    new Visual().printMsgWithSeparator(25, 25);
                     setChooseAction(scanner.nextLine().toLowerCase());
                     new Logger().commandLoggerWriter(getChooseAction());
-                    if (chooseAction.contains("system")) {
+                    if (chooseAction.contains("info")) {
                         new Logger().LogSubMethod(getChooseAction());
                         new SystemInfo().getSystemInfo();
+                        new MainMenu().Menu();
                     }
-                }
-                case "system" -> {
+                    if(chooseAction.contains("ap")){
+                        new Logger().LogSubMethod(getChooseAction());
+                        new AllProcessInfo().giveAllProcess();
+                        new MainMenu().Menu();
+                    }
                 }
                 case "time" -> {
                     new Logger().commandLoggerWriter(getChooseAction());
@@ -393,7 +408,6 @@ public class MainMenu extends Variable {
                     new TaskKiller().start();
                     new MainMenu().Menu();
                 }
-
             }
         }
     }

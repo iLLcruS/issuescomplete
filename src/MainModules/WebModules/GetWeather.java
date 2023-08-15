@@ -1,4 +1,4 @@
-package MainModules;
+package MainModules.WebModules;
 
 import MainModules.ProcessingModules.LocationProccesing;
 import Modules.GetIp;

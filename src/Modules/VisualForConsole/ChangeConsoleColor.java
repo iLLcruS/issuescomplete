@@ -5,7 +5,6 @@ import static java.lang.System.out;
 
 public class ChangeConsoleColor {
 
-    private String color;
     public void setBlackColor(){
         out.println((char)27 + "[30m" + "");
     }

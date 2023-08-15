@@ -1,12 +1,18 @@
 package MainModules.SystemModules;
 
 import DataPackage.Variable;
+import Modules.VisualForConsole.ChangeConsoleColor;
+import Modules.VisualForConsole.Visual;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 import static java.lang.System.out;
 
 
 public class SystemInfo extends Variable {
     private static void getSystemVersion() {
+
         if (isWindows()) {
             out.println("This is Windows");
             out.println("It's version is: " + getOSVersion());
@@ -19,7 +25,6 @@ public class SystemInfo extends Variable {
         } else {
             out.println("This is unknown OS");
         }
-        out.println("Version: " + getOSVersion());
     }
 
     private static boolean isWindows() {
@@ -41,7 +46,47 @@ public class SystemInfo extends Variable {
         return System.getProperty("os.version");
     }
     public void getSystemInfo() {
+        new Visual().printMsgWithSeparator(25, 25);
+        new ChangeConsoleColor().setCeruleanColor();
         getSystemVersion();
-        mm.Menu();
+        getCPUInfo();
+        getHDDInfo();
+        new ChangeConsoleColor().setGreenColor();
+        new Visual().printMsgWithSeparator(25, 25);
+    }
+
+    private static void getCPUInfo(){
+
+        if(isMac()){
+            try {
+                String line;
+                Process p = Runtime.getRuntime().exec("sysctl -n machdep.cpu.brand_string");
+                BufferedReader input =
+                        new BufferedReader(new InputStreamReader(p.getInputStream()));
+                while ((line = input.readLine()) != null) {
+                    System.out.println("CPU Model: " + line);
+                    System.out.println("Available processors (cores): " + Runtime.getRuntime().availableProcessors());
+                }
+                input.close();
+            } catch (Exception err) {
+                err.printStackTrace();
+            }
+        }
+    }
+    private static void getHDDInfo(){
+        if(isMac()){
+            try {
+                String line;
+                Process p = Runtime.getRuntime().exec("sysctl -n hw.physmem");
+                BufferedReader input =
+                        new BufferedReader(new InputStreamReader(p.getInputStream()));
+                while ((line = input.readLine()) != null) {
+                    System.out.println(line);
+                }
+                input.close();
+            } catch (Exception err) {
+                err.printStackTrace();
+            }
+        }
     }
 }
