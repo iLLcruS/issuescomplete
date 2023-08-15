@@ -15,138 +15,129 @@ import java.util.*;
 
 public class Session
 {
-    private Scanner scanner = new Scanner(System.in);
-    private final String pathToSessionFile = "./session/accountSession.json";
-    private final String API_LINK = ConfigAPI.API_LINK;
+    private final Scanner scanner = new Scanner(System.in);
+    public final String PATH_TO_ACCOUNT_DATA_FILE = "./session/accountSession.json";
+    public final String PATH_TO_SESSIONS_FILE = "./session/Sesions.json";
+
     public void start()
     {
-        if (checkSessionFile())
-        {
-            sessionExistScript();
-        }
-        else
-        {
-            sessionNotExistScript();
-        }
-    }
-    @SneakyThrows
-    private void sessionExistScript()
-    {
-        Greetings();
-    }
-    private boolean checkSessionFile()
-    {
-        return new File(pathToSessionFile).exists();
-    }
 
-    @SneakyThrows
-    private void sessionNotExistScript()
-    {
-        System.out.println("If you first type 'Register' in command line" +
-                "\nIf you already have an account type 'Login' on command line");
-        System.out.print("Enter command: ");
-        String command = scanner.next();
-        if (command.equalsIgnoreCase("register"))
+        File file = new File(PATH_TO_ACCOUNT_DATA_FILE);
+        if (!file.exists())
         {
-            HashMap<String,String> data = getData();
-            assert data != null;
-            String username = data.get("username");
-            String password = data.get("password");
-            register(password,username);
-
-            Thread thread = new Thread(()->
+            System.out.println("Welcome, type register if you first, if you already have an account type login below");
+            System.out.print("Enter command: ");
+            String command = scanner.next();
+            switch (command.toLowerCase())
             {
-                createAccountSessionFile(Objects.requireNonNull(login(password, username)),username);
-            });
-            thread.start();
+                case "register" ->
+                {
+                    this.register();
+                }
+                case "login" ->
+                {
+                    this.login();
+                }
+            }
         }
-        else if (command.equalsIgnoreCase("login"))
-        {
-            HashMap<String,String> data = getData();
-            assert data != null;
-            String username = data.get("username");
-            String password = data.get("password");
-            UUID uuid = login(password, username);
-            if (uuid == null) return;
-            createAccountSessionFile(Objects.requireNonNull(uuid),username);
-        }
-        Thread.sleep(200);
-        Greetings();
-    }
-
-    private void Greetings() throws IOException, ParseException {
-        JSONParser parser = new JSONParser();
-        File file = new File(pathToSessionFile);
-        Reader reader = new FileReader(file);
-
-        Object jsonObj = parser.parse(reader);
-
-        JSONObject jsonObject = (JSONObject) jsonObj;
-        System.out.println("=> Welcome " + jsonObject.get("username") + " to our network" + "<=");
         new MainMenu().Menu();
+
     }
-
     @SneakyThrows
-    private void createAccountSessionFile(UUID userToken, String userName)
+    public void login()
     {
-        File file = new File(pathToSessionFile);
-        JSONObject obj = new JSONObject();
-        obj.put("token", userToken.toString());
-        obj.put("username",userName);
-        FileWriter fileWriter = new FileWriter(file);
-        fileWriter.write(obj.toJSONString());
-        fileWriter.flush();
-        fileWriter.close();
-    }
-
-    @SneakyThrows
-    private UUID login(String password, String username)
-    {
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
-                .POST(HttpRequest.BodyPublishers.noBody())
-                .uri(URI.create(API_LINK + "/account/login?username=" + username + "&password=" + password))
-                .build();
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-
-        if (response.body().isEmpty())
+        File file = new File(PATH_TO_ACCOUNT_DATA_FILE);
+        if (!file.exists()) file.createNewFile();
+        HashMap<String,String> accountData = getAccountDataForLogin();
+        JSONObject accountsData = getAccountsData();
+        List<HashMap<String,String>> accountsDataList = (List<HashMap<String,String>>) accountsData.get("accounts");
+        for (HashMap<String,String> account : accountsDataList)
         {
-            System.out.println("Error current user is not created! Or password incorrect!");
-            return null;
+            if (account.get("login").equals(accountData.get("login")))
+            {
+                if (account.get("password").equals(accountData.get("password")))
+                {
+                    JSONObject obj = new JSONObject();
+                    obj.put("token",account.get("token"));
+                    obj.put("login",accountData.get("login"));
+                    FileWriter fileWriter = new FileWriter(PATH_TO_ACCOUNT_DATA_FILE);
+                    FileWriter fileWriter1 = new FileWriter("./session/name.txt");
+                    fileWriter1.write((String) obj.get("login"));
+                    fileWriter1.flush();
+                    fileWriter1.close();
+                    fileWriter.write(obj.toJSONString());
+                    fileWriter.flush();
+                    fileWriter.close();
+                    return;
+                }
+            }
         }
-        return UUID.fromString(response.body());
+        file.delete();
+        System.out.println("Error: username or password is incorrect");
+        System.exit(0);
+
     }
+
     @SneakyThrows
-    private void register(String password, String username)
+    public JSONObject getAccountsData()
     {
-
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
-                .POST(HttpRequest.BodyPublishers.noBody())
-                .uri(URI.create(API_LINK + "/account/register?username=" + username + "&password=" + password))
-                .build();
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        System.out.println(response.body());
-
-
+        JSONParser parser = new JSONParser();
+        Reader reader = new FileReader(this.PATH_TO_SESSIONS_FILE);
+        return (JSONObject) parser.parse(reader);
     }
-    private HashMap<String, String> getData()
+    public HashMap<String,String> getAccountDataForLogin()
     {
-        Console console = System.console();
-        System.out.print("Enter username: ");
-        String userName = scanner.next();
-        System.out.print("Enter password: ");
+        System.out.print("Enter your username: ");
+        String username = scanner.next();
+        System.out.print("Enter your password: ");
         String password = scanner.next();
-        if (password.isEmpty() || userName.isEmpty())
-        {
-            System.out.println("Password or username cannot be null!");
-            return null;
-        }
-        HashMap<String,String> hashMap = new HashMap<>();
-        hashMap.put("password", password);
-        hashMap.put("username",userName);
-        return hashMap;
-
+        HashMap<String,String> accountData = new HashMap<>();
+        accountData.put("login",username);
+        accountData.put("password",password);
+        return accountData;
     }
 
+    public HashMap<String,String> getAccountDataForRegister()
+    {
+        System.out.print("Enter your username: ");
+        String username = scanner.next();
+        System.out.print("Enter your password: ");
+        String password = scanner.next();
+        HashMap<String,String> accountData = new HashMap<>();
+        accountData.put("login",username);
+        accountData.put("password",password);
+        accountData.put("token",UUID.randomUUID().toString());
+        return accountData;
+    }
+    public void register()
+    {
+        saveRegisteredAccount(getAccountDataForRegister());
+    }
+
+    @SneakyThrows
+    public void saveRegisteredAccount(HashMap<String,String> accountData)
+    {
+        JSONObject jsonObject = getAccountsData();
+
+        List<HashMap<String,String>> accountsDataList = (List<HashMap<String,String>>) jsonObject.get("accounts");
+        String newRegisteredUsername = accountData.get("login");
+
+        for (HashMap<String,String> accountsData : accountsDataList)
+        {
+            if (accountsData.get("login").equals(newRegisteredUsername))
+            {
+                System.out.println("Error: This username is already taken!");
+                System.exit(0);
+            }
+        }
+
+        accountsDataList.add(accountData);
+        jsonObject.replace("accounts",accountsDataList);
+
+        FileWriter file = new FileWriter(PATH_TO_SESSIONS_FILE);
+        file.write(jsonObject.toJSONString());
+        file.flush();
+        file.close();
+        this.start();
+    }
 }
