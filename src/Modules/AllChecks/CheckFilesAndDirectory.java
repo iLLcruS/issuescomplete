@@ -195,8 +195,7 @@ public class CheckFilesAndDirectory {
         checkNameFile();
         checkDirectory(pathConfigDir);
         checkCasinoConfigFile();
-
         checkDirectory("./parsed");
-
+        checkDirectory("./github-repositories");
     }
 }
