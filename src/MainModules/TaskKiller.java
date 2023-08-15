@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class TaskKiller {
 
-    private Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
 
     public void start(){
         System.out.print("Enter process name: ");
@@ -15,24 +15,27 @@ public class TaskKiller {
     }
     @SneakyThrows
     public void kill(String proc){
-        String processName = proc;
-
         String os = System.getProperty("os.name").toLowerCase();
         String command;
 
         if (os.contains("win")) {
-            command = "taskkill /F /IM " + processName + ".exe";
+            command = "taskkill /F /IM " + proc + ".exe";
         } else {
-            command = "pkill " + processName;
+            command = "pkill " + proc;
         }
 
         Process process = Runtime.getRuntime().exec(command);
         int exitCode = process.waitFor();
 
         if (exitCode == 0) {
-            System.out.println("Процесс успешно завершен.");
+            System.out.println("Process successfully killed.");
         } else {
-            System.out.println("Не удалось завершить процесс.");
+            System.out.println("Process can't be killed.");
         }
+
+        System.out.print("Do you want kill process again? (yes): ");
+        String result = scanner.next();
+
+        if (result.equalsIgnoreCase("yes")) start();
     }
 }

@@ -10,6 +10,7 @@ import Modules.GetIp;
 import Modules.Logger;
 
 import java.io.*;
+import java.net.URISyntaxException;
 import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -30,7 +31,7 @@ public class MainMenu extends Variable {
 
         setChooseAction(scanner.nextLine());
 
-        Pattern pattern = Pattern.compile("calc|info|system|time|ip|check|log|location|weather|name|file|fun|game|string|kill");
+        Pattern pattern = Pattern.compile("calc|info|system|time|ip|check|log|location|weather|name|file|fun|game|string|web|kill");
         Matcher matcher = pattern.matcher(getChooseAction());
 
         if (matcher.find()) {
@@ -377,12 +378,22 @@ public class MainMenu extends Variable {
                     new CasinoMiniGame().main();
                     new MainMenu().Menu();
                 }
+                case "web" -> {
+                    new Logger().commandLoggerWriter(getChooseAction());
+                    try {
+                        new OpenSite().openWebPage();
+                        new MainMenu().Menu();
+                    } catch (URISyntaxException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
                 case "kill" -> {
                     new Logger()
                             .commandLoggerWriter(getChooseAction());
                     new TaskKiller().start();
                     new MainMenu().Menu();
                 }
+
             }
         }
     }
