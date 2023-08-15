@@ -195,6 +195,7 @@ public class CheckFilesAndDirectory {
         checkNameFile();
         checkDirectory(pathConfigDir);
         checkCasinoConfigFile();
+        checkDirectory("./codes");
         checkDirectory("./saves");
         checkDirectory("./session");
         checkFile("./session/Sessions.json");
