@@ -36,7 +36,7 @@ public class MainMenu extends Variable {
 
         setChooseAction(scanner.nextLine());
 
-        Pattern pattern = Pattern.compile("calc|info|system|time|ip|check|log|location|weather|name|file|fun|game|string|web");
+        Pattern pattern = Pattern.compile("calc|info|system|time|ip|check|log|location|weather|name|file|fun|game|string|web|generate");
         Matcher matcher = pattern.matcher(getChooseAction());
 
         if (matcher.find()) {
@@ -402,6 +402,11 @@ public class MainMenu extends Variable {
                         throw new RuntimeException(e);
                     }
                 }
+                case "generate" ->{
+                    new PlainCodeGenerator().start();
+                    new MainMenu().Menu();
+                }
+
             }
         }
     }
