@@ -360,13 +360,6 @@ public class MainMenu extends Variable {
                     new CasinoMiniGame().main();
                     new MainMenu().Menu();
                 }
-                case "parse" ->{
-                    new Logger()
-
-                            .commandLoggerWriter(getChooseAction());
-                    new SiteParser().start();
-                    new MainMenu().Menu();
-                }
             }
         }
     }

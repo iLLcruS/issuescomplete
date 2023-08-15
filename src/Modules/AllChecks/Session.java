@@ -17,7 +17,7 @@ public class Session
 {
     private final Scanner scanner = new Scanner(System.in);
     public final String PATH_TO_ACCOUNT_DATA_FILE = "./session/accountSession.json";
-    public final String PATH_TO_SESSIONS_FILE = "./session/Sesions.json";
+    public final String PATH_TO_SESSIONS_FILE = "./session/Sessions.json";
 
     public void start()
     {
@@ -61,10 +61,10 @@ public class Session
                     obj.put("token",account.get("token"));
                     obj.put("login",accountData.get("login"));
                     FileWriter fileWriter = new FileWriter(PATH_TO_ACCOUNT_DATA_FILE);
-                    FileWriter fileWriter1 = new FileWriter("./session/name.txt");
-                    fileWriter1.write((String) obj.get("login"));
-                    fileWriter1.flush();
-                    fileWriter1.close();
+                    fileWriter.write((String) obj.get("login"));
+                    fileWriter.flush();
+                    fileWriter.close();
+                    fileWriter = new FileWriter("./session/name.txt");
                     fileWriter.write(obj.toJSONString());
                     fileWriter.flush();
                     fileWriter.close();
