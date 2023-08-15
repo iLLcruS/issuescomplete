@@ -42,6 +42,5 @@ public class SystemInfo extends Variable {
     }
     public void getSystemInfo() {
         getSystemVersion();
-        mm.Menu();
     }
 }
