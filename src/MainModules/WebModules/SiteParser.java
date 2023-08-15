@@ -1,5 +1,6 @@
-package MainModules;
+package MainModules.WebModules;
 
+import MainModules.MainMenu;
 import Modules.AllChecks.CheckFilesAndDirectory;
 import Modules.AllChecks.CheckSession;
 import lombok.SneakyThrows;
