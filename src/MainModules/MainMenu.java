@@ -11,6 +11,8 @@ import MainModules.WebModules.OpenSite;
 import Modules.AllChecks.CheckFilesAndDirectory;
 import Modules.GetIp;
 import Modules.Logger;
+import Modules.VisualForConsole.ChangeConsoleColor;
+import Modules.VisualForConsole.Visual;
 
 import java.io.*;
 import java.net.URISyntaxException;
@@ -175,10 +177,14 @@ public class MainMenu extends Variable {
                     }
                 }
                 case "system" -> {
+                    new Visual().printMsgWithSeparator(25, 25);
+                    new ChangeConsoleColor().setCeruleanColor();
                     out.println("""
                             Available methods for info:
                             Info
                             ap(all process)""");
+                    new ChangeConsoleColor().setGreenColor();
+                    new Visual().printMsgWithSeparator(25, 25);
                     setChooseAction(scanner.nextLine().toLowerCase());
                     new Logger().commandLoggerWriter(getChooseAction());
                     if (chooseAction.contains("info")) {
