@@ -33,7 +33,7 @@ public class TaskKiller {
             System.out.println("Process can't be killed.");
         }
 
-        System.out.print("Do you want kill process again? (yes): ");
+        System.out.print("Do you want kill process again? (yes / no): ");
         String result = scanner.next();
 
         if (result.equalsIgnoreCase("yes")) start();
