@@ -2,7 +2,6 @@ package MainModules;
 
 import lombok.SneakyThrows;
 import org.eclipse.jgit.api.Git;
-import org.eclipse.jgit.api.errors.GitAPIException;
 import java.io.File;
 import java.util.Scanner;
 
@@ -21,12 +20,9 @@ public class DownloadRepository {
             System.out.println("This repo dont contains \"github.com\"");
             return;
         }
-        repoUrl = repoUrl + ".git";
+        repoUrl += ".git";
         File file = new File("./github-repositories/"+sanitizeFileName(repoUrl));
         file.mkdir();
-        if (file.exists()) {
-            file.delete();
-        }
         try {
             System.out.println("Cloning " + repoUrl);
             Git.cloneRepository()
@@ -34,7 +30,7 @@ public class DownloadRepository {
                     .setDirectory(file)
                     .call();
             System.out.println("Completed Cloning");
-        } catch (GitAPIException e) {
+        } catch (Exception e) {
             System.out.println("Exception occurred while cloning repo");
         }
     }
