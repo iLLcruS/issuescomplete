@@ -17,7 +17,7 @@ public class Session
 {
     private final Scanner scanner = new Scanner(System.in);
     public final String PATH_TO_ACCOUNT_DATA_FILE = "./session/accountSession.json";
-    public final String PATH_TO_SESSIONS_FILE = "./session/Sessions.json";
+
 
     public void start()
     {
@@ -82,7 +82,7 @@ public class Session
     public JSONObject getAccountsData()
     {
         JSONParser parser = new JSONParser();
-        Reader reader = new FileReader(this.PATH_TO_SESSIONS_FILE);
+        Reader reader = new FileReader(CheckFilesAndDirectory.PATH_TO_SESSIONS_FILE);
         return (JSONObject) parser.parse(reader);
     }
     public HashMap<String,String> getAccountDataForLogin()
@@ -134,7 +134,7 @@ public class Session
         accountsDataList.add(accountData);
         jsonObject.replace("accounts",accountsDataList);
 
-        FileWriter file = new FileWriter(PATH_TO_SESSIONS_FILE);
+        FileWriter file = new FileWriter(CheckFilesAndDirectory.PATH_TO_SESSIONS_FILE);
         file.write(jsonObject.toJSONString());
         file.flush();
         file.close();
