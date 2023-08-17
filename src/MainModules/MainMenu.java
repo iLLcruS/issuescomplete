@@ -34,9 +34,9 @@ public class MainMenu extends Variable {
                     "Input your command: ");
         }
 
-        setChooseAction(scanner.nextLine());
 
-        Pattern pattern = Pattern.compile("calc|info|system|time|ip|check|log|location|weather|name|file|fun|game|string|web|kill");
+
+        Pattern pattern = Pattern.compile("calc|info|system|time|ip|check|log|location|weather|name|file|fun|game|string|web|generate|kill");
         Matcher matcher = pattern.matcher(getChooseAction());
 
         if (matcher.find()) {
@@ -401,6 +401,10 @@ public class MainMenu extends Variable {
                     } catch (URISyntaxException e) {
                         throw new RuntimeException(e);
                     }
+                }
+                case "generate" ->{
+                    new PlainCodeGenerator().start();
+                    new MainMenu().Menu();
                 }
                 case "kill" -> {
                     new Logger()
