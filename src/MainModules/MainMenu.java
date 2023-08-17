@@ -35,7 +35,7 @@ public class MainMenu extends Variable {
         }
 
 
-
+        setChooseAction(scanner.nextLine());
         Pattern pattern = Pattern.compile("calc|info|system|time|ip|check|log|location|weather|name|file|fun|game|string|web|generate|kill");
         Matcher matcher = pattern.matcher(getChooseAction());
 
