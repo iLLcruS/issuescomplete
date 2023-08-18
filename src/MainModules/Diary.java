@@ -12,16 +12,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
+import static DataPackage.VariableChooses.*;
 
-public class Diary {
+public class Diary{
     private final String path = "./configs/diary.json";
     private final File file = new File(path);
     private final Scanner scanner = new Scanner(System.in);
     public void start(){
         System.out.print("Choose what u want to do (delete, show, save): ");
-        String variant = scanner.nextLine();
+        setChooseAction(scanner.nextLine().toLowerCase());
         try {
-            switch (variant) {
+            switch (getChooseAction()) {
                 case "save" -> {
                     System.out.print("Choose day (Mon, Tues, Wed, Thurs, Fri, Sat, Sun): ");
                     String day = scanner.nextLine();
@@ -33,12 +34,12 @@ public class Diary {
                 }
                 case "show" -> {
                     System.out.print("Choose day (Mon, Tues, Wed, Thurs, Fri, Sat, Sun): ");
-                    String day = scanner.nextLine();
+                    String day = scanner.nextLine().toLowerCase();
                     show(day);
                 }
                 case "delete" -> {
                     System.out.print("Choose day (Mon, Tues, Wed, Thurs, Fri, Sat, Sun): ");
-                    String day = scanner.nextLine();
+                    String day = scanner.nextLine().toLowerCase();
                     delete(day);
                 }
             }
@@ -46,14 +47,6 @@ public class Diary {
             System.out.println("Error day is not valid");
             new MainMenu().Menu();
         }
-    }
-
-    @SneakyThrows
-    private JSONObject parse(){
-        JSONParser jsonParser = new JSONParser();
-        Reader reader = new FileReader(file);
-        JSONObject jsonObject = (JSONObject) jsonParser.parse(reader);
-        return jsonObject;
     }
 
     @SneakyThrows
