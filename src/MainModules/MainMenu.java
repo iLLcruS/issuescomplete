@@ -5,6 +5,7 @@ import MainModules.FunModules.Anekdoter;
 import MainModules.FunModules.CasinoMiniGame;
 import MainModules.ProcessingModules.*;
 import MainModules.SystemModules.AllProcessInfo;
+import MainModules.SystemModules.RuntimeExecutor;
 import MainModules.SystemModules.SystemInfo;
 import MainModules.WebModules.GetResponseStatusFromLink;
 import MainModules.WebModules.GetWeather;
@@ -37,7 +38,7 @@ public class MainMenu extends Variable {
 
 
         setChooseAction(scanner.nextLine());
-        Pattern pattern = Pattern.compile("calc|info|system|time|ip|check|log|location|weather|name|file|fun|game|string|web|generate|kill|gethttp");
+        Pattern pattern = Pattern.compile("calc|info|system|time|ip|check|log|location|weather|name|file|fun|game|string|web|generate|kill|gethttp|runtime");
         Matcher matcher = pattern.matcher(getChooseAction());
 
         if (matcher.find()) {
@@ -424,6 +425,20 @@ public class MainMenu extends Variable {
                         out.println("Getting status failed, an error occurred.");
                     }
 
+                    new MainMenu().Menu();
+                }
+                case "runtime" ->
+                {
+                    new Logger().commandLoggerWriter(getChooseAction());
+                    try {
+                        new RuntimeExecutor().Execute();
+                    }
+                    catch (Exception e)
+                    {
+                        new ChangeConsoleColor().setRedColor();
+                        out.println("Error while executing occurred!");
+                        new ChangeConsoleColor().setGreenColor();
+                    }
                     new MainMenu().Menu();
                 }
             }
