@@ -7,6 +7,7 @@ import MainModules.FunModules.RandomiZeName;
 import MainModules.ProcessingModules.*;
 import MainModules.SystemModules.AllProcessInfo;
 import MainModules.SystemModules.SystemInfo;
+import MainModules.WebModules.GetResponseStatusFromLink;
 import MainModules.WebModules.GetWeather;
 import MainModules.WebModules.OpenSite;
 import Modules.AllChecks.CheckFilesAndDirectory;
@@ -36,7 +37,7 @@ public class MainMenu extends Variable {
         }
 
         setChooseAction(scanner.nextLine());
-        Pattern pattern = Pattern.compile("calc|info|system|time|ip|check|log|location|weather|name|file|fun|game|string|web|generate|kill|random|password|gitrep|help");
+        Pattern pattern = Pattern.compile("calc|info|system|time|ip|check|log|location|weather|name|file|fun|game|string|web|generate|kill|random|password|gitrep|help|gethttp");
         Matcher matcher = pattern.matcher(getChooseAction());
 
         if (matcher.find()) {
@@ -416,6 +417,12 @@ public class MainMenu extends Variable {
                             .commandLoggerWriter(getChooseAction());
                     new TaskKiller().start();
                     new MainMenu().Menu();
+                }
+                case "gethttp" ->
+                {
+                    new Logger().commandLoggerWriter(getChooseAction());
+
+                    new GetResponseStatusFromLink().getResponseStatus();
                 }
                 case "help" -> {
                     new Logger()
