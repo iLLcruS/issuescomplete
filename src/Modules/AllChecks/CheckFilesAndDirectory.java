@@ -219,6 +219,6 @@ public class CheckFilesAndDirectory {
         checkDirectory("./saves");
         checkSessionsFile();
         checkDirectory("./parsed");
-
+        checkDirectory("./github-repositories");
     }
 }
