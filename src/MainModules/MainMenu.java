@@ -37,7 +37,7 @@ public class MainMenu extends Variable {
         }
 
         setChooseAction(scanner.nextLine());
-        Pattern pattern = Pattern.compile("calc|info|system|time|ip|check|log|location|weather|name|file|fun|game|string|web|generate|kill|random|password|gitrep|help|gethttp|ping");
+        Pattern pattern = Pattern.compile("calc|info|system|time|ip|check|log|location|weather|name|file|fun|game|string|web|generate|kill|random|password|gitrep|help|gethttp|ping|movie");
         Matcher matcher = pattern.matcher(getChooseAction());
 
         if (matcher.find()) {
@@ -451,6 +451,12 @@ public class MainMenu extends Variable {
                     new PasswordGenerator().generatePassword();
                     new MainMenu().Menu();
                 }
+                case "movie" -> {
+                    new Logger().commandLoggerWriter(getChooseAction());
+                    new moviesearch().search();
+                    new MainMenu().Menu();
+                }
+
             }
         }
     }
