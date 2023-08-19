@@ -417,13 +417,10 @@ public class MainMenu extends Variable {
                 case "gethttp" ->
                 {
                     new Logger().commandLoggerWriter(getChooseAction());
-                    try{
-                        new GetResponseStatusFromLink().getResponseStatus();
-                    }
-                    catch (Exception e)
-                    {
-                        out.println("Getting status failed, an error occurred.");
-                    }
+
+                    new GetResponseStatusFromLink().getResponseStatus();
+
+
 
                     new MainMenu().Menu();
                 }

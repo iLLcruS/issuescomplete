@@ -1,4 +1,6 @@
 package MainModules.WebModules;
+import Modules.VisualForConsole.ChangeConsoleColor;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -12,6 +14,7 @@ public class GetResponseStatusFromLink {
     private final Scanner scanner = new Scanner(System.in);
     public void getResponseStatus()
     {
+        new ChangeConsoleColor().setYellowColor();
         System.out.print("Enter link: ");
         setChooseAction(scanner.nextLine());
         HttpClient client = HttpClient.newHttpClient();
@@ -21,12 +24,17 @@ public class GetResponseStatusFromLink {
                 .build();
         try {
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            new ChangeConsoleColor().setPurpleColor();
             System.out.println("Response status: " + "[" + response.statusCode() + "]");
+            new ChangeConsoleColor().setGreenColor();
         } catch (IOException e) {
-            System.out.println("Link is incorrect!");
-            throw new RuntimeException(e);
+            new ChangeConsoleColor().setRedColor();
+            System.out.println("Link is incorrect.");
+            new ChangeConsoleColor().setGreenColor();
         } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+            new ChangeConsoleColor().setRedColor();
+            System.out.println("Connection time expired.");
+            new ChangeConsoleColor().setGreenColor();
         }
 
     }
