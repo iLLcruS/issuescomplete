@@ -36,8 +36,7 @@ public class MainMenu extends Variable {
         }
 
         setChooseAction(scanner.nextLine());
-
-        Pattern pattern = Pattern.compile("calc|info|system|time|ip|check|log|location|weather|name|file|fun|game|string|web|random");
+        Pattern pattern = Pattern.compile("calc|info|system|time|ip|check|log|location|weather|name|file|fun|game|string|web|generate|kill|random");
         Matcher matcher = pattern.matcher(getChooseAction());
 
         if (matcher.find()) {
@@ -407,7 +406,15 @@ public class MainMenu extends Variable {
                     new Logger().commandLoggerWriter(getChooseAction());
                     new RandomiZeName().random();
                     new MainMenu().Menu();
-
+                case "generate" ->{
+                    new PlainCodeGenerator().start();
+                    new MainMenu().Menu();
+                }
+                case "kill" -> {
+                    new Logger()
+                            .commandLoggerWriter(getChooseAction());
+                    new TaskKiller().start();
+                    new MainMenu().Menu();
                 }
             }
         }
