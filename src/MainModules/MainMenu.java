@@ -418,10 +418,10 @@ public class MainMenu extends Variable {
                     new TaskKiller().start();
                     new MainMenu().Menu();
                 }
-                case "encode" ->
-                {
+                case "encode" -> {
                     new Logger().commandLoggerWriter(getChooseAction());
                     new StringEncoder().encode();
+                }
                 case "diary" -> {
                     new Logger()
                             .commandLoggerWriter(getChooseAction());
@@ -461,11 +461,11 @@ public class MainMenu extends Variable {
                     new PasswordGenerator().generatePassword();
                     new MainMenu().Menu();
                 }
-                case "movie" -> {
+               /* case "movie" -> {
                     new Logger().commandLoggerWriter(getChooseAction());
                     new moviesearch().search();
                     new MainMenu().Menu();
-                }
+                }*/
             }
         }
     }
