@@ -9,17 +9,36 @@ public class TaskKiller {
     private final Scanner scanner = new Scanner(System.in);
 
     public void start(){
-        System.out.print("Enter process name: ");
-        String processName = scanner.next();
-        kill(processName);
+        System.out.print("Enter type (PID, NAME): ");
+        String type = scanner.next();
+        kill(type);
     }
     @SneakyThrows
-    public void kill(String proc){
+    public void kill(String type){
         String os = System.getProperty("os.name").toLowerCase();
-        String command;
+        String command = null;
+        String proc = null;
+
+        if (type.equalsIgnoreCase("name")) {
+            System.out.print("Enter process name: ");
+            proc = scanner.next();
+        } else if (type.equalsIgnoreCase("pid")){
+            System.out.print("Enter process PID: ");
+            proc = scanner.next();
+        }
+
+
 
         if (os.contains("win")) {
-            command = "taskkill /F /IM " + proc + ".exe";
+            if (type.equalsIgnoreCase("name")) {
+                if (!proc.contains(".exe")) {
+                    command = "taskkill /F /IM " + proc + ".exe";
+                } else {
+                    command = "taskkill /F /IM " + proc;
+                }
+            } else if (type.equalsIgnoreCase("pid")){
+                command = "taskkill /F /PID " + proc;
+            }
         } else {
             command = "pkill " + proc;
         }

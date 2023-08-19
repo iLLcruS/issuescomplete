@@ -6,8 +6,14 @@ import java.io.InputStreamReader;
 public class AllProcessInfo {
     public void giveAllProcess() {
         try {
+            String os = System.getProperty("os.name").toLowerCase();
             String line;
-            Process p = Runtime.getRuntime().exec("ps -e");
+            Process p;
+            if (os.contains("win")) {
+                p = Runtime.getRuntime().exec("tasklist ");
+            } else {
+                p = Runtime.getRuntime().exec("ps -e");
+            }
             BufferedReader input =
                     new BufferedReader(new InputStreamReader(p.getInputStream()));
             while ((line = input.readLine()) != null) {
