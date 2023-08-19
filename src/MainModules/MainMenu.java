@@ -36,7 +36,7 @@ public class MainMenu extends Variable {
         }
 
         setChooseAction(scanner.nextLine());
-        Pattern pattern = Pattern.compile("calc|info|system|time|ip|check|log|location|weather|name|file|fun|game|string|web|generate|kill|random|password");
+        Pattern pattern = Pattern.compile("calc|info|system|time|ip|check|log|location|weather|name|file|fun|game|string|web|generate|kill|random|password|gitrep");
         Matcher matcher = pattern.matcher(getChooseAction());
 
         if (matcher.find()) {
@@ -415,6 +415,12 @@ public class MainMenu extends Variable {
                     new Logger()
                             .commandLoggerWriter(getChooseAction());
                     new TaskKiller().start();
+                    new MainMenu().Menu();
+                }
+                case "gitrep" -> {
+                    new Logger()
+                            .commandLoggerWriter(getChooseAction());
+                    new DownloadRepository().start();
                     new MainMenu().Menu();
                 }
                 case "password" ->
