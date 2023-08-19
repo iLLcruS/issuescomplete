@@ -3,6 +3,7 @@ package MainModules;
 import DataPackage.Variable;
 import MainModules.FunModules.Anekdoter;
 import MainModules.FunModules.CasinoMiniGame;
+import MainModules.FunModules.RandomiZeName;
 import MainModules.ProcessingModules.*;
 import MainModules.SystemModules.AllProcessInfo;
 import MainModules.SystemModules.SystemInfo;
@@ -35,9 +36,8 @@ public class MainMenu extends Variable {
                     "Input your command: ");
         }
 
-
         setChooseAction(scanner.nextLine());
-        Pattern pattern = Pattern.compile("calc|info|system|time|ip|check|log|location|weather|name|file|fun|game|string|web|generate|kill|gethttp");
+        Pattern pattern = Pattern.compile("calc|info|system|time|ip|check|log|location|weather|name|file|fun|game|string|web|generate|kill|random|password|gitrep|help|gethttp");
         Matcher matcher = pattern.matcher(getChooseAction());
 
         if (matcher.find()) {
@@ -193,7 +193,7 @@ public class MainMenu extends Variable {
                         new SystemInfo().getSystemInfo();
                         new MainMenu().Menu();
                     }
-                    if(chooseAction.contains("ap")){
+                    if (chooseAction.contains("ap")) {
                         new Logger().LogSubMethod(getChooseAction());
                         new AllProcessInfo().giveAllProcess();
                         new MainMenu().Menu();
@@ -403,7 +403,12 @@ public class MainMenu extends Variable {
                         throw new RuntimeException(e);
                     }
                 }
-                case "generate" ->{
+                case "random" -> {
+                    new Logger().commandLoggerWriter(getChooseAction());
+                    new RandomiZeName().random();
+                    new MainMenu().Menu();
+                }
+                case "generate" -> {
                     new PlainCodeGenerator().start();
                     new MainMenu().Menu();
                 }
@@ -418,9 +423,27 @@ public class MainMenu extends Variable {
                     new Logger().commandLoggerWriter(getChooseAction());
 
                     new GetResponseStatusFromLink().getResponseStatus();
-
-
-
+                }
+                case "help" -> {
+                    new Logger()
+                            .commandLoggerWriter(getChooseAction());
+                    try {
+                        new HelpLink().start();
+                    } catch (URISyntaxException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                case "gitrep" -> {
+                    new Logger()
+                            .commandLoggerWriter(getChooseAction());
+                    new DownloadRepository().start();
+                    new MainMenu().Menu();
+                }
+                case "password" ->
+                {
+                    new Logger()
+                            .commandLoggerWriter(getChooseAction());
+                    new PasswordGenerator().generatePassword();
                     new MainMenu().Menu();
                 }
             }
