@@ -217,9 +217,10 @@ public class MainMenu extends Variable {
                     new MainMenu().Menu();
                 }
                 case "log" -> {
-                    out.println("Available methods for log:\n " +
-                            "Show\n" +
-                            "Clear");
+                    out.println("""
+                            Available methods for log:
+                             Show
+                            Clear""");
                     setChooseAction(scanner.nextLine().toLowerCase());
                     new Logger().commandLoggerWriter(getChooseAction());
                     if (chooseAction.contains("show")) {
@@ -263,15 +264,12 @@ public class MainMenu extends Variable {
                     out.println("-------------------------------------");
                     out.print("Enter a function: ");
                     setChooseAction(scanner.nextLine().toLowerCase());
-                    switch (chooseAction) {
-                        case "city" -> {
-                            out.print("Your city is => ");
-                            out.print(new LocationProccesing().getCity() + "\n");
-                            mm.Menu();
-                        }
-                        default -> {
-                            mm.Menu();
-                        }
+                    if (chooseAction.equals("city")) {
+                        out.print("Your city is => ");
+                        out.print(new LocationProccesing().getCity() + "\n");
+                        mm.Menu();
+                    } else {
+                        mm.Menu();
                     }
                 }
                 case "weather" -> {
@@ -282,18 +280,14 @@ public class MainMenu extends Variable {
                     out.println("=====================================");
                     out.print("Enter function: ");
                     setChooseAction(scanner.nextLine().toLowerCase());
-                    switch (chooseAction) {
-                        case "temperature" -> {
-                            new Logger().LogSubMethod(chooseAction);
-                            out.print("Your current temperature: ");
-                            out.print(new GetWeather().GetTemperature() + "°" + "\n");
-                            out.print("Your current temperature feels like: ");
-                            out.print(new GetWeather().GetAllWheater().get("feelslike_c") + "°" + "\n");
-                        }
-                        default -> {
-                            mm.Menu();
-                        }
-
+                    if (chooseAction.equals("temperature")) {
+                        new Logger().LogSubMethod(chooseAction);
+                        out.print("Your current temperature: ");
+                        out.print(new GetWeather().GetTemperature() + "°" + "\n");
+                        out.print("Your current temperature feels like: ");
+                        out.print(new GetWeather().GetAllWheater().get("feelslike_c") + "°" + "\n");
+                    } else {
+                        mm.Menu();
                     }
 
 
@@ -302,9 +296,10 @@ public class MainMenu extends Variable {
                     new Logger().logCommand(getChooseAction());
                     try {
                         out.print("============================");
-                        out.println("What are you want?\n" +
-                                "See previous name => see\n" +
-                                "Set a new name => set");
+                        out.println("""
+                                What are you want?
+                                See previous name => see
+                                Set a new name => set""");
                         out.print("============================");
                         out.print("Enter a command:");
                         setChooseAction(scanner.nextLine().toLowerCase());
@@ -323,24 +318,21 @@ public class MainMenu extends Variable {
                                 out.print("\n");
                                 mm.Menu();
                             }
-                            default -> {
-                                mm.Menu();
-                            }
+                            default -> mm.Menu();
                         }
 
 
-                    } catch (FileNotFoundException e) {
-                        throw new RuntimeException(e);
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
                 }
                 case "file" -> {
-                    out.println("Available fucnctions for 'file'\n" +
-                            "=> Rename\n" +
-                            "=> mkFile\n" +
-                            "=> mkDir\n" +
-                            "=> Open");
+                    out.println("""
+                            Available fucnctions for 'file'
+                            => Rename
+                            => mkFile
+                            => mkDir
+                            => Open""");
                     out.print("Enter a function: ");
                     out.print("\n");
                     setChooseAction(scanner.nextLine().toLowerCase());
@@ -377,9 +369,7 @@ public class MainMenu extends Variable {
                             f.openFile();
                             mm.Menu();
                         }
-                        default -> {
-                            mm.Menu();
-                        }
+                        default -> mm.Menu();
                     }
                 }
 
