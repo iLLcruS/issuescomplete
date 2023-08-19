@@ -1,6 +1,7 @@
 package Modules.AllChecks;
 
 import MainModules.MainMenu;
+import Modules.VisualForConsole.ChangeConsoleColor;
 import lombok.SneakyThrows;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -11,6 +12,8 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.*;
 
 public class Session
@@ -60,11 +63,11 @@ public class Session
                     JSONObject obj = new JSONObject();
                     obj.put("token",account.get("token"));
                     obj.put("login",accountData.get("login"));
-                    FileWriter fileWriter = new FileWriter(PATH_TO_ACCOUNT_DATA_FILE);
+                    FileWriter fileWriter = new FileWriter("./session/name.txt");
                     fileWriter.write((String) obj.get("login"));
                     fileWriter.flush();
                     fileWriter.close();
-                    fileWriter = new FileWriter("./session/name.txt");
+                    fileWriter = new FileWriter(PATH_TO_ACCOUNT_DATA_FILE);
                     fileWriter.write(obj.toJSONString());
                     fileWriter.flush();
                     fileWriter.close();
@@ -139,5 +142,15 @@ public class Session
         file.flush();
         file.close();
         this.start();
+    }
+
+    @SneakyThrows
+    public void logout()
+    {
+        Files.delete(Path.of(PATH_TO_ACCOUNT_DATA_FILE));
+        new ChangeConsoleColor().setPurpleColor();
+        System.out.println("Successfully signout!");
+        new ChangeConsoleColor().setGreenColor();
+        System.exit(0);
     }
 }
