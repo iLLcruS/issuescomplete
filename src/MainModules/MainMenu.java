@@ -415,7 +415,11 @@ public class MainMenu extends Variable {
                 case "help" -> {
                     new Logger()
                             .commandLoggerWriter(getChooseAction());
-                    new HelpLink().start();
+                    try {
+                        new HelpLink().start();
+                    } catch (URISyntaxException e) {
+                        throw new RuntimeException(e);
+                    }
                     new MainMenu().Menu();
                 }
             }
