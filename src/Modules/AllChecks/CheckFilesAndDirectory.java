@@ -5,6 +5,7 @@ import org.json.simple.JSONObject;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Collections;
 
 import static java.lang.System.out;
 
@@ -25,6 +26,7 @@ public class CheckFilesAndDirectory {
     private final String pathLogDir = "./logs";
     private final String pathCommandDir = "./command";
     private final String pathCommandFile = "./command/availableCommand.txt";
+    private final String PATH_TO_DIARY_FILE = "./configs/diary.json";
     public String getPathCommandsLogFile() {
         return pathCommandsLogFile;
     }
@@ -158,6 +160,41 @@ public class CheckFilesAndDirectory {
         }
     }
 
+    private void checkDiaryConfigFile()
+    {
+        File file = new File(PATH_TO_DIARY_FILE);
+        if(!file.exists()){
+            out.println("File has been deleted. Create new...");
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            JSONObject object = new JSONObject();
+            object.put("mon", Collections.EMPTY_LIST);
+            object.put("tues", Collections.EMPTY_LIST);
+            object.put("wed", Collections.EMPTY_LIST);
+            object.put("thurs", Collections.EMPTY_LIST);
+            object.put("fri", Collections.EMPTY_LIST);
+            object.put("sat", Collections.EMPTY_LIST);
+            object.put("sun", Collections.EMPTY_LIST);
+
+            try {
+
+                FileWriter fileToWrite = new FileWriter(file);
+                fileToWrite.write(object.toJSONString());
+                fileToWrite.flush();
+                fileToWrite.close();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+            out.println("Created!");
+        }
+    }
+
     private void checkDirectoryCommand(){
         File commandDir = new File(pathLogDir);
         if(!commandDir.exists()){
@@ -195,8 +232,7 @@ public class CheckFilesAndDirectory {
         checkNameFile();
         checkDirectory(pathConfigDir);
         checkCasinoConfigFile();
-
         checkDirectory("./parsed");
-
+        checkDiaryConfigFile();
     }
 }
