@@ -37,7 +37,7 @@ public class MainMenu extends Variable {
         }
 
         setChooseAction(scanner.nextLine());
-        Pattern pattern = Pattern.compile("calc|info|system|time|ip|check|log|location|weather|name|file|fun|game|string|web|generate|kill|random|password|gitrep|help|gethttp|ping|movie");
+        Pattern pattern = Pattern.compile("calc|info|system|time|ip|check|log|location|weather|name|file|fun|game|string|web|generate|kill|random|password|gitrep|help|gethttp|ping|movie|diary");
         Matcher matcher = pattern.matcher(getChooseAction());
 
         if (matcher.find()) {
@@ -418,6 +418,12 @@ public class MainMenu extends Variable {
                     new TaskKiller().start();
                     new MainMenu().Menu();
                 }
+                case "diary" -> {
+                    new Logger()
+                            .commandLoggerWriter(getChooseAction());
+                    new Diary().start();
+                    new MainMenu().Menu();
+                }
                 case "ping" -> {
                     new Logger()
                             .commandLoggerWriter(getChooseAction());
@@ -456,7 +462,6 @@ public class MainMenu extends Variable {
                     new moviesearch().search();
                     new MainMenu().Menu();
                 }
-
             }
         }
     }
