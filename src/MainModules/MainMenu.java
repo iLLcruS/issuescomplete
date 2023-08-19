@@ -37,7 +37,7 @@ public class MainMenu extends Variable {
         }
 
         setChooseAction(scanner.nextLine());
-        Pattern pattern = Pattern.compile("calc|info|system|time|ip|check|log|location|weather|name|file|fun|game|string|web|generate|kill|random|password|gitrep|help|gethttp|ping|movie|diary");
+        Pattern pattern = Pattern.compile("calc|info|system|time|ip|check|log|location|weather|name|file|fun|game|string|web|generate|kill|random|password|gitrep|help|gethttp|ping|movie|diary|encode");
         Matcher matcher = pattern.matcher(getChooseAction());
 
         if (matcher.find()) {
@@ -418,6 +418,10 @@ public class MainMenu extends Variable {
                     new TaskKiller().start();
                     new MainMenu().Menu();
                 }
+                case "encode" ->
+                {
+                    new Logger().commandLoggerWriter(getChooseAction());
+                    new StringEncoder().encode();
                 case "diary" -> {
                     new Logger()
                             .commandLoggerWriter(getChooseAction());
