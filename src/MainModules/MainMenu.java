@@ -414,19 +414,7 @@ public class MainMenu extends Variable {
                     new TaskKiller().start();
                     new MainMenu().Menu();
                 }
-                case "gethttp" ->
-                {
-                    new Logger().commandLoggerWriter(getChooseAction());
-                    try{
-                        new GetResponseStatusFromLink().getResponseStatus();
-                    }
-                    catch (Exception e)
-                    {
-                        out.println("Getting status failed, an error occurred.");
-                    }
 
-                    new MainMenu().Menu();
-                }
                 case "runtime" ->
                 {
                     new Logger().commandLoggerWriter(getChooseAction());
