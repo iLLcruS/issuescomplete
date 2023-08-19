@@ -151,6 +151,6 @@ public class Session
         new ChangeConsoleColor().setPurpleColor();
         System.out.println("Successfully signout!");
         new ChangeConsoleColor().setGreenColor();
-        System.exit(0);
+        new Session().start();
     }
 }
