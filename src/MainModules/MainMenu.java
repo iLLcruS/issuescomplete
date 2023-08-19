@@ -192,7 +192,7 @@ public class MainMenu extends Variable {
                         new SystemInfo().getSystemInfo();
                         new MainMenu().Menu();
                     }
-                    if(chooseAction.contains("ap")){
+                    if (chooseAction.contains("ap")) {
                         new Logger().LogSubMethod(getChooseAction());
                         new AllProcessInfo().giveAllProcess();
                         new MainMenu().Menu();
@@ -406,7 +406,8 @@ public class MainMenu extends Variable {
                     new Logger().commandLoggerWriter(getChooseAction());
                     new RandomiZeName().random();
                     new MainMenu().Menu();
-                case "generate" ->{
+                }
+                case "generate" -> {
                     new PlainCodeGenerator().start();
                     new MainMenu().Menu();
                 }
