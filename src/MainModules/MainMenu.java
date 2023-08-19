@@ -415,6 +415,7 @@ public class MainMenu extends Variable {
                 }
                 case "gethttp" ->
                 {
+                    new Logger().commandLoggerWriter(getChooseAction());
                     try{
                         new GetResponseStatusFromLink().getResponseStatus();
                     }
