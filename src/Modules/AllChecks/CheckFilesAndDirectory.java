@@ -1,10 +1,13 @@
 package Modules.AllChecks;
 
+import lombok.SneakyThrows;
 import org.json.simple.JSONObject;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Collection;
+import java.util.Collections;
 
 import static java.lang.System.out;
 
@@ -25,6 +28,7 @@ public class CheckFilesAndDirectory {
     private final String pathLogDir = "./logs";
     private final String pathCommandDir = "./command";
     private final String pathCommandFile = "./command/availableCommand.txt";
+    public static final String PATH_TO_SESSIONS_FILE = "./session/SESSIONS.json";
     public String getPathCommandsLogFile() {
         return pathCommandsLogFile;
     }
@@ -179,6 +183,22 @@ public class CheckFilesAndDirectory {
             out.println("File created!");
         }
     }
+
+    @SneakyThrows
+    private void checkSessionsFile()
+    {
+        File sessionsFile = new File(PATH_TO_SESSIONS_FILE);
+        if (!sessionsFile.exists())
+        {
+            sessionsFile.createNewFile();
+            FileWriter fileWriter = new FileWriter(sessionsFile);
+            JSONObject object = new JSONObject();
+            object.put("accounts", Collections.EMPTY_LIST);
+            fileWriter.write(object.toJSONString());
+            fileWriter.flush();
+            fileWriter.close();
+        }
+    }
     public String getGameConfigPath()
     {
         return pathGameConfigFile;
@@ -195,6 +215,9 @@ public class CheckFilesAndDirectory {
         checkNameFile();
         checkDirectory(pathConfigDir);
         checkCasinoConfigFile();
+        checkDirectory("./codes");
+        checkDirectory("./saves");
+        checkSessionsFile();
         checkDirectory("./parsed");
         checkDirectory("./github-repositories");
     }
