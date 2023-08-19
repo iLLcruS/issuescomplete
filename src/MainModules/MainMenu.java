@@ -415,7 +415,14 @@ public class MainMenu extends Variable {
                 }
                 case "gethttp" ->
                 {
-                    new GetResponseStatusFromLink().getResponseStatus();
+                    try{
+                        new GetResponseStatusFromLink().getResponseStatus();
+                    }
+                    catch (Exception e)
+                    {
+                        out.println("Getting status failed, an error occurred.");
+                    }
+
                     new MainMenu().Menu();
                 }
             }
