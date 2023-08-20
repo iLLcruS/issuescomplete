@@ -32,7 +32,6 @@ public class SetUpMode {
                 BufferedWriter writer = new BufferedWriter(new FileWriter(file));
                 writer.write(modifiedContent);
                 writer.close();
-                out.println("Текст успешно стерт.");
             } else {
                 out.println("Символ не найден.");
             }
@@ -63,10 +62,12 @@ public class SetUpMode {
                     if (action == 1) {
                         changeMode();
                         content.append("dev\n");
+                        out.println("Mode selected to: " + content);
                     }
                     if (action == 2) {
                         changeMode();
                         content.append("user\n");
+                        out.println("Mode selected to: " + content);
                     }
                 }
             }
@@ -77,7 +78,6 @@ public class SetUpMode {
             writer.write("\n");
             writer.close();
 
-            out.println("Mode selected.");
             new ModeCheckFile().checkMode();
         } catch (IOException e) {
             e.printStackTrace();
