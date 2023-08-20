@@ -1,24 +1,21 @@
-import MainModules.SystemModules.AllProcessInfo;
-import Modules.AllChecks.CheckFilesAndDirectory;
-import Modules.AllChecks.CheckSession;
-import Modules.AllChecks.Checks;
-import Modules.AllChecks.Session;
-import Modules.JsonSession;
-import Modules.Logger;
-import Modules.VisualForConsole.ChangeConsoleColor;
-import Modules.VisualForConsole.Visual;
+import Utils.AllChecks.CheckFilesAndDirectory;
+import modeutils.ModeCheckFile;
+import Utils.AllChecks.Session;
+import Utils.VisualForConsole.ChangeConsoleColor;
+import Utils.VisualForConsole.Visual;
+import modeuser.mmUserMode.MenuUserMode;
 
 import static java.lang.System.out;
 
-public class Main{
-    public static void main(String[] args){
+public class Main {
+    public static void main(String[] args) {
         new CheckFilesAndDirectory().allCheck();
-        new Logger().logWriter();
         new ChangeConsoleColor().setRedColor();
-        new Visual().printMsgWithProgressBar("Loading", 25, 60);
+        new Visual().printMessage("Loading...");
+        new Visual().printMsgWithProgressBar("", 25, 60);
         new ChangeConsoleColor().setGreenColor();
+        new ModeCheckFile().checkMode();
         out.println("\nHello! Its a Issue Program\n ");
-        new Session().start();
+       // new Session().start();
     }
-
 }
