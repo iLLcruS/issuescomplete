@@ -12,28 +12,34 @@ public class SetUpMode {
 
     public void changeMode() {
         String filePath = "./set/stg.init"; // Укажите путь к вашему файлу
-        char targetSymbol = '='; // Символ, после которого вы хотите выполнить замену
-        try {
-            File file = new File(filePath);
-            BufferedReader reader = new BufferedReader(new FileReader(file));
+        String searchText = "sm_mode=";
 
+        try {
+            // Чтение содержимого файла
+            BufferedReader reader = new BufferedReader(new FileReader(filePath));
             StringBuilder content = new StringBuilder();
             String line;
+
             while ((line = reader.readLine()) != null) {
                 content.append(line).append(System.lineSeparator());
             }
             reader.close();
 
-            int symbolPosition = content.indexOf(Character.toString(targetSymbol));
-            if (symbolPosition != -1) {
-                String modifiedContent = content.substring(0, symbolPosition + 1);
+            // Находим индекс строки, после которой нужно удалить текст
+            int index = content.indexOf(searchText);
 
-                // Запись обновленного текста обратно в файл
-                BufferedWriter writer = new BufferedWriter(new FileWriter(file));
-                writer.write(modifiedContent);
+            if (index != -1) {
+                // Создание новой строки с обрезанным текстом
+                String newContent = content.substring(0, index + searchText.length());
+
+               // Запись новой строки обратно в файл
+                BufferedWriter writer = new BufferedWriter(new FileWriter(filePath));
+                writer.write(newContent);
                 writer.close();
+
+                System.out.println("Text removed successfully.");
             } else {
-                out.println("Символ не найден.");
+                System.out.println("Text not found in the file.");
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -45,6 +51,7 @@ public class SetUpMode {
         String searchText = "sm_mode=";
 
         try {
+            changeMode();
             BufferedReader reader = new BufferedReader(new FileReader(filePath));
             StringBuilder content = new StringBuilder();
             String line;
@@ -60,7 +67,6 @@ public class SetUpMode {
                     out.println("Choose your mode [1 - dev] [2 - user]: ");
                     int action = new Scanner(System.in).nextInt();
                     if (action == 1) {
-                        changeMode();
                         content.append("dev\n");
                         out.println("Mode selected to: " + content);
                     }
