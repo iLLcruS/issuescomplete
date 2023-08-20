@@ -18,8 +18,8 @@ public class CheckFilesAndDirectory {
     public static final String PATH_TO_DIARY_FILE = "./configs/diary.json";
 
     public final String[] pathsToCheckFiles = {
-            "./session/name.txt", "./command/availableCommand.txt", "./logs/commandsLog.txt",
-            "./set/stg.init"
+            "./session/name.txt", "./command/availableCommand.txt",
+            "./set/stg.init", "./logs/commandsLog.txt"
     };
     public final String[] pathsToCheckDirectory = {
             "./configs", "./session", "./logs", "./command",
