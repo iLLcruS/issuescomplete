@@ -1,8 +1,5 @@
 package modeutils;
 
-import modedev.mmDevMode.MenuDevMode;
-import modeuser.mmUserMode.MenuUserMode;
-
 import java.io.*;
 import java.util.Scanner;
 
@@ -11,11 +8,10 @@ import static java.lang.System.out;
 public class SetUpMode {
 
     public void changeMode() {
-        String filePath = "./set/stg.init"; // Укажите путь к вашему файлу
+        String filePath = "./set/stg.init";
         String searchText = "sm_mode=";
 
         try {
-            // Чтение содержимого файла
             BufferedReader reader = new BufferedReader(new FileReader(filePath));
             StringBuilder content = new StringBuilder();
             String line;
@@ -25,14 +21,11 @@ public class SetUpMode {
             }
             reader.close();
 
-            // Находим индекс строки, после которой нужно удалить текст
             int index = content.indexOf(searchText);
 
             if (index != -1) {
-                // Создание новой строки с обрезанным текстом
-                String newContent = content.substring(0, index + searchText.length());
 
-               // Запись новой строки обратно в файл
+                String newContent = content.substring(0, index + searchText.length());
                 BufferedWriter writer = new BufferedWriter(new FileWriter(filePath));
                 writer.write(newContent);
                 writer.close();

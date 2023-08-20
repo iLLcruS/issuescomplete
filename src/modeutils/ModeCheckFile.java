@@ -9,9 +9,8 @@ import java.io.IOException;
 
 public class ModeCheckFile {
     public void checkMode(){
-        String filePath = "./set/stg.init"; // Путь к файлу
-        String searchText = "sm_mode="; // Текст, после которого нужно получить значение
-
+        String filePath = "./set/stg.init";
+        String searchText = "sm_mode=";
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
