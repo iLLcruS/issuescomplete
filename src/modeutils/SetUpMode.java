@@ -37,7 +37,7 @@ public class SetUpMode {
                 writer.write(newContent);
                 writer.close();
 
-                System.out.println("Text removed successfully.");
+                System.out.println("Settings for mode successfully removed.");
             } else {
                 System.out.println("Text not found in the file.");
             }
