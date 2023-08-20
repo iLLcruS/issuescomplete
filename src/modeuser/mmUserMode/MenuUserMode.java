@@ -26,10 +26,10 @@ public class MenuUserMode extends Variable {
         new OutputModeStyle().outUserMode();
 
         try {
-            out.print(String.format(WELCOME_MESSAGE, new NameProcessing().getCurrentName()));
+            out.printf(WELCOME_MESSAGE, new NameProcessing().getCurrentName());
         } catch (FileNotFoundException e) {
             out.println(ERROR_MESSAGE);
-            out.print(String.format(WELCOME_MESSAGE, nameProperty));
+            out.printf(WELCOME_MESSAGE, nameProperty);
         }
         setChooseAction(scanner.nextLine().toLowerCase());
         Matcher matcher = COMMAND_PATTERN.matcher(getChooseAction());
