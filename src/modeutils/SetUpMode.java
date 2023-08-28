@@ -1,11 +1,17 @@
 package modeutils;
 
+import Utils.VisualForConsole.OutputModeStyle;
+import lombok.SneakyThrows;
+
 import java.io.*;
+import java.util.Properties;
 import java.util.Scanner;
 
 import static java.lang.System.out;
 
 public class SetUpMode {
+
+    public SetUpMode.test test;
 
     public void changeMode() {
         String filePath = "./set/stg.init";
@@ -60,10 +66,12 @@ public class SetUpMode {
                     out.println("Choose your mode [1 - dev] [2 - user]: ");
                     int action = new Scanner(System.in).nextInt();
                     if (action == 1) {
+                        new OutputModeStyle().outDevelopMode();
                         content.append("dev\n");
                         out.println("Mode selected to: " + content);
                     }
                     if (action == 2) {
+                        new OutputModeStyle().outUserMode();
                         changeMode();
                         content.append("user\n");
                         out.println("Mode selected to: " + content);
@@ -82,5 +90,7 @@ public class SetUpMode {
             e.printStackTrace();
         }
     }
+    public class test{
 
+    }
 }

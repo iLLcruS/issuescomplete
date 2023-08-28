@@ -9,6 +9,7 @@ import modeutils.SetUpMode;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -21,6 +22,7 @@ public class MenuUserMode extends Variable {
     private static final String WELCOME_MESSAGE = "Welcome %s to the program!\nInput your command: ";
     private static final String ERROR_MESSAGE = "Error with file passed.";
     public List<String> comString = new ArrayList<>();
+
 
     public void Menu() {
         new OutputModeStyle().outUserMode();
@@ -66,7 +68,6 @@ public class MenuUserMode extends Variable {
         }
     }
 
-
     private void initSubComStr(){
         comString.add("Substring");
         comString.add("Contains");
@@ -88,7 +89,11 @@ public class MenuUserMode extends Variable {
                             UpperCase
                             Replace
                             """);
+
         setChooseAction(scanner.nextLine());
+        getChooseAction();
+
+
         initSubComStr();
         for(String action : comString){
             if(action.equalsIgnoreCase("substring")){
@@ -110,94 +115,73 @@ public class MenuUserMode extends Variable {
     }
 
     private void handleCalculatorCommands() {
-        // Логика обработки команд для калькулятора
     }
 
     private void handleSystemCommands() {
-        // Логика обработки системных команд
     }
 
     private void handleTimeCommand() {
-        // Логика обработки команды для получения времени
     }
 
     private void handleIpCommand() {
-        // Логика обработки команды для получения IP-адреса
     }
 
     private void handleCheckCommand() {
-        // Логика обработки команды для проверки файлов и директорий
     }
 
     private void handleLogCommand() {
-        // Логика обработки команд для работы с логами
     }
 
     private void handleLocationCommand() {
-        // Логика обработки команды для получения местоположения
     }
 
     private void handleWeatherCommand() {
-        // Логика обработки команды для получения погоды
     }
 
     private void handleNameCommand() {
-        // Логика обработки команды для работы с именем
     }
 
     private void handleFileCommands() {
-        // Логика обработки команд для работы с файлами
     }
 
     private void handleFunCommand() {
-        // Логика обработки команды для развлечений
+
     }
 
     private void handleGameCommand() {
-        // Логика обработки команды для игр
     }
 
     private void handleWebCommand() {
-        // Логика обработки команды для работы с веб-сайтами
     }
 
     private void handleRandomCommand() {
-        // Логика обработки команды для случайных данных
     }
 
     private void handleGenerateCommand() {
-        // Логика обработки команды для генерации данных
     }
 
     private void handleKillCommand() {
-        // Логика обработки команды для завершения задач
     }
 
     private void handleEncodeCommand() {
-        // Логика обработки команды для кодирования данных
     }
 
     private void handleDiaryCommand() {
-        // Логика обработки команды для дневника
     }
 
     private void handlePingCommand() {
-
     }
 
     private void handleGetHttpCommand() {
-
     }
 
     private void handleHelpCommand() {
-        // Логика обработки команды для помощи
     }
 
     private void handleGitRepCommand() {
-        // Логика обработки команды для скачивания репозитория
     }
 
     private void handlePasswordCommand() {
-        // Логика обработки команды для генерации паролей
     }
 }
+
